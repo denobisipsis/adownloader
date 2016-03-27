@@ -44,7 +44,7 @@
 	
 	$sidtoken	=ee("becaf9be",base64_decode(($json12->data->security->encrypt_string)));
 	
-	$sid		  =explode("_",$sidtoken)[0];
+	$sid		=explode("_",$sidtoken)[0];
 	$token		=explode("_",$sidtoken)[1];	
 	
 	$tokenvv	=$json10->data->token->vv;
