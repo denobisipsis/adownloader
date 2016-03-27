@@ -2,7 +2,7 @@
 	function getNumber1($str)
 		{
 		if (strlen($str) >= 2)    $pos=(238 ^ 228) - 1;
-		else			                $pos=192 >> 2 * 3;
+		else			  $pos=192 >> 2 * 3;
 		
 		$s = substr(substr(substr("kekokola".$str,$pos,1),(7 & 0) & 107,1),((204 ^ 119) >> 8) >> 10 - 3,1);
 		
