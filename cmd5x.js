@@ -1,4 +1,5 @@
-// code for iqiyi vf variable when requesting json streams
+// code for iqiyi vf & ibt variables when requesting json streams
+// change var _loc8_= "url"; with desired string and get output
 
 var M=1848,
   	N=0,O=0,
