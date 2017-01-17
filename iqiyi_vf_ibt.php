@@ -38,10 +38,9 @@ function W(&$Sz,$s=""){$Sz=ceil($Sz/16)*16;return $Sz;}
 			$c=$np;$m="";while (--$c>=0) $m.=sprintf("%02X",$R[$n+$c]);
 			
 			if ($np==1) 
-				{
-				$exp=$np*8;
+				{				
 				$m=hexdec($m);	
-				if ($m>pow(2,$exp)-1) $m-=pow(2,$exp);
+				if ($pack=="i") {$exp=$np*8;if ($m>pow(2,$exp)-1) $m-=pow(2,$exp);}
 				return $m;
 				} 
 			
