@@ -258,24 +258,6 @@ class iqiyi
 	
 	function Z($p,&$R) {$ret=time()|0;if($p){$ret=$this->Uarr($R,$p>>2,"");}return $ret;}
 	function ma($p,&$R){return $this->Z($p,$R);}
-		
-	//////////////////////////////////////////////////////
-	
-	/*
-	$ciax=file_get_contents("cia5.php");
-	
-	$y1=('$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;');
-														
-	$y2=('$mb=$tb;$kb=$ub;$Ya=$vb;$Ra=$wb;$Pa=$xb;$Na=$yb;$La=$zb;$Ja=$Ab;$Ha=$Bb;$Ea=$Cb;$ta=$Db;$ra=$Eb;$pa=$Fb;$na=$Gb;$la=$Hb;$p=$sb;$n=$Ib;');
-	
-	$y3=('$rb=$mb;$tb=$kb;$ub=$jb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;$mb=$rb;$kb=$tb;$jb=$ub;$Ya=$vb;$Ra=$wb;$Pa=$xb;$Na=$yb;$La=$zb;$Ja=$Ab;$Ha=$Bb;$Ea=$Cb;$ta=$Db;$ra=$Eb;$pa=$Fb;$na=$Gb;$la=$Hb;$p=$sb;$n=$Ib;');
-	
-	$ciax=str_replace('$va1;',$y1,$ciax);
-	//$ciax=str_replace('$va2;',$y2,$ciax);
-	//$ciax=str_replace('$default;',$y3,$ciax);
-	
-	file_put_contents("cia2.php",$ciax);
-	*/
 	
 function Ia($b,&$RR,&$OO)
 {			
