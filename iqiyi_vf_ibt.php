@@ -15,37 +15,6 @@ the same for ibt
 */
 class iqiyi
 {
-	function getVrsEncodeCode($param1) 
-		{
-		$_loc6_ = 0;
-		$_loc2_ = "";
-		$_loc3_ = explode("-",$param1);
-		$_loc4_ = sizeof($_loc3_);
-		$_loc5_ = $_loc4_ - 1;
-		
-		while($_loc5_ >= 0)
-			{
-			$_loc6_ = $this->getVRSXORCode(hexdec($_loc3_[$_loc4_ - $_loc5_ - 1]),$_loc5_);
-			$_loc2_ = chr($_loc6_).$_loc2_;
-			$_loc5_--;
-			}
-			
-		return $_loc2_;
-		}
-		
-	function getVRSXORCode($param1, $param2)
-		{
-		$_loc3_ = $param2 % 3;
-		if($_loc3_ == 1)
-			{
-			return $param1 ^ 121;
-			}
-		if($_loc3_ == 2)
-			{
-			return $param1 ^ 72;
-			}
-		return $param1 ^ 103;
-		}
 	function W(&$Sz,$s=""){$Sz=ceil($Sz/16)*16;return $Sz;}  
 	
 	function Zarr(&$R,$typedarr,$n,$m="")
