@@ -262,7 +262,7 @@ class iqiyi
 	
 function Ia($b,&$RR,&$OO)
 {			
-	$i=1856;$j=2872;	
+	$i=1856;	
 	
 	$d=$e=$f=$g=$j=$k=$l=$m=$n=$o=$p=$q=$r=$s=$t=$u=$v=$w=$x=$y=$z=0;
 	
