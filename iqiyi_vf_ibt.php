@@ -13,8 +13,9 @@ where the relevant part is
 
 the same for ibt
 */
+<?
 class iqiyi
-{
+{	  		  
 	function W(&$Sz,$s=""){$Sz=ceil($Sz/16)*16;return $Sz;}  
 	
 	function Zarr(&$R,$typedarr,$n,$m="")
@@ -38,14 +39,14 @@ class iqiyi
 			$c=$np;$m="";while (--$c>=0) $m.=sprintf("%02X",$R[$n+$c]);
 			
 			if ($np==1) 
-				{				
-				$m=hexdec($m);					
-				if ($pack=="i")
-					{$exp=$np*8;if ($m>pow(2,$exp)-1) $m-=pow(2,$exp);}
+				{
+				$exp=$np*8;
+				$m=hexdec($m);	
+				if ($m>pow(2,$exp)-1) $m-=pow(2,$exp);
 				return $m;
 				} 
 			
-			return array_shift(unpack($pack,strrev(pack("H*",$m))));
+			return @array_shift(unpack($pack,strrev(pack("H*",$m))));
 			}
 
 		$type=array_values(unpack("C*",pack($pack,$m)));
@@ -279,2321 +280,996 @@ function Ia($b,&$RR,&$OO)
 	
 	$Ab=$Bb=$Cb=$Db=$Eb=$Fb=$Gb=$Hb=$Ib=0;
 	
-	$qb=$i;          		
+	$qb=$i;         
+	 		
+	$Ga=$qb+512;//0	
 	
-	$i=$i+1168;$Fa=$qb+1140;$Ia=$qb+1136;$Ka=$qb+1132;$q=$qb+920;$ua=$qb+1128;$ma=$qb+1124;
+	// 768-927 160 bytes 20 * 64 bits  todo 0 inicialmente;
 	
-	$oa=$qb+1120;$qa=$qb+1116;$sa=$qb+1112;$nb=$qb+1108;$Za=$qb+1104;$lb=$qb+1100;$Ma=$qb+1096;
+	$J=$qb+768;$d=$qb+776;$e=$qb+784;
+	$r=$qb+792;$va=$qb+800;$za=$qb+808;$s=$qb+816;$H=$qb+824;$I=$qb+832;$U=$qb+840;$ib=$qb+848;	
+	$Wa=$qb+856;$wa=$qb+864;$D=$qb+872;$E=$qb+880;$F=$qb+888;$xa=$qb+896;$G=$qb+904;$ya=$qb+912;$q=$qb+920;
 	
-	$Oa=$qb+1092;$Qa=$qb+1088;$Sa=$qb+1084;$o=$qb+1080;$T=$qb+1076;$S=$qb+1072;$R=$qb+1068;
+	// for ($k=$J;$k<$qb+928;$k++) echo $RR[$k].",";exit;
 	
-	$P=$qb+1064;$__a=$qb+1060;$ga=$qb+1165;$bb=$qb+1056;$eb=$qb+1052;$O=$qb+1048;$N=$qb+1044;
+	// 928-1171 244 bytes 61 * 32 bits todo 0 inicialmente
 	
-	$M=$qb+1040;$fa=$qb+1164;$ya=$qb+912;$L=$qb+1036;$B=$qb+1032;$ea=$qb+1163;$G=$qb+904;
+	$pb=$qb+928;$hb=$qb+932;$C=$qb+936;
+	$t=$qb+940;$Da=$qb+944;$Aa=$qb+948;$Ba=$qb+952;
+	$Ta=$qb+956;$u=$qb+960;$fb=$qb+964;$v=$qb+968;
+	$w=$qb+972;$cb=$qb+976;$gb=$qb+980;$l=$qb+984;
+	$x=$qb+988;$y=$qb+992;$z=$qb+996;$A=$qb+1000;
+	$ab=$qb+1004;$db=$qb+1008;$m=$qb+1012;$Ca=$qb+1016;
+	$Va=$qb+1020;$_a=$qb+1024;$K=$qb+1028;$B=$qb+1032;
+	$L=$qb+1036;$M=$qb+1040;$N=$qb+1044;$O=$qb+1048;
+	$eb=$qb+1052;$bb=$qb+1056;$__a=$qb+1060;$P=$qb+1064;
+	$R=$qb+1068;$S=$qb+1072;$T=$qb+1076;$o=$qb+1080;
+	$Sa=$qb+1084;$Qa=$qb+1088;$Oa=$qb+1092;$Ma=$qb+1096;
+	$lb=$qb+1100;$Za=$qb+1104;$nb=$qb+1108;$sa=$qb+1112;
+	$qa=$qb+1116;$oa=$qb+1120;$ma=$qb+1124;$ua=$qb+1128;
+	$Ka=$qb+1132;$Ia=$qb+1136;$Fa=$qb+1140;$V=$qb+1144;
+	$ha=$qb+1148;$ka=$qb+1152;$Y=$qb+1156;$aa=$qb+1160;
+	$fa=$qb+1164;$i=$i+1168;
 	
-	$xa=$qb+896;$K=$qb+1028;$ca=$qb+1162;$ba=$qb+1161;$_a=$qb+1024;$F=$qb+888;$Va=$qb+1020;
+	// for ($k=$pb;$k<$qb+1172;$k++) echo $RR[$k].",";exit;
+		
+	$f=$qb+1145;$da=$qb+1146;$g=$qb+1147;
+	$ia=$qb+1149;$j=$qb+1150;$ja=$qb+1151;
+	$k=$qb+1153;$W=$qb+1154;$X=$qb+1155;
+	$Z=$qb+1157;$_=$qb+1158;$dol=$qb+1159;
+	$ba=$qb+1161;$ca=$qb+1162;$ea=$qb+1163;
 	
-	$Ca=$qb+1016;$m=$qb+1012;$E=$qb+880;$db=$qb+1008;$ab=$qb+1004;$A=$qb+1000;$z=$qb+996;
+	$ga=$qb+1165;
 	
-	$aa=$qb+1160;$y=$qb+992;$x=$qb+988;$dol=$qb+1159;$_=$qb+1158;$l=$qb+984;$D=$qb+872;
+	$ob=$qb;
 	
-	$gb=$qb+980;$cb=$qb+976;$Z=$qb+1157;$wa=$qb+864;$Y=$qb+1156;$w=$qb+972;$X=$qb+1155;
+	// mete 5164 al inicio de $J
 	
-	$v=$qb+968;$fb=$qb+964;$u=$qb+960;$Ta=$qb+956;$Ba=$qb+952;$W=$qb+1154;$k=$qb+1153;
+	$this->carr($RR,$n,$J>>2,$this->Ua(33,$RR,$OO));
 	
-	$Aa=$qb+948;$Da=$qb+944;$Wa=$qb+856;$ib=$qb+848;$ka=$qb+1152;$U=$qb+840;$t=$qb+940;
+	// echo $this->carr($RR,$n,$J>>2,"");Exit;
 	
-	$ja=$qb+1151;$I=$qb+832;$H=$qb+824;$j=$qb+1150;$C=$qb+936;$ia=$qb+1149;$s=$qb+816;
-	
-	$hb=$qb+932;$ha=$qb+1148;$za=$qb+808;$g=$qb+1147;$pb=$qb+928;$da=$qb+1146;$va=$qb+800;
-	
-	$f=$qb+1145;$r=$qb+792;$V=$qb+1144;$e=$qb+784;$d=$qb+776;$J=$qb+768;$Ga=$qb+512;$ob=$qb;
+	// $b es 4908
 
-	$this->carr($RR,$n,$J>>2,$this->Ua(33,$RR,$OO)|0);
-			
+	//for ($k=$pb;$k<$qb+1172;$k++) echo $RR[$k].",";exit;
+	//for ($k=$J;$k<$qb+928;$k++) echo $RR[$k].",";exit;
+	
+	// guarda en 658 $Ga
+	
 	$this->carr($RR,$n,$d>>2,$Ga);
 
-	$n=$p=$la=$na=$pa=$ra=$ta=$Ea=$Ha=$Ja=$La=$Na=$Pa=$Ra=$Ya=$kb=$mb=0;$jb=936652527;
+	$n=$p=$la=$na=$pa=$ra=$ta=$Ea=$Ha=$Ja=$La=$Na=$Pa=$Ra=$Ya=$kb=$mb=0;
+	
+	$jb=936652527;
 
 	
 while(1)
 {
-if(($jb)>=-22207083)
-	{
-	if(($jb)<1111318124) 
-		{
-		if(($jb)>=608838580) 
-			{
-			if(($jb)>=801681189)
-				{
-				if(($jb)<974401706) 
-						{
-						if(($jb)<887924077)
-								{
-								if(($jb)<809617043) 
-									{
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=($this->carr($RR,$n,$o>>2,"")|0)<64?-1361726950:1012403908;continue;
-									}
-									
-								if(($jb)<852236017) 
-									{
-									$this->aarr($RR,$n,$ea>>0,($this->carr($RR,$n,$Fa>>2,"")|0)<32&1);
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=618822415;continue;
-									}
-								else
-									{
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=($this->carr($RR,$n,$o>>2,"")|0)<47?-1031373064:-86792897;continue;
-									}
-								} 
-	
-							if(($jb)<920364886)
-									if(($jb)<916103055) 
-										{
-										$this->carr($RR,$n,$Aa>>2,0-(0-($this->carr($RR,$n,$ua>>2,"")|0)+(0-1)));
-										$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-										$jb=-256536033;continue;
-										}
-									else
-										{
-										$n=$this->carr($RR,$n,$o>>2,"")|0;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;
-										$na=$this->carr($RR,$n,$oa>>2,"")|0;$pa=$this->carr($RR,$n,$qa>>2,"")|0;
-										$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-										$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;
-										$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;$La=$this->carr($RR,$n,$Ma>>2,"")|0;
-										$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-										$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;
-										$jb=-188097831;$kb=$this->carr($RR,$n,$lb>>2,"")|0;
-										$mb=$this->carr($RR,$n,$nb>>2,"")|0;
-										
-										continue;
-										}
-									
-							else if(($jb)<936652527)
-									{
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=($this->carr($RR,$n,$o>>2,"")|0)<77?263250548:-1212483299;continue;
-									}
-							else
-									{
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=1969546970;continue;
-									}						
-							} 
-						
-					
-					if(($jb)<1012403908)
-							{
-							if(($jb)<1008856235)
-								{
-								if(($jb)<999695174)
-									
-								switch($jb)
-									{
-									case 974401706:break 2;
-									default:
-									{
-									}
-									}
-									
-								$xb=$this->carr($RR,$n,$M>>2,"")|0;								
-								$tb=$this->carr($RR,$n,$N>>2,"")|0;
-								$yb=~(~((~(~$xb|~-2)&(1469924941|~1469924941))-(0-$tb))|~-2)&(1908236319|~1908236319);
-								$xb=($xb^~1)&$xb;								
-								$wb=~$yb;
-								$vb=~$xb;
-								$ub=~-2039534323;
-								$this->carr($RR,$n,$O>>2,(($wb&-2039534323|$yb&$ub)^($vb&-2039534323|$xb&$ub)|~($wb|$vb)&(-2039534323|$ub))-(0-(~(~$tb|~1)&(843895025|~843895025))));								
-								$tb=(($this->carr($RR,$n,$Fa>>2,"")|0)%4|0)-137388177+8+137388177|0;				
-								$tb=$this->carr($RR,$n,16+$this->llf($tb,2)>>2,"")|0;								
-								$this->carr($RR,$n,$eb>>2,$this->llf($this->carr($RR,$n,$O>>2,""),$tb));
-								$this->carr($RR,$n,$bb>>2,32+(0-$tb));
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=-738461164;continue;
-								}
-								
-							if(($jb)<1010850097)
-								{
-								$this->aarr($RR,$n,$ha>>0,($this->carr($RR,$n,$Fa>>2,"")|0)<24&1);
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=1980027799;continue;
-								}
-							else
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)<63?-856036625:-1649803199;
-								continue;
-								}					
-							}
-					
-					if(($jb)<1093527402)
-							if(($jb)<1058751639)
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)<65?-902588506:1717331240;
-								continue;
-								}
-							else
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;$jb=($this->carr($RR,$n,$o>>2,"")|0)<38?13290759:-526301530;
-								continue;
-								}					
-							
-					else if(($jb)<1102465302)
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)==43?-1098566066:916103055;continue;
-								}
-					else
-								{
-								$this->carr($RR,$n,$v>>2,($this->carr($RR,$n,$Ka>>2,"")|0)+2072149329+16-2072149329);
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=2131809869;continue;
-								}					
-							} 
-			if(($jb)<690197071)
-					{
-					if(($jb)<633810001)
-						{
-						if(($jb)<618822415)
-							{
-							$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-							if (($this->carr($RR,$n,$o>>2,"")|0)==1) $jb=-1290934332; else $jb=916103055;continue;
-							}
-						if(($jb)<620960943)
-							{
-							$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;$jb=$this->aarr($RR,$n,$ea>>0,"")&1?1432877594:2028659015;continue;
-							}
-						else
-							{
-							$this->aarr($RR,$n,$dol>>0,($this->carr($RR,$n,$Fa>>2,"")|0)<8&1);
-							$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-							$jb=1410777152;continue;
-							}					
-						}
-						
-					if(($jb)<637834779)
-							if(($jb)<635155771)
-								{
-								$this->carr($RR,$n,$G>>2,$Ga+($this->llf($this->carr($RR,$n,$xa>>2,""),2)));
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=-164314163;continue;
-								}
-							else
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)<25?-1967845546:-80539691;continue;
-								}
-							
-					else if(($jb)<651068526)
-								{
-								$n=29;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;$La=$this->carr($RR,$n,$Ma>>2,"")|0;
-								$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;
-								$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}
-					else
-								{
-								$tb=$this->llf($this->carr($RR,$n,$Fa>>2,""),2);$tb=($tb^~28)&$tb;
-								$this->carr($RR,$n,$hb>>2,$this->carr($RR,$n,$qa>>2,"")>>(4&~$tb|$tb&~4));
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=1288598934;continue;
-								}					
-					}				
-				
-			if(($jb)<780107150)									
-					if(($jb)<717745890)													
-							if(($jb)<709849698)
-								{
-								$n=35;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}
-							else
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)==58?-671207445:916103055;continue;
-								}
-						
-							
-					else if(($jb)<775542450)
-								{
-								$this->carr($RR,$n,$u>>2,0-(0-($this->carr($RR,$n,$Ta>>2,"")|0)+(0-14)));
-								$this->carr($RR,$n,$fb>>2,0-(0-($this->carr($RR,$n,$Ia>>2,"")|0)+(0-32))>>2);
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=-1878597151;continue;
-								}
-					else
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)<26?-823999218:1867803797;continue;
-								}
-			else if(($jb)<791025390)
-							if(($jb)<788846146)
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=$this->aarr($RR,$n,$ja>>0,"")&1?-1781069297:-722374409;continue;
-								}
-							else
-								{
-								$tb=$this->carr($RR,$n,$gb>>2,"")|0;$this->carr($RR,$n,$D>>2,$ob+$this->llf($tb,2));
-								$this->carr($RR,$n,$l>>2,$this->carr($RR,$n,$this->carr($RR,$n,$D>>2,"")>>2,""));
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=108332815;continue;
-								}
-							
-							else if(($jb)<800362374)
-								{
-								$pa=$this->carr($RR,$n,$db>>2,"")|0;
-								$ra=$this->carr($RR,$n,$m>>2,"")|0;
-								$na=~$ra;
-								$la=~$pa;
-								$n=~243669087;
-								$this->carr($RR,$n,$this->carr($RR,$n,$E>>2,"")>>2,($na&243669087|$ra&$n)^($la&243669087|$pa&$n)|~($na|$la)&(243669087|$n));
-								$n=29;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;
-								$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=($this->carr($RR,$n,$Fa>>2,"")|0)+ -468377855+1+468377855|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;
-								$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;
-								$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=($this->carr($RR,$n,$Za>>2,"")|0)-(0-1)|0;
-								$jb=-188097831;$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}
-							else
-								{
-								$tb=$this->carr($RR,$n,$Fa>>2,"")|0;
-								$this->carr($RR,$n,$Ga+$this->llf($tb,2)>>2,~~+$this->harr($RR,$Wa>>3,"")>>0);
-								$this->carr($RR,$n,$Da>>2,($this->carr($RR,$n,$Fa>>2,"")|0)+ -166607654+1+166607654);
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=228161238;continue;
-								}					
-							} 				
-														
-		if(($jb)<276665542)
-			{
-			if(($jb)<151603818)
-					{
-					if(($jb)<73587007)
-							{
-							if(($jb)<13290759)
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)<15?-1396656085:343102405;continue;
-								}
-							if(($jb)<60376344)
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)==36?195832850:916103055;continue;
-								}
-							else
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=$this->aarr($RR,$n,$V>>0,"")&1?1468918320:2014978051;continue;
-								}					
-							}
-						
-					if(($jb)<128106704)					
-						if(($jb)<108332815)
-								{
-								$this->carr($RR,$n,$y>>2,0-(0-($this->carr($RR,$n,$x>>2,"")|0)+(0-34)));
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=167383782;continue;
-								}
-							else
-								{
-								$pa=$this->carr($RR,$n,$cb>>2,"")|0;
-								$ra=$this->carr($RR,$n,$l>>2,"")|0;
-								$na=~$ra;
-								$la=~$pa;
-								$n=~961559109;
-								$this->carr($RR,$n,$this->carr($RR,$n,$D>>2,"")>>2,($na&961559109|$ra&$n)^($la&961559109|$pa&$n)|~($na|$la)&(961559109|$n));
-								$n=38;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=($this->carr($RR,$n,$ua>>2,"")|0)-(0-1)|0;
-								$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}				
-							
-					else if(($jb)<139799944)
-								{
-								$n=81;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}
-							else
-								{
-								$n=36;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}			
-					}
-				
-			if(($jb)<212826519)					
-					if(($jb)<167383782)						
-							if(($jb)<153691705)
-								{
-								$this->carr($RR,$n,$Ca>>2,($this->carr($RR,$n,$ua>>2,"")|0)+1721273904+1-1721273904);
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=1720235387;continue;
-								}
-							else
-								{
-								$this->carr($RR,$n,$Va>>2,$this->llf(($this->carr($RR,$n,$Za>>2,"")|0)%4|0,3));
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=-86385898;continue;
-								}
-					else if(($jb)<195832850)
-								{
-								$n=26;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=($this->carr($RR,$n,$y>>2,"")|0)%32|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}
-							else
-								{
-								$tb=$this->carr($RR,$n,$ua>>2,"")|0;
-								$this->carr($RR,$n,$cb>>2,$this->llf($this->aarr($RR,$n,$b+$tb>>0,""),$this->llf(($this->carr($RR,$n,$ua>>2,"")|0)%4|0,3)));
-								$this->carr($RR,$n,$gb>>2,$this->carr($RR,$n,$ua>>2,"")>>2);
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=788846146;continue;
-								}
-			else if(($jb)<263250548)
-						if(($jb)<228161238)
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)==71?1008856235:916103055;continue;
-								}
-							else
-								{
-								$n=60;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=$this->carr($RR,$n,$Da>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}
-					else if(($jb)<270009349)
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)==75?-1572948785:916103055;continue;
-								}
-							else
-								{
-								$n=49;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}			
-					}
-		else
-			{
-			if(($jb)<463554092)
-					{
-					if(($jb)<343102405)
-							{
-							if(($jb)<304010989)
-								{
-								$ra=$this->carr($RR,$n,16+$this->llf($this->carr($RR,$n,$ya>>2,""),2)>>2)|0;
-								$ta=$this->llf($this->carr($RR,$n,$L>>2,""),$ra);
-								$ra=$this->_rshift(($this->carr($RR,$n,$L>>2,"")|0),(32+ -1805529600-$ra+1805529600|0));
-								$Ha=~$ra;
-								$Ea=~$ta;
-								$na=~-1044037601;
-								$na=($Ha&-1044037601|$ra&$na)^($Ea&-1044037601|$ta&$na)|~($Ha|$Ea)&(-1044037601|$na);
-								$Ea=$this->carr($RR,$n,$oa>>2,"")|0;
-								$Ha=~(~((($Ea^~-2)&$Ea)+ -2033518013+$na+2033518013)|~-2)&(353003127|~353003127);
-								$Ea=~(~$Ea|~1)&(~-1418005290|-1418005290);
-								$ta=~$Ha;
-								$ra=~$Ea;
-								$pa=~522919445;
-								$n=11;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$sa>>2,"")|0;
-								$na=0-(0-(($ta&522919445|$Ha&$pa)^($ra&522919445|$Ea&$pa)|~($ta|$ra)&(522919445|$pa))+(0-(($na^~1)&$na)))|0;
-								$pa=$this->carr($RR,$n,$oa>>2,"")|0;$ra=$this->carr($RR,$n,$qa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=($this->carr($RR,$n,$Fa>>2,"")|0)-(0-1)|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}
-							if(($jb)<331129789)
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)==3?-1995522865:916103055;continue;
-								}
-							else
-								{
-								$n=41;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}					
-							}
-						
-					if(($jb)<416259719)
-							if(($jb)<368050796)
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)==15?1514554794:916103055;continue;
-								}
-							else
-								{
-								$this->aarr($RR,$n,$_>>0,($this->carr($RR,$n,$ua>>2,"")|0)<4&1);
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=-412361919;continue;
-								}				
-							
-					else if(($jb)<439769685)
-								{
-								$n=55;$p=$this->harr($RR,$ib>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}
-							else
-								{
-								$yb=$this->carr($RR,$n,$qa>>2,"")|0;
-								$tb=$this->carr($RR,$n,$oa>>2,"")|0;
-								$yb=$yb&~$tb|$tb&~$yb;
-								$tb=$this->carr($RR,$n,$sa>>2,"")|0;
-								$xb=~1841611462;
-								$xb=(1841611462&~$yb|$yb&$xb)^(~$tb&1841611462|$tb&$xb);
-								$tb=$this->carr($RR,$n,$ma>>2,"")|0;
-								$yb=~(~((~(~$tb|~-2)&(~-2111526991|-2111526991))-(0-$xb))|~-2)&(~-116829207|-116829207);
-								$tb=($tb^~1)&$tb;
-								$this->carr($RR,$n,$M>>2,($yb&$tb|$yb^$tb)-(0-(($xb^~1)&$xb)));
-								$xb=$this->carr($RR,$n,$Fa>>2,"")|0;
-								$xb=$this->carr($RR,$n,$Ga+$this->llf($xb,2)>>2,"")|0;
-								$tb=(((($this->carr($RR,$n,$Fa>>2,"")|0)*3|0)-(0-5)|0)%16|0)+ -1093534983+($this->carr($RR,$n,$ua>>2,"")|0)+1093534983|0;
-								$tb=$this->carr($RR,$n,$ob+$this->llf($tb,2)>>2,"")|0;
-								$yb=~(~($tb-(0-(~(~$xb|~-2)&(~-1220437297|-1220437297))))|~-2)&(~-1967453895|-1967453895);
-								$xb=($xb^~1)&$xb;
-								$wb=~$yb;
-								$vb=~$xb;
-								$ub=~-942245303;
-								$this->carr($RR,$n,$N>>2,(($wb&-942245303|$yb&$ub)^($vb&-942245303|$xb&$ub)|~($wb|$vb)&(-942245303|$ub))-(0-(($tb^~1)&$tb)));
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=999695174;continue;
-								}			
-					}
-				
-			if(($jb)<545100308)
-					if(($jb)<484876086)
-							if(($jb)<481757527)
-								{
-								$this->carr($RR,$n,$db>>2,$this->llf($this->carr($RR,$n,$lb>>2,""),$this->llf($this->carr($RR,$n,$ab>>2,""),3)));
-								$tb=$this->carr($RR,$n,$Za>>2,"")>>2;
-								$this->carr($RR,$n,$E>>2,$ob+$this->llf($tb,2));
-								$this->carr($RR,$n,$m>>2,$this->carr($RR,$n,$this->carr($RR,$n,$E>>2,"")>>2,""));
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=791025390;continue;
-								}
-							else
-								{
-								$n=71;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}				
-							
-					else if(($jb)<494739317)
-								{
-								$n=23;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$z>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}
-							else
-								{
-								$Hb=$this->carr($RR,$n,$sa>>2,"")|0;
-								$Fb=~137942632;
-								$Gb=$this->carr($RR,$n,$qa>>2,"")|0;
-								$Gb=($Gb^~((137942632&~$Hb|$Hb&$Fb)^(~-1&137942632|-1&$Fb)))&$Gb;
-								$Fb=$this->carr($RR,$n,$B>>2,"")|0;
-								$Hb=~$Fb;
-								$vb=~$Gb;
-								$xb=~-5458134;
-								$xb=($Hb&-5458134|$Fb&$xb)^($vb&-5458134|$Gb&$xb)|~($Hb|$vb)&(-5458134|$xb);
-								$vb=$this->carr($RR,$n,$ma>>2,"")|0;
-								$Hb=~(~((~(~$vb|~-2)&(~-1815835470|-1815835470))+1571403275+$xb-1571403275)|~-2)&(~-91142349|-91142349);
-								$Gb=~(~$vb|~1)&(~-846305798|-846305798);
-								$Fb=~$Hb;
-								$Eb=~$Gb;
-								$Db=~-118764121;
-								$ub=$this->carr($RR,$n,$Fa>>2,"")|0;
-								$ub=$this->carr($RR,$n,$Ga+$this->llf($ub,2)>>2,"")|0;
-								$tb=0-(0-(((($this->carr($RR,$n,$Fa>>2,"")|0)*5|0)-(0-1)|0)%16|0)+(0-($this->carr($RR,$n,$ua>>2,"")|0)))|0;
-								$tb=$this->carr($RR,$n,$ob+$this->llf($tb,2)>>2,"")|0;
-								$Bb=~(~($tb+ -294782852+(~(~$ub|~-2)&(~-584088285|-584088285))+294782852)|~-2)&(~-1342378399|-1342378399);
-								$Ab=~(~$ub|~1)&(~-1689304723|-1689304723);
-								$zb=~$Bb;
-								$yb=~$Ab;
-								$wb=~35866813;
-								$Cb=($tb^~1)&$tb;
-								
-								$Db=~(~((($Fb&-118764121|$Hb&$Db)^($Eb&-118764121|$Gb&$Db)|~($Fb|$Eb)&(-118764121|$Db))+764325492+(~(~$xb|~1)&(621349016|~621349016))-764325492)|~-2)&(1345718901|~1345718901);
-								$wb=($Db&$Cb|$Db^$Cb)+686015919+(($zb&35866813|$Bb&$wb)^($yb&35866813|$Ab&$wb)|~($zb|$yb)&(35866813|$wb))+ -686015919|0;
-								$wb=($wb^~-2)&$wb;
-								$vb=$xb+1952671327+$vb-1952671327|0;
-								$vb=($vb^~1)&$vb;
-								$this->carr($RR,$n,$L>>2,($wb&$vb|$wb^$vb)+42513759+(~(~($tb+ -1580481692+$ub+1580481692)|~1)&(220197618|~220197618))-42513759);
-								$ub=0-(0-(($this->carr($RR,$n,$Fa>>2,"")|0)%4|0)+(0-4))|0;
-								$tb=$ya;
-								$this->carr($RR,$n,$tb>>2,$ub);
-								$this->carr($RR,$n,$tb+4>>2,$this->llf((($ub|0)<0),31)>>31);
-								
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=276665542;continue;
-								}			
-					
-			else if(($jb)<591681232) 
-						if(($jb)<549762434)
-								{
-								$this->carr($RR,$n,$B>>2,~(~$this->carr($RR,$n,$oa>>2,"")|~$this->carr($RR,$n,$sa>>2,""))&(~-1131684153|-1131684153));
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=494739317;continue;
-								}
-							else
-								{
-								$this->harr($RR,$ib>>3,0- +$this->harr($RR,$q>>3,""));
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=416259719;continue;
-								}				
-							
-					else if(($jb)<601583830)
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)==67?-1355478599:916103055;continue;
-								}
-							else
-								{
-								$n=63;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}					
-							}				
-					}
-		
-	if(($jb)<1667927966)
-		if(($jb)<1297236730)
-			{
-			if(($jb)<1203488890)
-					{
-					if(($jb)<1129515855)
-							{
-							if(($jb)<1115527364)
-								{
-								$this->harr($RR,$U>>3,sin(+(+($this->carr($RR,$n,$t>>2,"")|0))));
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=-1380451239;continue;
-								}
-							if(($jb)<1117037785)
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)<35?-204104119:-1579204746;continue;
-								}
-							else
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)==60?-602596021:916103055;continue;
-								}					
-							}
-						
-					if(($jb)<1153477833)
-							if(($jb)<1137039176)
-								{
-								$this->aarr($RR,$n,$W>>0,($this->aarr($RR,$n,$k>>0,"")|0)!=0&1);
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=-424000715;continue;
-								}
-							else
-								{
-								$n=48;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}				
-							
-					else if(($jb)<1183072760)
-								{
-								$ub=$this->carr($RR,$n,$oa>>2,"")|0;
-								$ub=($ub^~$this->carr($RR,$n,$qa>>2,""))&$ub;
-								$yb=$this->carr($RR,$n,$oa>>2,"")|0;
-								$xb=~1180867059;
-								$xb=~(~$this->carr($RR,$n,$sa>>2,"")|~((1180867059&~$yb|$yb&$xb)^(~-1&1180867059|-1&$xb)))&(~-811559434|-811559434);
-								$ub=$xb&$ub|$xb^$ub;
-								$xb=$this->carr($RR,$n,$ma>>2,"")|0;
-								$yb=~(~((($xb^~-2)&$xb)+430366929+$ub+ -430366929)|~-2)&(~-1385448869|-1385448869);
-								$xb=($xb^~1)&$xb;
-								$wb=~$yb;
-								$vb=~$xb;
-								$tb=~1812756882;
-								$this->carr($RR,$n,$K>>2,(($wb&1812756882|$yb&$tb)^($vb&1812756882|$xb&$tb)|~($wb|$vb)&(1812756882|$tb))+ -1491978542+(($ub^~1)&$ub)+1491978542);
-								$ub=$this->carr($RR,$n,$Fa>>2,"")|0;
-								$tb=$xa;
-								$this->carr($RR,$n,$tb>>2,$ub);
-								$this->carr($RR,$n,$tb+4>>2,$this->llf((($ub|0)<0),31)>>31);
-								
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=633810001;continue;
-								}
-							else
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)==17?-1971280264:916103055;
-								continue;
-								}			
-					}
-				
-			if(($jb)<1264018475)
-					if(($jb)<1247969426)
-						if(($jb)<1217939919)
-							{
-							$this->carr($RR,$n,$x>>2,(($this->carr($RR,$n,$Fa>>2,"")|0)*23|0)-122893342+(($this->carr($RR,$n,$ua>>2,"")|0)*37|0)+122893342);
-							$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-							$jb=73587007;continue;
-							}
-						else
-							{
-							$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-							$jb=($this->carr($RR,$n,$o>>2,"")|0)<9?-1951072297:-411922879;continue;
-							}					
-					
-					else if(($jb)<1256704313)
-							{
-							$this->aarr($RR,$n,$aa>>0,($this->carr($RR,$n,$lb>>2,"")|0)<10&1);
-							$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-							$jb=1804404662;continue;
-							}
-						else
-							{
-							$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-							$jb=($this->carr($RR,$n,$o>>2,"")|0)<69?801681189:-1060336117;continue;
-							}		
-					
-			else if(($jb)<1288598934)
-						if(($jb)<1287975406)
-							{
-							$this->carr($RR,$n,$this->carr($RR,$n,$F>>2,"")>>2,$this->carr($RR,$n,$_a>>2,""));$n=$this->carr($RR,$n,$Ka>>2,"")|0;
-							$this->carr($RR,$n,$ob+$this->llf($n,2)>>2,($this->llf($this->carr($RR,$n,$Ia>>2,""),3))+832153837+256-832153837);
-							$n=19;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-							$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=0;$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;
-							$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;$La=$this->carr($RR,$n,$Ma>>2,"")|0;
-							$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;
-							$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-							$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-							}
-						else
-							{
-							$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-							$jb=($this->carr($RR,$n,$o>>2,"")|0)<58?-1841591203:709849698;continue;
-							}						
-					
-					else if(($jb)<1290413867)
-							{
-							$tb=$this->carr($RR,$n,$hb>>2,"")|0;
-							$this->carr($RR,$n,$s>>2,217+(($tb^-16)&$tb));
-							$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-							$jb=-423412824;continue;
-							}
-						else
-							{
-							$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-							$jb=($this->carr($RR,$n,$o>>2,"")|0)<55?-1202295682:2120616980;continue;
-							}						
-						}
-		else
-			{
-			if(($jb)<1432877594)
-					{
-					if(($jb)<1370835909)
-							{
-							if(($jb)<1315897097)
-								{
-								$n=69;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}
-							if(($jb)<1347562810)
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)==49?-25886128:916103055;continue;
-								}
-							else
-								{
-								$tb=$this->carr($RR,$n,$Fa>>2,"")|0;$tb=($tb^~7)&$tb;
-								$this->carr($RR,$n,$pb>>2,1&~$tb|$tb&~1);
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=-991315587;continue;
-								}							
-							}
-						
-					if(($jb)<1410343841)
-							if(($jb)<1388594392)
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)==31?637834779:916103055;continue;
-								}
-							else
-								{
-								$n=64;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}					
-							
-					else if(($jb)<1410777152)
-								{
-								$n=45;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$w>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}
-							else
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=$this->aarr($RR,$n,$dol>>0,"")&1?2045376102:-489741395;continue;
-								}			
-					}
-				
-			if(($jb)<1514554794)
-					if(($jb)<1468918320)
-							if(($jb)<1466680073)
-								{
-								$n=9;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}
-							else
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)<60?-708759048:1256704313;continue;
-								}
-							
-					else if(($jb)<1510822949)
-								{
-								$n=77;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}
-							else
-								{
-								$this->aarr($RR,$n,$this->carr($RR,$n,$H>>2,"")>>0,$this->aarr($RR,$n,$j>>0,"")|0);
-								$n=67;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=($this->carr($RR,$n,$Fa>>2,"")|0)-(0-1)|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}			
-					
-			else 
-					
-					if(($jb)<1618283724)
-							if(($jb)<1541240532)
-								{
-								$this->aarr($RR,$n,$ca>>0,($this->carr($RR,$n,$Fa>>2,"")|0)<16&1);
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=-668795440;continue;
-								}
-							else
-								{
-								$this->carr($RR,$n,$w>>2,($this->carr($RR,$n,$Ka>>2,"")|0)-(0-16));
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=1410343841;continue;
-								}
-								
-					else if(($jb)<1657487624)
-								{
-								$n=40;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}
-							else
-								{
-								$n=43;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=0;
-								$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}						
-							}
-		
-	else 
-		
-		if(($jb)<1969546970)
-			{
-			if(($jb)<1775324253)
-					{
-					if(($jb)<1717331240)
-							{
-							if(($jb)<1670387339)
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=$this->aarr($RR,$n,$ia>>0,"")&1?-777225753:1388594392;continue;
-								}
-								
-							if(($jb)<1688333518)
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)<13?-499972263:-22207083;continue;
-								}
-							else
-								{
-								$this->carr($RR,$n,$ob+$this->llf($this->carr($RR,$n,$wa>>2,""),2)>>2,0);
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=-895015477;continue;
-								}					
-							}
-						
-					if(($jb)<1771209720)
-							if(($jb)<1720235387)
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)<67?-1712406553:591681232;continue;
-								}
-							else
-								{
-								$n=33;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$Ca>>2,"")|0;
-								$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}					
-						
-					else if(($jb)<1774369769)
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)==81?-2074579782:916103055;continue;
-								}
-							else
-								{
-								$n=21;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}			
-					}
-				
-			if(($jb)<1826842851)
-					if(($jb)<1804404662)
-							if(($jb)<1775530198)
-								{
-								$n=31;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}
-							else
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)==5?439769685:916103055;continue;
-								}					
-						
-					else if(($jb)<1815387249)
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=$this->aarr($RR,$n,$aa>>0,"")&1?-2136717671:-828878942;continue;
-								}
-							else
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)<73?212826519:-252274077;continue;
-								}
-			else 
-					
-					if(($jb)<1942162936)
-							if(($jb)<1867803797)
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)==19?-545058508:916103055;continue;
-								}
-							else
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)<27?1247969426:-1943746193;continue;
-								}
-					else if(($jb)<1951978675)
-								{								
-								$this->aarr($RR,$n,$fa>>0,($this->carr($RR,$n,$Fa>>2,"")|0)<48&1);
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=-1610186071;continue;
-								}
-							else
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=$this->aarr($RR,$n,$da>>0,"")&1?-2014580748:481757527;continue;
-								}
-			}
-		else
-			{
-			if(($jb)<2045376102)
-					{
-					if(($jb)<2008811188)
-							{
-							if(($jb)<1980027799)
-								{
-								$this->Xa($RR,$this->carr($RR,$n,$d>>2,"")|0,0,256)|0;
-								$this->carr($RR,$n,$e>>2,$ob);
-								$this->Xa($RR,$this->carr($RR,$n,$e>>2,"")|0,0,512)|0;
-								$n=62;$p=0;$la=0;$na=0;$pa=0;$ra=0;$ta=0;$Ea=0;$Ha=0;$Ja=0;$La=0;$Na=0;
-								$Pa=0;$Ra=0;$Ya=0;$jb=-188097831;$kb=0;$mb=0;continue;
-								}
-							if(($jb)<1982907982)
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=$this->aarr($RR,$n,$ha>>0,"")&1?1297236730:-920516874;continue;
-								}
-							else
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)==52?887924077:916103055;continue;
-								}					
-							}
-						
-					if(($jb)<2028659015)
-							if(($jb)<2014978051)
-								{
-								$xb=$this->carr($RR,$n,$Oa>>2,"")|0;
-								$ub=$this->carr($RR,$n,$oa>>2,"")|0;
-								$yb=(($xb^~-2)&$xb)-(0-$ub)|0;
-								$yb=($yb^~-2)&$yb;
-								$xb=($xb^~1)&$xb;
-								$wb=~$yb;
-								$vb=~$xb;
-								$tb=~-315119066;
-								$this->carr($RR,$n,$S>>2,(($wb&-315119066|$yb&$tb)^($vb&-315119066|$xb&$tb)|~($wb|$vb)&(-315119066|$tb))-(0-(($ub^~1)&$ub)));
-								$ub=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$tb=$this->carr($RR,$n,$qa>>2,"")|0;
-								$vb=(($ub^~-2)&$ub)+369117907+$tb+ -369117907|0;
-								$vb=($vb^~-2)&$vb;
-								$ub=~(~$ub|~1)&(~-1507607054|-1507607054);
-								$this->carr($RR,$n,$T>>2,0-(0-($vb&$ub|$vb^$ub)+(0-(($tb^~1)&$tb))));
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=-1101163512;continue;
-								}
-							else
-								{
-								$n=75;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}
-												
-							
-					else if(($jb)<2040419279)
-								{
-								$n=7;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}
-							else
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)<11?-2109032559:-331915256;continue;
-								}					
-							}				
-					
-				
-			if(($jb)<2088360821)
-					if(($jb)<2059037329)
-							if(($jb)<2055800044)
-								{
-								$n=27;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}
-							else
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)<54?1982907982:-2014779455;continue;
-								}
-					else if(($jb)<2070699595)
-								{
-								$n=55;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}
-							else
-								{
-								$n=46;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}
-			else 
-					
-					if(($jb)<2131809869)
-							if(($jb)<2120616980)
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)<7?1775530198:1217939919;continue;
-								}
-							else
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)<57?-1156946543:1287975406;continue;
-								}
-					else if(($jb)<2146552338)
-								{
-								$this->aarr($RR,$n,$X>>0,($this->carr($RR,$n,$v>>2,"")|0)>=($this->carr($RR,$n,$Za>>2,"")|0)&1);
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=-44538672;continue;
-								}
-							else
-								{
-								$n=0;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}					
-							}				
-					}
-	if(($jb)<-983205733)
-		if(($jb)<-1552799363)
-			if(($jb)<-1924281938)
-				{
-				if(($jb)<-2014580748)
-						{
-						if(($jb)<-2074579782)
-								{
-								if(($jb)<-2136717671)
-									{
-									$n=5;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-									$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-									$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-									$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-									$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-									$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-									}
-								if(($jb)<-2109032559)
-									{
-									$n=25;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-									$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-									$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-									$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-									$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-									$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-									}
-								else
-									{
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=($this->carr($RR,$n,$o>>2,"")|0)<5?-524762773:2088360821;continue;
-									}						
-								}
-							
-						if(($jb)<-2017858759)
-								if(($jb)<-2051875059)
-									{
-									$n=79;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-									$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-									$Ea=0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-									$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-									$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-									$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-									}
-								else
-									{
-									$n=1;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-									$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-									$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-									$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-									$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-									$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-									}						
-							
-						else if(($jb)<-2014779455)
-									{
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=($this->carr($RR,$n,$o>>2,"")|0)<31?775542450:-1629615901;continue;
-									}
-								else
-									{
-									$n=52;$p=$this->harr($RR,$q>>3,"");$la=1732584193;$na=-271733879;$pa=-1732584194;
-									$ra=271733878;$ta=$this->carr($RR,$n,$ua>>2,"")|0;$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;
-									$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-									$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;
-									$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;
-									$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-									$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-									}				
-						}
-					
-				if(($jb)<-1966247896)
-						if(($jb)<-1971280264)
-								if(($jb)<-1995522865)
-									{
-									$n=73;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-									$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-									$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-									$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-									$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-									$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;
-									
-									continue;
-									}
-								else
-									{
-									$this->aarr($RR,$n,$ga>>0,($this->carr($RR,$n,$Fa>>2,"")|0)<64&1);
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=-763186054;continue;
-									}						
-							
-						else if(($jb)<-1967845546)
-									{
-									$n=15;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-									$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-									$Ea=0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-									
-									$La=$this->carr($RR,$n,$ma>>2,"")|0;$Na=$this->carr($RR,$n,$oa>>2,"")|0;$Pa=$this->carr($RR,$n,$qa>>2,"")|0;
-									$Ra=$this->carr($RR,$n,$sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-									$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;
-								
-									continue;
-									}
-								else
-									{
-									$this->carr($RR,$n,$A>>2,($this->carr($RR,$n,$lb>>2,"")|0)-(0-90));
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=-180306226;continue;
-									}
-				else 		
-						if(($jb)<-1943746193)
-								if(($jb)<-1951072297)
-									{
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=($this->carr($RR,$n,$o>>2,"")|0)==29?620960943:916103055;continue;
-									}
-								else
-									{
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=($this->carr($RR,$n,$o>>2,"")|0)==7?1942162936:916103055;continue;
-									}						
-							
-						else if(($jb)<-1936945228)
-									{
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=($this->carr($RR,$n,$o>>2,"")|0)<29?-1367008151:-1966247896;continue;
-									}
-								else
-									{
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=($this->carr($RR,$n,$o>>2,"")|0)<41?-1797419395:-1183676751;continue;
-									}						
-								}
-			else
-				{
-				if(($jb)<-1781069297)
-						{
-						if(($jb)<-1841591203)
-								{
-								if(($jb)<-1892665105)
-									{
-									$n=17;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-									$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-									$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-									$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-									$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-									$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-									}
-									
-								if(($jb)<-1878597151)
-									{
-									$this->carr($RR,$n,$ab>>2,($this->carr($RR,$n,$Za>>2,"")|0)%4|0);
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=463554092;continue;
-									}
-								else
-									{
-									$n=47;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-									$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-									$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$u>>2,"")|0;
-									$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-									$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$fb>>2,"")|0;$jb=-188097831;
-									$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-									}						
-								}
-								
-						if(($jb)<-1797419395)
-								if(($jb)<-1814214169)
-									{
-									$this->aarr($RR,$n,$ka>>0,$this->harr($RR,$q>>3,"")<0&1);
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=-152754021;continue;
-									}
-								else
-									{
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=($this->carr($RR,$n,$o>>2,"")|0)==79?-1129217909:916103055;continue;
-									}						
-							
-						else if(($jb)<-1785460248)
-									{
-									$n=38;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-									$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=0;
-									$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-									$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-									$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-									$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-									}
-								else
-									{
-									$n=45;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-									$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-									$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-									$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-									$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-									$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-									}
-						}
-					
-				if(($jb)<-1629615901)
-						if(($jb)<-1662327480)
-								if(($jb)<-1712406553)
-									{
-									$n=58;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-									$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-									$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-									$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-									$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-									$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-									}
-								else
-									{
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=($this->carr($RR,$n,$o>>2,"")|0)==65?-1153545492:916103055;continue;
-									}						
-							
-						else if(($jb)<-1649803199)
-									{
-									$n=11;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-									$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-									$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-									$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-									$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-									$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-									}
-								else
-									{
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=-452257369;continue;
-									}
-				else 		
-						if(($jb)<-1579204746)
-							
-								if(($jb)<-1610186071)
-									{
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=($this->carr($RR,$n,$o>>2,"")|0)<36?-494102117:-968403108;continue;
-									}
-								else
-									{
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=$this->aarr($RR,$n,$fa>>0,"")&1?-2141197378:-630729423;continue;
-									}
-							
-						else if(($jb)<-1572948785)
-									{
-									$n=33;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-									$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=0;
-									$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-									$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-									$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$ua>>2,"")|0;$jb=-188097831;
-									$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-									}
-								else
-									{
-									$this->aarr($RR,$n,$da>>0,($this->carr($RR,$n,$Fa>>2,"")|0)<16&1);
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=1951978675;continue;
-									}						
-								}
-		else 	
-			if(($jb)<-1212483299)
-				{
-				if(($jb)<-1361726950)
-						{
-						if(($jb)<-1396656085)
-								{
-								if(($jb)<-1530939976)
-									{
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=$this->aarr($RR,$n,$Z>>0,"")&1?139799944:690197071;continue;
-									}
-								if(($jb)<-1414489443)
-									{
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=($this->carr($RR,$n,$o>>2,"")|0)<23?2040419279:-2017858759;continue;
-									}
-								else
-									{
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=($this->carr($RR,$n,$o>>2,"")|0)<81?-1814214169:1771209720;continue;
-									}					
-								}
-							
-						if(($jb)<-1380451239)
-								if(($jb)<-1385908106)
-									{
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=($this->carr($RR,$n,$o>>2,"")|0)==13?1153477833:916103055;continue;
-									}
-								else
-									{
-									$tb=$this->carr($RR,$n,$nb>>2,"")|0;
-									$this->aarr($RR,$n,$k>>0,$this->aarr($RR,$n,$b+$tb>>0,"")|0);
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=1129515855;continue;
-									}						
-							
-						else if(($jb)<-1367008151)
-									{
-									$n=57;$p=$this->harr($RR,$U>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-									$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-									$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-									$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-									$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-									$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-									}
-								else
-									{
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=($this->carr($RR,$n,$o>>2,"")|0)==27?1203488890:916103055;continue;
-									}					
-								}
-					
-				if(($jb)<-1341729830)
-						if(($jb)<-1360885125)
-								if(($jb)<-1361473685)
-									{
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=($this->carr($RR,$n,$o>>2,"")|0)<62?1117037785:1010850097;continue;
-									}
-								else
-									{
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=$this->aarr($RR,$n,$ba>>0,"")&1?-1924281938:128106704;continue;
-									}						
-							
-						else if(($jb)<-1355478599)
-									{
-									$n=56;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-									$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-									$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-									$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-									$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-									$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-									}
-								else
-									{
-									$this->aarr($RR,$n,$ia>>0,($this->carr($RR,$n,$Fa>>2,"")|0)<32&1);
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=1667927966;continue;
-									}				
-						
-				else 		
-						if(($jb)<-1266383858)
-								if(($jb)<-1290934332)
-									{
-									$this->aarr($RR,$n,$Z>>0,($this->carr($RR,$n,$ua>>2,"")|0)<($this->carr($RR,$n,$Ia>>2,"")|0)&1);
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=-1552799363;continue;
-									}
-								else
-									{
-									$Db=$this->carr($RR,$n,$sa>>2,"")|0;
-									$Db=~$Db|0|$Db&~-1;
-									$ub=$this->carr($RR,$n,$oa>>2,"")|0;
-									$tb=~$ub;
-									$vb=~$Db;
-									$wb=~2127574409;
-									$wb=($tb&2127574409|$ub&$wb)^($vb&2127574409|$Db&$wb)|~($tb|$vb)&(2127574409|$wb);
-									$vb=$this->carr($RR,$n,$qa>>2,"")|0;
-									$tb=~-1932706895;
-									$tb=(~$vb&-1932706895|$vb&$tb)^(~$wb&-1932706895|$wb&$tb);
-									$wb=$this->carr($RR,$n,$ma>>2,"")|0;
-									$vb=(~(~$wb|~-2)&(604911631|~604911631))+ -11283782+$tb+11283782|0;
-									$vb=($vb^~-2)&$vb;
-									$Db=~(~$wb|~1)&(~-1450542935|-1450542935);
-									$Db=($vb&$Db|$vb^$Db)-61851760+(~(~$tb|~1)&(340471306|~340471306))+61851760|0;
-									$vb=$this->carr($RR,$n,$Fa>>2,"")|0;
-									$vb=$this->carr($RR,$n,$Ga+$this->llf($vb,2)>>2,"")|0;
-									$ub=((($this->carr($RR,$n,$Fa>>2,"")|0)*7|0)%16|0)-672911061+($this->carr($RR,$n,$ua>>2,"")|0)+672911061|0;
-									$ub=$this->carr($RR,$n,$ob+$this->llf($ub,2)>>2,"")|0;
-									$Bb=$ub+690379117+(($vb^~-2)&$vb)+ -690379117|0;
-									$Bb=($Bb^~-2)&$Bb;
-									$Ab=($vb^~1)&$vb;
-									$zb=~$Bb;
-									$yb=~$Ab;
-									$xb=~193036646;
-									$Cb=~(~$ub|~1)&(1536398528|~1536398528);
-									$Db=($Db^~-2)&$Db;
-									$xb=($Db&$Cb|$Db^$Cb)-(0-(($zb&193036646|$Bb&$xb)^($yb&193036646|$Ab&$xb)|~($zb|$yb)&(193036646|$xb)))|0;
-									$xb=($xb^~-2)&$xb;
-									$wb=$tb-1022942196+$wb+1022942196|0;
-									$wb=($wb^~1)&$wb;
-									$vb=0-(0-$ub+(0-$vb))|0;
-									$vb=($xb&$wb|$xb^$wb)-1477198952+(($vb^~1)&$vb)+1477198952|0;
-									$wb=0-(0-(($this->carr($RR,$n,$Fa>>2,"")|0)%4|0)+(0-12))|0;
-									$wb=$this->carr($RR,$n,16+$this->llf($wb,2)>>2,"")|0;
-									$xb=$this->llf($vb,$wb);
-									$wb=$this->_rshift($vb,(32-780953686-$wb+780953686|0));
-									$vb=~$xb;
-									$ub=~$wb;
-									$tb=~850713340;
-									$this->carr($RR,$n,$__a>>2,($vb&850713340|$xb&$tb)^($ub&850713340|$wb&$tb)|~($vb|$ub)&(850713340|$tb));
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=-665924408;continue;
-									}						
-							
-						else if(($jb)<-1266323623)
-									{
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=($this->carr($RR,$n,$o>>2,"")|0)<71?-771214760:1815387249;continue;
-									}
-								else
-									{
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=($this->carr($RR,$n,$o>>2,"")|0)<22?153691705:151603818;continue;
-									}						
-								}
-			else
-				{
-				if(($jb)<-1137547745)
-						{
-						if(($jb)<-1173436005)
-								{
-								if(($jb)<-1202295682)
-									{
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=($this->carr($RR,$n,$o>>2,"")|0)==77?-412272376:916103055;continue;
-									}
-								if(($jb)<-1183676751)
-									{
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=($this->carr($RR,$n,$o>>2,"")|0)<52?-1385908106:2055800044;continue;
-									}
-								else
-									{
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=($this->carr($RR,$n,$o>>2,"")|0)==41?-934444625:916103055;continue;
-									}						
-								}
-							
-						if(($jb)<-1156946543)
-								if(($jb)<-1157656715)
-									{
-									$this->harr($RR,$Wa>>3,$this->harr($RR,$q>>3,"")*4294967296);
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=800362374;continue;
-									}
-								else
-									{
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=($this->carr($RR,$n,$o>>2,"")|0)<19?1183072760:1826842851;continue;
-									}						
-							
-						else if(($jb)<-1153545492)
-									{
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=($this->carr($RR,$n,$o>>2,"")|0)<56?-1173436005:549762434;continue;
-									}
-								else
-									{
-									$tb=$this->carr($RR,$n,$Fa>>2,"")|0;
-									$this->carr($RR,$n,$C>>2,($tb^~7)&$tb);
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=-521081237;continue;
-									}						
-								}
-					
-				if(($jb)<-1060336117)
-						if(($jb)<-1101163512)
-								if(($jb)<-1129217909)
-									{
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=($this->carr($RR,$n,$o>>2,"")|0)==0?-327886970:916103055;continue;
-									}
-								else
-									{
-									$this->aarr($RR,$n,$V>>0,($this->carr($RR,$n,$Fa>>2,"")|0)<8&1);
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=60376344;continue;
-									}						
-							
-						else if(($jb)<-1098566066)
-									{
-									$ta=$this->carr($RR,$n,$Sa>>2,"")|0;
-									$ra=$this->carr($RR,$n,$sa>>2,"")|0;
-									$Ea=(~(~$ta|~-2)&(1610295581|~1610295581))+500368708+$ra+ -500368708|0;
-									$Ea=($Ea^~-2)&$Ea;
-									$ta=~(~$ta|~1)&(~-705350905|-705350905);
-									$n=19;
-									$p=$this->harr($RR,$q>>3,"");
-									$la=$this->carr($RR,$n,$R>>2,"")|0;
-									$na=$this->carr($RR,$n,$S>>2,"")|0;
-									$pa=$this->carr($RR,$n,$T>>2,"")|0;
-									$ra=($Ea&$ta|$Ea^$ta)+1557818241+(($ra^~1)&$ra)-1557818241|0;
-									$ta=0-(0-($this->carr($RR,$n,$ua>>2,"")|0)+(0-16))|0;
-									$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;
-									$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;$La=$this->carr($RR,$n,$Ma>>2,"")|0;
-									$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-									$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;
-									$jb=-188097831;
-									$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;
-									
-									continue;
-									}
-								else
-									{
-									$this->aarr($RR,$n,$Y>>0,($this->carr($RR,$n,$ua>>2,"")|0)<($this->carr($RR,$n,$Za>>2,"")|0)&1);
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=-999614033;continue;
-									}
-				else		
-						if(($jb)<-999614033)
-								if(($jb)<-1031373064)
-									{
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=($this->carr($RR,$n,$o>>2,"")|0)<75?-1266383858:-743013407;continue;
-									}
-								else
-									{
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=($this->carr($RR,$n,$o>>2,"")|0)<45?1093527402:-147891877;continue;
-									}
-						else 
-								
-								if(($jb)<-991315587)
-									{
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=$this->aarr($RR,$n,$Y>>0,"")&1?331129789:1618283724;continue;
-									}
-								else
-									{
-									$ub=$this->carr($RR,$n,$oa>>2,"")>>$this->llf($this->carr($RR,$n,$pb>>2,""),2);
-									$this->aarr($RR,$n,$g>>0,$this->aarr($RR,$n,217+(($ub^-16)&$ub)>>0,"")|0);
-									$ub=$this->carr($RR,$n,$Fa>>2,"")|0;
-									$tb=$za;
-									$this->carr($RR,$n,$tb>>2,$ub);
-									$this->carr($RR,$n,$tb+4>>2,$this->llf((($ub|0)<0),31)>>31);
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=-58343100;continue;
-									}						
-								}
-	else 	
-		if(($jb)<-494102117)
-			if(($jb)<-743013407)
-				{
-				if(($jb)<-856036625)
-						{
-						if(($jb)<-920516874)
-								{
-								if(($jb)<-968403108)
-									{
-									$n=13;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-									$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-									$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-									$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-									$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-									$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;
-									
-									continue;
-									}
-								if(($jb)<-934444625)
-									{
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=($this->carr($RR,$n,$o>>2,"")|0)<40?1058751639:-1936945228;continue;
-									}
-								else
-									{
-									$ub=$this->carr($RR,$n,$ua>>2,"")|0;
-									$tb=$wa;
-									$this->carr($RR,$n,$tb>>2,$ub);
-									$this->carr($RR,$n,$tb+4>>2,$this->llf((($ub|0)<0),31)>>31);
-									$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-									$jb=1688333518;continue;
-									}						
-								}
-							
-						if(($jb)<-902588506)
-							if(($jb)<-909244188)
-								{
-								$n=67;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;
-								
-								continue;
-								}
-							else
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)<21?-1157656715:-1266323623;continue;
-								}					
-						
-				else if(($jb)<-895015477)
-								{
-								$this->carr($RR,$n,$I>>2,($this->carr($RR,$n,$J>>2,"")|0)+32);
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=-747420302;continue;
-								}
-						else
-								{
-								
-								$n=43;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;
-								$ta=0-(0-($this->carr($RR,$n,$ua>>2,"")|0)+(0-1))|0;$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;
-								$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;$La=$this->carr($RR,$n,$Ma>>2,"")|0;
-								$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;
-								$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;$kb=$this->carr($RR,$n,$lb>>2,"")|0;
-								$mb=$this->carr($RR,$n,$nb>>2,"")|0;
-								
-								continue;
-								}					
-						}
-						
-			if(($jb)<-777225753)
-					if(($jb)<-828878942)
-							if(($jb)<-843646639)
-								{
-								$n=60;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=0;$Ea=0;$Ha=0;
-								$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;
-								$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;
-								$jb=-188097831;$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}
-							else
-								{
-								$n=52;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ba>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}					
-						
-					else if(($jb)<-823999218)
-								{
-								$n=24;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}
-							else
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)<24?-1892665105:635155771;continue;
-								}
-			else 		
-					if(($jb)<-763186054)
-							if(($jb)<-771214760)
-								{
-								$n=65;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-								}
-							else
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)==69?651068526:916103055;continue;
-								}					
-						
-					else if(($jb)<-747420302)
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=$this->aarr($RR,$n,$ga>>0,"")&1?-2051875059:2146552338;continue;
-								}
-							else
-								{
-								$this->aarr($RR,$n,$this->carr($RR,$n,$I>>2,"")>>0,0);
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=601583830;continue;
-								}					
-							}
-		else
-			{
-			if(($jb)<-630729423)
-					{
-					if(($jb)<-708759048)
-							{
-							if(($jb)<-738461164)
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)<79?920364886:-1414489443;continue;
-								}
-								
-							if(($jb)<-722374409)
-								{
-								$n=$this->_rshift(($this->carr($RR,$n,$O>>2,"")|0),($this->carr($RR,$n,$bb>>2,"")|0));					
-								$la=$this->carr($RR,$n,$eb>>2,"")|0; 
-								
-							
-								$ra=~$la;
-								$pa=~$n;
-								$na=~656398317;
-								$na=($ra&656398317|$la&$na)^($pa&656398317|$n&$na)|~($ra|$pa)&(656398317|$na);
-								
-								
-								$pa=$this->carr($RR,$n,$oa>>2,"")|0;
-								$ra=0-(0-(~(~$pa|~-2)&(2104648903|~2104648903))+(0-$na))|0;
-								$ra=($ra^~-2)&$ra;
-								$pa=($pa^~1)&$pa;
-								$n=7;
-								$p=$this->harr($RR,$q>>3,"");
-								$la=$this->carr($RR,$n,$sa>>2,"")|0;
-								$na=($ra&$pa|$ra^$pa)+1158045464+(~(~$na|~1)&(~-858883747|-858883747))+ -1158045464|0;
-								
-								
-																
-								$pa=$this->carr($RR,$n,$oa>>2,"")|0;$ra=$this->carr($RR,$n,$qa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=($this->carr($RR,$n,$Fa>>2,"")|0)+1759879971+1+ -1759879971|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;
-								$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;
-								$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;
-								$jb=-188097831;$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;
-							
-								continue;
-								}
-							else
-								{
-								$n=54;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-								$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-								$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-								$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-								$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-								$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;
-								
-								continue;
-								}					
-							}
-						
-					if(($jb)<-668795440)
-							if(($jb)<-671207445)
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=($this->carr($RR,$n,$o>>2,"")|0)<51?852236017:1290413867;continue;
-								}
-							else
-								{
-								$this->carr($RR,$n,$t>>2,0-(0-($this->carr($RR,$n,$Fa>>2,"")|0)+(0-1)));
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=1111318124;continue;
-								}					
-						
-					else if(($jb)<-665924408)
-								{
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;$jb=$this->aarr($RR,$n,$ca>>0,"")&1?-983205733:-1662327480;continue;
-								}
-							else
-								{
-								$tb=$this->carr($RR,$n,$__a>>2,"")|0;
-								$ub=$this->carr($RR,$n,$oa>>2,"")|0;
-								$vb=~(~((($ub^~-2)&$ub)+780709209+$tb+ -780709209)|~-2)&(~-168997235|-168997235);
-								$ub=~(~$ub|~1)&(~-502501551|-502501551);
-								$this->carr($RR,$n,$P>>2,($vb&$ub|$vb^$ub)+ -1224380757+(($tb^~1)&$tb)+1224380757);
-								$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-								$jb=-401948426;continue;
-								}					
-							}
-						
-					if(($jb)<-526301530)
-							if(($jb)<-568636039)
-									if(($jb)<-602596021)
-										{
-										$n=3;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;$na=$this->carr($RR,$n,$oa>>2,"")|0;
-										$pa=$this->carr($RR,$n,$qa>>2,"")|0;$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-										$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-										$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-										$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-										$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-										}
-									else
-										{
-										$this->aarr($RR,$n,$ja>>0,($this->carr($RR,$n,$Fa>>2,"")|0)<64&1);
-										$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-										$jb=780107150;continue;
-										}						
-									
-							else if(($jb)<-545058508)
-										{
-										$this->carr($RR,$n,$Ta>>2,$this->llf(($this->carr($RR,$n,$Ia>>2,"")|0)-(0-40)>>6,4));
-										$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-										$jb=717745890;continue;
-										}
-									else
-										{
-										$this->aarr($RR,$n,$ba>>0,($this->carr($RR,$n,$ua>>2,"")|0)<($this->carr($RR,$n,$Ka>>2,"")|0)&1);
-										$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-										$jb=-1361473685;continue;
-										}
-					else 		
-							if(($jb)<-521081237)
-								
-									if(($jb)<-524762773)
-										{
-										$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-										$jb=($this->carr($RR,$n,$o>>2,"")|0)==38?-1341729830:916103055;continue;
-										}
-									else
-										{
-										$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-										$jb=($this->carr($RR,$n,$o>>2,"")|0)<1?-1137547745:-107249853;continue;
-										}						
-								
-							else if(($jb)<-499972263)
-										{
-										$ub=$this->llf($this->carr($RR,$n,$C>>2,""),2);
-										$tb=~852477429;
-										$tb=$this->carr($RR,$n,$sa>>2,"")>>((852477429&~$ub|$ub&$tb)^(~4&852477429|4&$tb));
-										$this->aarr($RR,$n,$j>>0,$this->aarr($RR,$n,217+(($tb^-16)&$tb)>>0,"")|0);
-										$tb=$this->carr($RR,$n,$Fa>>2,"")|0;
-										$this->carr($RR,$n,$H>>2,($this->carr($RR,$n,$J>>2,"")|0)+$tb);
-										$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-										$jb=1510822949;continue;
-										}
-									else
-										{	
-										$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-										$jb=($this->carr($RR,$n,$o>>2,"")|0)==11?809617043:916103055;continue;
-										}						
-									}
-			else 		
-					if(($jb)<-255123066)
-							{
-							if(($jb)<-411922879)
-									{
-									if(($jb)<-424000715)
-											{
-											if(($jb)<-489741395)
-												{
-												$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-												$jb=($this->carr($RR,$n,$o>>2,"")|0)<33?1370835909:1115527364;continue;
-												}
-												
-											if(($jb)<-452257369)
-												{
-												$n=22;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;
-												$na=$this->carr($RR,$n,$oa>>2,"")|0;$pa=$this->carr($RR,$n,$qa>>2,"")|0;
-												$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-												$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;
-												$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;$La=$this->carr($RR,$n,$Ma>>2,"")|0;
-												$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-												$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;
-												$jb=-188097831;$kb=$this->carr($RR,$n,$lb>>2,"")|0;
-												$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-												}
-											else
-												{
-												$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-												$jb=974401706;continue;
-												}							
-											}
-										
-									if(($jb)<-412361919)
-											if(($jb)<-423412824)
-												{
-												$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-												$jb=$this->aarr($RR,$n,$W>>0,"")&1?270009349:1137039176;continue;
-												}
-											else
-												{
-												$n=$this->carr($RR,$n,$Fa>>2,"")|0;
-												$this->aarr($RR,$n,($this->carr($RR,$n,$J>>2,"")|0)+$n>>0,$this->aarr($RR,$n,$this->carr($RR,$n,$s>>2,"")>>0,"")|0);
-												$n=71;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;
-												$na=$this->carr($RR,$n,$oa>>2,"")|0;$pa=$this->carr($RR,$n,$qa>>2,"")|0;
-												$ra=$this->carr($RR,$n,$sa>>2,"")|0;
-												$ta=$this->carr($RR,$n,$ua>>2,"")|0;$Ea=($this->carr($RR,$n,$Fa>>2,"")|0)-(0-1)|0;
-												$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-												$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;
-												$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;
-												$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-												$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-												}							
-										
-									else if(($jb)<-412272376)
-												{
-												$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-												$jb=$this->aarr($RR,$n,$_>>0,"")&1?1775324253:1774369769;continue;
-												}
-											else
-												{
-												$tb=~(~$this->llf($this->carr($RR,$n,$Fa>>2,""),2)|~28)&(133688724|~133688724);
-												$this->carr($RR,$n,$r>>2,217+~(~($this->carr($RR,$n,$ma>>2,"")>>(4&~$tb|$tb&~4))|-16));
-												$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-												$jb=-390950602;continue;
-												}							
-											}						
-									
-								
-							if(($jb)<-327886970)
-									if(($jb)<-390950602)
-											if(($jb)<-401948426)
-												{
-												$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-												$jb=($this->carr($RR,$n,$o>>2,"")|0)==9?545100308:916103055;continue;
-												}
-											else
-												{
-												$n=3;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$sa>>2,"")|0;
-												$na=$this->carr($RR,$n,$P>>2,"")|0;$pa=$this->carr($RR,$n,$oa>>2,"")|0;
-												$ra=$this->carr($RR,$n,$qa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-												$Ea=($this->carr($RR,$n,$Fa>>2,"")|0)+1860184337+1+ -1860184337|0;
-												$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-												$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;
-												$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;
-												$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-												$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-												}							
-										
-									else if(($jb)<-331915256)
-												{
-												$this->aarr($RR,$n,$f>>0,$this->aarr($RR,$n,$this->carr($RR,$n,$r>>2,"")>>0,"")|0);
-												$ub=$this->carr($RR,$n,$Fa>>2,"")|0;
-												$tb=$va;
-												$this->carr($RR,$n,$tb>>2,$ub);
-												$this->carr($RR,$n,$tb+4>>2,$this->llf((($ub|0)<0),31)>>31);
-												$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-												$jb=-275270623;continue;
-												}
-											else
-												{
-												$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-												$jb=($this->carr($RR,$n,$o>>2,"")|0)<17?1670387339:-909244188;continue;
-												}					
-									
-							else 		
-									if(($jb)<-275270623)
-											if(($jb)<-303896161)
-												{
-												$xb=$this->carr($RR,$n,$Ma>>2,"")|0;
-												$tb=$this->carr($RR,$n,$ma>>2,"")|0;
-												$yb=~(~((~(~$xb|~-2)&(158737468|~158737468))-485042156+$tb+485042156)|~-2)&(~-978858707|-978858707);
-												$xb=~(~$xb|~1)&(1643252880|~1643252880);
-												$wb=~$yb;
-												$vb=~$xb;
-												$ub=~1572610025;
-												$this->carr($RR,$n,$R>>2,(($wb&1572610025|$yb&$ub)^($vb&1572610025|$xb&$ub)|~($wb|$vb)&(1572610025|$ub))+144431907+(~(~$tb|~1)&(1565796204|~1565796204))-144431907);
-												$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-												$jb=2008811188;continue;
-												}
-											else
-												{
-												$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-												$jb=($this->carr($RR,$n,$o>>2,"")|0)<49?-568636039:1315897097;continue;
-												}							
-										
-									else if(($jb)<-256536033)
-												{
-												$this->aarr($RR,$n,($this->carr($RR,$n,$J>>2,"")|0)+($this->carr($RR,$n,$va>>2,"")|0)>>0,$this->aarr($RR,$n,$f>>0,"")|0);
-												$n=79;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;
-												$na=$this->carr($RR,$n,$oa>>2,"")|0;$pa=$this->carr($RR,$n,$qa>>2,"")|0;
-												$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-												$Ea=($this->carr($RR,$n,$Fa>>2,"")|0)+1957808098+1-1957808098|0;
-												$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-												$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;
-												$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;
-												$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-												$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-												}
-											else
-												{
-												$n=51;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;
-												$na=$this->carr($RR,$n,$oa>>2,"")|0;$pa=$this->carr($RR,$n,$qa>>2,"")|0;
-												$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$Aa>>2,"")|0;
-												$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;
-												$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;$La=$this->carr($RR,$n,$Ma>>2,"")|0;
-												$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-												$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;
-												$jb=-188097831;$kb=$this->carr($RR,$n,$lb>>2,"")|0;
-												$mb=$this->carr($RR,$n,$ua>>2,"")|0;continue;
-												}							
-											}						
-														
-							
-					else
-							{
-							if(($jb)<-147891877)
-									{
-									if(($jb)<-188097831)
-											{
-											if(($jb)<-252274077)
-												{
-												$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-												$jb=($this->carr($RR,$n,$o>>2,"")|0)<43?-1530939976:1466680073;continue;
-												}
-												
-											if(($jb)<-204104119)
-												{
-												$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-												$jb=($this->carr($RR,$n,$o>>2,"")|0)==73?1347562810:916103055;continue;
-												}
-											else
-												{
-												$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-												$jb=($this->carr($RR,$n,$o>>2,"")|0)==33?368050796:916103055;continue;
-												}							
-											}
-										
-									if(($jb)<-164314163)
-											if(($jb)<-180306226)
-												{
-												$this->carr($RR,$n,$o>>2,$n);$this->carr($RR,$n,$Sa>>2,$Ra);
-												$this->carr($RR,$n,$Qa>>2,$Pa);$this->carr($RR,$n,$Oa>>2,$Na);
-												$this->carr($RR,$n,$Ma>>2,$La);$this->carr($RR,$n,$lb>>2,$kb);
-												$this->carr($RR,$n,$Za>>2,$Ya);$this->carr($RR,$n,$nb>>2,$mb);
-												$this->carr($RR,$n,$sa>>2,$ra);$this->carr($RR,$n,$qa>>2,$pa);
-												$this->carr($RR,$n,$oa>>2,$na);$this->carr($RR,$n,$ma>>2,$la);
-												$this->carr($RR,$n,$ua>>2,$ta);$this->harr($RR,$q>>3,$p);
-												$this->carr($RR,$n,$Ka>>2,$Ja);$this->carr($RR,$n,$Ia>>2,$Ha);
-												$this->carr($RR,$n,$Fa>>2,$Ea);
-												$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-												$jb=-255123066;continue;
-												}
-											else
-												{
-												$n=23;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;
-												$na=$this->carr($RR,$n,$oa>>2,"")|0;$pa=$this->carr($RR,$n,$qa>>2,"")|0;
-												$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-												$Ea=$this->carr($RR,$n,$Fa>>2,"")|0;$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;
-												$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;$La=$this->carr($RR,$n,$Ma>>2,"")|0;
-												$Na=$this->carr($RR,$n,$Oa>>2,"")|0;$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-												$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;$Ya=$this->carr($RR,$n,$Za>>2,"")|0;
-												$jb=-188097831;$kb=$this->carr($RR,$n,$A>>2,"")|0;
-												$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-												}							
-										
-									else if(($jb)<-152754021)
-												{
-												$ra=$this->carr($RR,$n,$this->carr($RR,$n,$G>>2,"")>>2,"")|0;
-												$n=(($this->carr($RR,$n,$Fa>>2,"")|0)%16|0)-1178941561+($this->carr($RR,$n,$ua>>2,"")|0)+1178941561|0;
-												$n=$this->carr($RR,$n,$ob+$this->llf($n,2)>>2,"")|0;
-												$Ha=~(~($n+ -1142814721+(~(~$ra|~-2)&(~-1887619057|-1887619057))+1142814721)|~-2)&(1306095578|~1306095578);
-												$Ea=~(~$ra|~1)&(~-2038887719|-2038887719);
-												$ta=~$Ha;
-												$na=~$Ea;
-												$pa=~372789369;
-												$Ja=~(~$n|~1)&(1643553581|~1643553581);
-												$la=$this->carr($RR,$n,$K>>2,"")|0;
-												$La=~(~$la|~-2)&(~-1940854541|-1940854541);
-												$pa=0-(0-($La&$Ja|$La^$Ja)+(0-(($ta&372789369|$Ha&$pa)^($na&372789369|$Ea&$pa)|~($ta|$na)&(372789369|$pa))))|0;
-												$pa=($pa^~-2)&$pa;
-												$la=~(~$la|~1)&(1953863738|~1953863738);
-												$ra=0-(0-($pa&$la|$pa^$la)+(0-(~(~($n-(0-$ra))|~1)&(687100864|~687100864))))|0;
-												$n=($this->carr($RR,$n,$Fa>>2,"")|0)%4|0;
-												$n=$this->carr($RR,$n,16+$this->llf($n,2)>>2,"")|0;
-												$la=$this->llf($ra,$n);
-												$n=$this->_rshift($ra,(32+985163289-$n+ -985163289|0));
-												$ra=~$la;
-												$pa=~$n;
-												$na=~50919874;
-												$na=($ra&50919874|$la&$na)^($pa&50919874|$n&$na)|~($ra|$pa)&(50919874|$na);
-												$pa=$this->carr($RR,$n,$oa>>2,"")|0;
-												$ra=~(~($na-(0-(($pa^~-2)&$pa)))|~-2)&(1048747497|~1048747497);
-												$pa=($pa^~1)&$pa;
-												$n=15;
-												$p=$this->harr($RR,$q>>3,"");
-												$la=$this->carr($RR,$n,$sa>>2,"")|0;
-												$na=($ra&$pa|$ra^$pa)-(0-(($na^~1)&$na))|0;
-												$pa=$this->carr($RR,$n,$oa>>2,"")|0;
-												$ra=$this->carr($RR,$n,$qa>>2,"")|0;
-												$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-												$Ea=($this->carr($RR,$n,$Fa>>2,"")|0)+ -796114441+1+796114441|0;
-												$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;
-												$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-												$La=$this->carr($RR,$n,$Ma>>2,"")|0;
-												$Na=$this->carr($RR,$n,$Oa>>2,"")|0;
-												$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;
-												$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;
-												$Ya=$this->carr($RR,$n,$Za>>2,"")|0;
-												$jb=-188097831;
-												$kb=$this->carr($RR,$n,$lb>>2,"")|0;
-												$mb=$this->carr($RR,$n,$nb>>2,"")|0;
-												continue;
-												}
-											else
-												{
-												$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-												$jb=$this->aarr($RR,$n,$ka>>0,"")&1?-1360885125:2059037329;
-												continue;
-												}							
-											}						
-									
-								
-							if(($jb)<-80539691)
-									if(($jb)<-86792897)
-											if(($jb)<-107249853)
-												{
-												$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-												$jb=($this->carr($RR,$n,$o>>2,"")|0)<46?1657487624:1541240532;
-												continue;
-												}
-											else
-												{
-												$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-												$jb=($this->carr($RR,$n,$o>>2,"")|0)<3?608838580:304010989;
-												continue;
-												}							
-										
-									else if(($jb)<-86385898)
-												{
-												$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-												$jb=($this->carr($RR,$n,$o>>2,"")|0)<48?1102465302:-303896161;
-												continue;
-												}
-											else
-												{
-												$wb=$this->llf(128,$this->carr($RR,$n,$Va>>2,""));
-												$xb=$this->carr($RR,$n,$Za>>2,"")>>2;
-												$this->carr($RR,$n,$F>>2,$ob+$this->llf($xb,2));
-												$xb=$this->carr($RR,$n,$this->carr($RR,$n,$F>>2,"")>>2,"")|0;
-												$vb=~$xb;
-												$ub=~$wb;
-												$tb=~924717824;
-												$this->carr($RR,$n,$_a>>2,($vb&924717824|$xb&$tb)^($ub&924717824|$wb&$tb)|~($vb|$ub)&(924717824|$tb));
-												$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-												$jb=1264018475;continue;
-												}					
-									
-							else		
-									if(($jb)<-44538672)
-											if(($jb)<-58343100)
-												{
-												$this->carr($RR,$n,$z>>2,($this->carr($RR,$n,$lb>>2,"")|0)+494575374+49-494575374);
-												$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;$jb=484876086;continue;
-												}
-											else
-												{
-												$this->aarr($RR,$n,($this->carr($RR,$n,$J>>2,"")|0)+($this->carr($RR,$n,$za>>2,"")|0)>>0,$this->aarr($RR,$n,$g>>0,"")|0);
-												$n=75;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"")|0;
-												$na=$this->carr($RR,$n,$oa>>2,"")|0;$pa=$this->carr($RR,$n,$qa>>2,"")|0;
-												$ra=$this->carr($RR,$n,$sa>>2,"")|0;$ta=$this->carr($RR,$n,$ua>>2,"")|0;
-												$Ea=0-(0-($this->carr($RR,$n,$Fa>>2,"")|0)+(0-1))|0;
-												$Ha=$this->carr($RR,$n,$Ia>>2,"")|0;$Ja=$this->carr($RR,$n,$Ka>>2,"")|0;
-												$La=$this->carr($RR,$n,$Ma>>2,"")|0;$Na=$this->carr($RR,$n,$Oa>>2,"")|0;
-												$Pa=$this->carr($RR,$n,$Qa>>2,"")|0;$Ra=$this->carr($RR,$n,$Sa>>2,"")|0;
-												$Ya=$this->carr($RR,$n,$Za>>2,"")|0;$jb=-188097831;
-												$kb=$this->carr($RR,$n,$lb>>2,"")|0;$mb=$this->carr($RR,$n,$nb>>2,"")|0;continue;
-												}							
-										
-									else if(($jb)<-25886128)
-												{
-												$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-												$jb=$this->aarr($RR,$n,$X>>0,"")&1?2070699595:-1785460248;continue;
-												}
-											else
-												{
-												$this->carr($RR,$n,$Ba>>2,($this->carr($RR,$n,$Ia>>2,"")|0)+ -1998283379+1+1998283379);
-												$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
-												$jb=-843646639;continue;
-												}	
-											}
-									}					
-$i=$qb;return $this->carr($RR,$n,$J>>2,"")|0;
-}
+switch ($jb)
+{
+case-1649803199:
+		return $this->carr($RR,$n,$J>>2,"");
 
+case 936652527:
+case 1969546970:
+		$this->Xa($RR,$this->carr($RR,$n,$d>>2,"")|0,0,256);
+		$this->carr($RR,$n,$e>>2,$ob);
+		$this->Xa($RR,$this->carr($RR,$n,$e>>2,""),0,512);
+		$n=62;$p=$la=$na=$pa=$ra=$ta=$Ea=$Ha=$Ja=$La=$Na=$Pa=$Ra=$Ya=$kb=$mb=0;
+		
+		$jb=-188097831;continue;
+case-188097831:
+		$this->carr($RR,$n,$o>>2,$n);$this->carr($RR,$n,$Sa>>2,$Ra);
+		$this->carr($RR,$n,$Qa>>2,$Pa);$this->carr($RR,$n,$Oa>>2,$Na);
+		$this->carr($RR,$n,$Ma>>2,$La);$this->carr($RR,$n,$lb>>2,$kb);
+		$this->carr($RR,$n,$Za>>2,$Ya);$this->carr($RR,$n,$nb>>2,$mb);
+		$this->carr($RR,$n,$sa>>2,$ra);$this->carr($RR,$n,$qa>>2,$pa);
+		$this->carr($RR,$n,$oa>>2,$na);$this->carr($RR,$n,$ma>>2,$la);
+		$this->carr($RR,$n,$ua>>2,$ta);$this->harr($RR,$q>>3,$p);
+		$this->carr($RR,$n,$Ka>>2,$Ja);$this->carr($RR,$n,$Ia>>2,$Ha);
+		$this->carr($RR,$n,$Fa>>2,$Ea);	
+			
+		$jb=-255123066;continue;
+		
+case-1137547745:	/**/$jb=$n==0?-327886970:916103055;continue;		
+case-524762773:		/**/$jb=$n<1?-1137547745:-107249853;continue;		
+case 608838580:		/**/$jb=$n==1?-1290934332:916103055;continue;
+case 304010989:		/**/$jb=$n==3?-1995522865:916103055;continue;
+case-107249853:		/**/$jb=$n<3?608838580:304010989;continue;
+case-2109032559:	/**/$jb=$n<5?-524762773:2088360821;continue;
+case 1775530198:	/**/$jb=$n==5?439769685:916103055;continue;
+case 2088360821:	/**/$jb=$n<7?1775530198:1217939919;continue;
+case-1951072297:	/**/$jb=$n==7?1942162936:916103055;continue;
+case-411922879:		/**/$jb=$n==9?545100308:916103055;continue;
+case 1217939919:	/**/$jb=$n<9?-1951072297:-411922879;continue;
+case-499972263:		/**/$jb=$n==11?809617043:916103055;continue;
+case 2040419279:	/**/$jb=$n<11?-2109032559:-331915256;continue;
+case-1396656085:	/**/$jb=$n==13?1153477833:916103055;continue;
+case 1670387339:	/**/$jb=$n<13?-499972263:-22207083;continue;
+case-22207083:		/**/$jb=$n<15?-1396656085:343102405;continue;
+case 343102405:		/**/$jb=$n==15?1514554794:916103055;continue;
+case 1183072760:	/**/$jb=$n==17?-1971280264:916103055;continue;
+case-331915256:		/**/$jb=$n<17?1670387339:-909244188;continue;
+case-1157656715:	/**/$jb=$n<19?1183072760:1826842851;continue;
+case 1826842851:	/**/$jb=$n==19?-545058508:916103055;continue;
+case-909244188:		/**/$jb=$n<21?-1157656715:-1266323623;continue;
+case-1266323623:	/**/$jb=$n<22?153691705:151603818;continue;
+case-1530939976:	/**/$jb=$n<23?2040419279:-2017858759;continue;
+case-823999218:		/**/$jb=$n<24?-1892665105:635155771;continue;
+case 635155771:		/**/$jb=$n<25?-1967845546:-80539691;continue;
+case 775542450:		/**/$jb=$n<26?-823999218:1867803797;continue;
+case-1367008151:	/**/$jb=$n==27?1203488890:916103055;continue;
+case 1867803797:	/**/$jb=$n<27?1247969426:-1943746193;continue;
+case-1966247896:	/**/$jb=$n==29?620960943:916103055;continue;
+case-1943746193:	/**/$jb=$n<29?-1367008151:-1966247896;continue;
+case-2017858759:	/**/$jb=$n<31?775542450:-1629615901;continue;
+case 1370835909:	/**/$jb=$n==31?637834779:916103055;continue;
+case-494102117:		/**/$jb=$n<33?1370835909:1115527364;continue;
+case-204104119:		/**/$jb=$n==33?368050796:916103055;continue;
+case 1115527364:	/**/$jb=$n<35?-204104119:-1579204746;continue;
+case 13290759:		/**/$jb=$n==36?195832850:916103055;continue;
+case-1629615901:	/**/$jb=$n<36?-494102117:-968403108;continue;		
+case 1058751639:	/**/$jb=$n<38?13290759:-526301530;continue;
+case-526301530:		/**/$jb=$n==38?-1341729830:916103055;continue;
+case-968403108:		/**/$jb=$n<40?1058751639:-1936945228;continue;
+case-1183676751:	/**/$jb=$n==41?-934444625:916103055;continue;
+case-1936945228:	/**/$jb=$n<41?-1797419395:-1183676751;continue;
+case 1093527402:	/**/$jb=$n==43?-1098566066:916103055;continue;
+case-255123066:		/**/$jb=$n<43?-1530939976:1466680073;continue;
+case-1031373064:	/**/$jb=$n<45?1093527402:-147891877;continue;
+case-147891877:		/**/$jb=$n<46?1657487624:1541240532;continue;
+case 852236017:		/**/$jb=$n<47?-1031373064:-86792897;continue;
+case-86792897:		/**/$jb=$n<48?1102465302:-303896161;continue;
+case 1315897097:	/**/$jb=$n==49?-25886128:916103055;continue;
+case-303896161:		/**/$jb=$n<49?-568636039:1315897097;continue;
+case-708759048:		/**/$jb=$n<51?852236017:1290413867;continue;
+case 1982907982:	/**/$jb=$n==52?887924077:916103055;continue;
+case-1202295682:	/**/$jb=$n<52?-1385908106:2055800044;continue;
+case 2055800044:	/**/$jb=$n<54?1982907982:-2014779455;continue;
+case 1290413867:	/**/$jb=$n<55?-1202295682:2120616980;continue;
+case-1156946543:	/**/$jb=$n<56?-1173436005:549762434;continue;
+case 2120616980:	/**/$jb=$n<57?-1156946543:1287975406;continue;
+case 709849698:		/**/$jb=$n==58?-671207445:916103055;continue;
+case 1287975406:	/**/$jb=$n<58?-1841591203:709849698;continue;
+case 1117037785:	/**/$jb=$n==60?-602596021:916103055;continue;
+case 1466680073:	/**/$jb=$n<60?-708759048:1256704313;continue;
+case-1361726950:	/**/$jb=$n<62?1117037785:1010850097;continue;
+case 1010850097:	/**/$jb=$n<63?-856036625:-1649803199;continue;
+case 801681189:		/**/$jb=$n<64?-1361726950:1012403908;continue;
+case 1012403908:	/**/$jb=$n<65?-902588506:1717331240;continue;
+case-1712406553:	/**/$jb=$n==65?-1153545492:916103055;continue;
+case 591681232:		/**/$jb=$n==67?-1355478599:916103055;continue;
+case 1717331240:	/**/$jb=$n<67?-1712406553:591681232;continue;
+case-771214760:		/**/$jb=$n==69?651068526:916103055;continue;
+case 1256704313:	/**/$jb=$n<69?801681189:-1060336117;continue;
+case 212826519:		/**/$jb=$n==71?1008856235:916103055;continue;
+case-1266383858:	/**/$jb=$n<71?-771214760:1815387249;continue;
+case 1815387249:	/**/$jb=$n<73?212826519:-252274077;continue;
+case-252274077:		/**/$jb=$n==73?1347562810:916103055;continue;
+case 263250548:		/**/$jb=$n==75?-1572948785:916103055;continue;
+case-1060336117:	/**/$jb=$n<75?-1266383858:-743013407;continue;						
+case 920364886:		/**/$jb=$n<77?263250548:-1212483299;continue;
+case-1212483299:	/**/$jb=$n==77?-412272376:916103055;continue;
+case-743013407:		/**/$jb=$n<79?920364886:-1414489443;continue;
+case-1814214169:	/**/$jb=$n==79?-1129217909:916103055;continue;		
+case-1414489443:	/**/$jb=$n<81?-1814214169:1771209720;continue;
+case 1771209720:	/**/$jb=$n==81?-2074579782:916103055;continue;
+
+case-44538672:		$jb=$this->aarr($RR,$n,$X,"")&1?2070699595:-1785460248;continue;
+case-152754021:		$jb=$this->aarr($RR,$n,$ka,"")&1?-1360885125:2059037329;continue;
+case 1804404662:	$jb=$this->aarr($RR,$n,$aa,"")&1?-2136717671:-828878942;continue;
+case-1552799363:	$jb=$this->aarr($RR,$n,$Z,"")&1?139799944:690197071;continue;
+case-1361473685:	$jb=$this->aarr($RR,$n,$ba,"")&1?-1924281938:128106704;continue;
+case-1610186071:	$jb=$this->aarr($RR,$n,$fa,"")&1?-2141197378:-630729423;continue;
+case-999614033:		$jb=$this->aarr($RR,$n,$Y,"")&1?331129789:1618283724;continue;
+case-763186054:		$jb=$this->aarr($RR,$n,$ga,"")&1?-2051875059:2146552338;continue;
+case-668795440:		$jb=$this->aarr($RR,$n,$ca,"")&1?-983205733:-1662327480;continue;
+case 1667927966:	$jb=$this->aarr($RR,$n,$ia,"")&1?-777225753:1388594392;continue;
+case 1410777152:	$jb=$this->aarr($RR,$n,$dol,"")&1?2045376102:-489741395;continue;
+case 1951978675:	$jb=$this->aarr($RR,$n,$da,"")&1?-2014580748:481757527;continue;		
+case 1980027799:	$jb=$this->aarr($RR,$n,$ha,"")&1?1297236730:-920516874;continue;		
+case-424000715:		$jb=$this->aarr($RR,$n,$W,"")&1?270009349:1137039176;continue;
+case-412361919:		$jb=$this->aarr($RR,$n,$_,"")&1?1775324253:1774369769;continue;		
+case 60376344:		$jb=$this->aarr($RR,$n,$V,"")&1?1468918320:2014978051;continue;		
+case 780107150:		$jb=$this->aarr($RR,$n,$ja,"")&1?-1781069297:-722374409;continue;		
+case 618822415:		$jb=$this->aarr($RR,$n,$ea,"")&1?1432877594:2028659015;continue;
+
+		
+case 809617043:
+		$this->aarr($RR,$n,$ea,$Ea<32&1);
+		
+		$jb=618822415;continue;		
+case 887924077:
+		$this->carr($RR,$n,$Aa>>2,$this->carr($RR,$n,$ua>>2,"")+1);
+		
+		$jb=-256536033;continue;		
+case 1008856235:
+		$this->aarr($RR,$n,$ha,$this->carr($RR,$n,$Fa>>2,"")<24&1);
+		
+		$jb=1980027799;continue;		
+case 620960943:
+		$this->aarr($RR,$n,$dol,$this->carr($RR,$n,$Fa>>2,"")<8&1);
+		
+		$jb=1410777152;continue;		
+case 1102465302:
+		$this->carr($RR,$n,$v>>2,$this->carr($RR,$n,$Ka>>2,"")+16);
+		
+		$jb=2131809869;continue;		
+case 633810001:
+		$this->carr($RR,$n,$G>>2,$Ga+$this->llf($this->carr($RR,$n,$xa>>2,""),2));
+		
+		$jb=-164314163;continue;		
+case 717745890:
+		$this->carr($RR,$n,$u>>2,$this->carr($RR,$n,$Ta>>2,"")+14);
+		$this->carr($RR,$n,$fb>>2,$this->carr($RR,$n,$Ia>>2,"")+32>>2);
+		
+		$jb=-1878597151;continue;
+case 195832850:
+		$tb=$this->carr($RR,$n,$ua>>2,"");
+		$this->carr($RR,$n,$cb>>2,$this->llf($this->aarr($RR,$n,$b+$tb,""),$this->llf($this->carr($RR,$n,$ua>>2,"")%4,3)));
+		$this->carr($RR,$n,$gb>>2,$this->carr($RR,$n,$ua>>2,"")>>2);
+		
+		$jb=788846146;continue;
+case 651068526:
+		$tb=$this->llf($this->carr($RR,$n,$Fa>>2,""),2);$tb=($tb^~28)&$tb;
+		$this->carr($RR,$n,$hb>>2,$this->carr($RR,$n,$qa>>2,"")>>(4&~$tb|$tb&~4));
+		
+		$jb=1288598934;continue;		
+case 73587007:
+		$this->carr($RR,$n,$y>>2,$this->carr($RR,$n,$x>>2,"")+34);
+		
+		$jb=167383782;continue;
+case 788846146:
+		$tb=$this->carr($RR,$n,$gb>>2,"");$this->carr($RR,$n,$D>>2,$ob+$this->llf($tb,2));
+		$this->carr($RR,$n,$l>>2,$this->carr($RR,$n,$this->carr($RR,$n,$D>>2,"")>>2,""));
+		
+		$jb=108332815;continue;
+case 151603818:
+		$this->carr($RR,$n,$Ca>>2,$this->carr($RR,$n,$ua>>2,"")+1);
+		
+		$jb=1720235387;continue;
+case 153691705:
+		$this->carr($RR,$n,$Va>>2,$this->llf($this->carr($RR,$n,$Za>>2,"")%4,3));
+		
+		$jb=-86385898;continue;
+case 368050796:
+		$this->aarr($RR,$n,$_,$this->carr($RR,$n,$ua>>2,"")<4&1);
+		
+		$jb=-412361919;continue;	
+case 545100308:
+		$this->carr($RR,$n,$B>>2,~(~$this->carr($RR,$n,$oa>>2,"")|~$this->carr($RR,$n,$sa>>2,""))&-1);
+		
+		$jb=494739317;continue;
+case 549762434:
+		$this->harr($RR,$ib>>3,-$this->harr($RR,$q>>3,""));
+		
+		$jb=416259719;continue;		
+case 1111318124:
+		$this->harr($RR,$U>>3,sin($this->carr($RR,$n,$t>>2,"")));
+		
+		$jb=-1380451239;continue;
+case 1129515855:
+		$this->aarr($RR,$n,$W,($this->aarr($RR,$n,$k,""))!=0&1);
+		
+		$jb=-424000715;continue;		
+case 1203488890:
+		$this->carr($RR,$n,$x>>2,$this->carr($RR,$n,$Fa>>2,"")*23+$this->carr($RR,$n,$ua>>2,"")*37);
+		
+		$jb=73587007;continue;
+case 1247969426:
+		$this->aarr($RR,$n,$aa,$this->carr($RR,$n,$lb>>2,"")<10&1);
+		
+		$jb=1804404662;continue;
+case 1347562810:
+		$tb=$this->carr($RR,$n,$Fa>>2,"");$tb=($tb^~7)&$tb;
+		$this->carr($RR,$n,$pb>>2,1&~$tb|$tb&~1);
+		
+		$jb=-991315587;continue;
+case 1288598934:
+		$tb=$this->carr($RR,$n,$hb>>2,"");
+		$this->carr($RR,$n,$s>>2,217+(($tb^-16)&$tb));
+		
+		$jb=-423412824;continue;	
+case 1514554794:
+		$this->aarr($RR,$n,$ca,$this->carr($RR,$n,$Fa>>2,"")<16&1);
+		
+		$jb=-668795440;continue;
+case 1541240532:
+		$this->carr($RR,$n,$w>>2,$this->carr($RR,$n,$Ka>>2,"")+16);
+		
+		$jb=1410343841;continue;
+case 1688333518:
+		$this->carr($RR,$n,$ob+$this->llf($this->carr($RR,$n,$wa>>2,""),2)>>2,0);
+		
+		$jb=-895015477;continue;
+case 1942162936:								
+		$this->aarr($RR,$n,$fa,$this->carr($RR,$n,$Fa>>2,"")<48&1);
+		
+		$jb=-1610186071;continue;
+case-1967845546:
+		$this->carr($RR,$n,$A>>2,$this->carr($RR,$n,$lb>>2,"")+90);
+		
+		$jb=-180306226;continue;
+case 2131809869:
+		$this->aarr($RR,$n,$X,$this->carr($RR,$n,$v>>2,"")>=$this->carr($RR,$n,$Za>>2,"")&1);
+		
+		$jb=-44538672;continue;	
+case-1995522865:
+		$this->aarr($RR,$n,$ga,$this->carr($RR,$n,$Fa>>2,"")<64&1);
+		
+		$jb=-763186054;continue;
+case-1841591203:
+		$this->aarr($RR,$n,$ka,$this->harr($RR,$q>>3,"")<0&1);
+		
+		$jb=-152754021;continue;
+case-1892665105:
+		$this->carr($RR,$n,$ab>>2,$this->carr($RR,$n,$Za>>2,"")%4);
+		
+		$jb=463554092;continue;			
+case-1572948785:
+		$this->aarr($RR,$n,$da,$this->carr($RR,$n,$Fa>>2,"")<16&1);
+		
+		$jb=1951978675;continue;					
+case-1385908106:
+		$tb=$this->carr($RR,$n,$nb>>2,"");
+		$this->aarr($RR,$n,$k,$this->aarr($RR,$n,$b+$tb,""));
+		
+		$jb=1129515855;continue;
+case-1355478599:
+		$this->aarr($RR,$n,$ia,$this->carr($RR,$n,$Fa>>2,"")<32&1);
+		
+		$jb=1667927966;continue;
+case-1341729830:
+		$this->aarr($RR,$n,$Z,$this->carr($RR,$n,$ua>>2,"")<$this->carr($RR,$n,$Ia>>2,"")&1);
+		
+		$jb=-1552799363;continue;
+case-1173436005:
+		$this->harr($RR,$Wa>>3,$this->harr($RR,$q>>3,"")*4294967296);
+		
+		$jb=800362374;continue;
+case-1153545492:
+		$tb=$this->carr($RR,$n,$Fa>>2,"");
+		$this->carr($RR,$n,$C>>2,($tb^~7)&$tb);
+		
+		$jb=-521081237;continue;
+case-1129217909:
+		$this->aarr($RR,$n,$V,$this->carr($RR,$n,$Fa>>2,"")<8&1);
+		
+		$jb=60376344;continue;
+case-1098566066:
+		$this->aarr($RR,$n,$Y,$this->carr($RR,$n,$ua>>2,"")<$this->carr($RR,$n,$Za>>2,"")&1);
+		
+		$jb=-999614033;continue;
+case-902588506:
+		$this->carr($RR,$n,$I>>2,$this->carr($RR,$n,$J>>2,"")+32);
+		
+		$jb=-747420302;continue;
+case-747420302:
+		$this->aarr($RR,$n,$this->carr($RR,$n,$I>>2,""),0);
+		
+		$jb=601583830;continue;
+case-671207445:
+		$this->carr($RR,$n,$t>>2,$this->carr($RR,$n,$Fa>>2,"")+1);
+		
+		$jb=1111318124;continue;
+case-602596021:
+		$this->aarr($RR,$n,$ja,$this->carr($RR,$n,$Fa>>2,"")<64&1);
+		
+		$jb=780107150;continue;
+case-568636039:
+		$this->carr($RR,$n,$Ta>>2,$this->llf($this->carr($RR,$n,$Ia>>2,"")+40>>6,4));
+		
+		$jb=717745890;continue;
+case-545058508:
+		$this->aarr($RR,$n,$ba,$this->carr($RR,$n,$ua>>2,"")<$this->carr($RR,$n,$Ka>>2,"")&1);
+		
+		$jb=-1361473685;continue;
+case-80539691:
+		$this->carr($RR,$n,$z>>2,$this->carr($RR,$n,$lb>>2,"")+49);
+		
+		$jb=484876086;continue;
+case-25886128:
+		$this->carr($RR,$n,$Ba>>2,$this->carr($RR,$n,$Ia>>2,"")+1);
+		
+		$jb=-843646639;continue;			
+case-390950602:
+		$this->aarr($RR,$n,$f,$this->aarr($RR,$n,$this->carr($RR,$n,$r>>2,""),""));
+		$ub=$this->carr($RR,$n,$Fa>>2,"");
+		$tb=$va;
+		$this->carr($RR,$n,$tb>>2,$ub);
+		$this->carr($RR,$n,$tb+4>>2,$this->llf($ub<0,31)>>31);
+		
+		$jb=-275270623;continue;
+case-327886970:
+		$xb=$this->carr($RR,$n,$Ma>>2,"");
+		$tb=$this->carr($RR,$n,$ma>>2,"");
+		$yb=~(~((~(~$xb|~-2)&-1)+$tb)|~-2)&-1;
+		$xb=~(~$xb|~1)&-1;
+		$wb=~$yb;
+		$vb=~$xb;
+		$ub=~1572610025;
+		$this->carr($RR,$n,$R>>2,(($wb&1572610025|$yb&$ub)^($vb&1572610025|$xb&$ub)|~($wb|$vb)&(1572610025|$ub))+(~(~$tb|~1)&-1));
+		
+		$jb=2008811188;continue;		
+case-86385898:
+		$wb=$this->llf(128,$this->carr($RR,$n,$Va>>2,""));
+		$xb=$this->carr($RR,$n,$Za>>2,"")>>2;
+		$this->carr($RR,$n,$F>>2,$ob+$this->llf($xb,2));
+		$xb=$this->carr($RR,$n,$this->carr($RR,$n,$F>>2,"")>>2,"");
+		$vb=~$xb;
+		$ub=~$wb;
+		$tb=~924717824;
+		$this->carr($RR,$n,$_a>>2,($vb&924717824|$xb&$tb)^($ub&924717824|$wb&$tb)|~($vb|$ub)&(924717824|$tb));
+		
+		$jb=1264018475;continue;
+case-665924408:
+		$tb=$this->carr($RR,$n,$__a>>2,"");
+		$ub=$this->carr($RR,$n,$oa>>2,"");
+		$vb=~(~((($ub^~-2)&$ub)+$tb)|~-2)&-1;
+		$ub=~(~$ub|~1)&-1;
+		$this->carr($RR,$n,$P>>2,($vb&$ub|$vb^$ub)+(($tb^~1)&$tb));
+		
+		$jb=-401948426;continue;		
+case-521081237:
+		$ub=$this->llf($this->carr($RR,$n,$C>>2,""),2);
+		$tb=~852477429;
+		$tb=$this->carr($RR,$n,$sa>>2,"")>>((852477429&~$ub|$ub&$tb)^(~4&852477429|4&$tb));
+		$this->aarr($RR,$n,$j,$this->aarr($RR,$n,217+(($tb^-16)&$tb),""));
+		$tb=$this->carr($RR,$n,$Fa>>2,"");
+		$this->carr($RR,$n,$H>>2,$this->carr($RR,$n,$J>>2,"")+$tb);
+		
+		$jb=1510822949;continue;				
+case-412272376:
+		$tb=~(~$this->llf($this->carr($RR,$n,$Fa>>2,""),2)|~28)&-1;
+		$this->carr($RR,$n,$r>>2,217+~(~($this->carr($RR,$n,$ma>>2,"")>>(4&~$tb|$tb&~4))|-16));
+		
+		$jb=-390950602;continue;		
+case-934444625:
+		$ub=$this->carr($RR,$n,$ua>>2,"");
+		$tb=$wa;
+		$this->carr($RR,$n,$tb>>2,$ub);
+		$this->carr($RR,$n,$tb+4>>2,$this->llf($ub<0,31)>>31);
+		
+		$jb=1688333518;continue;
+case-991315587:
+		$ub=$this->carr($RR,$n,$oa>>2,"")>>$this->llf($this->carr($RR,$n,$pb>>2,""),2);
+		$this->aarr($RR,$n,$g,$this->aarr($RR,$n,217+(($ub^-16)&$ub),""));
+		$ub=$this->carr($RR,$n,$Fa>>2,"");
+		$tb=$za;
+		$this->carr($RR,$n,$tb>>2,$ub);
+		$this->carr($RR,$n,$tb+4>>2,$this->llf((($ub)<0),31)>>31);
+				
+		$jb=-58343100;continue;				
+case-1290934332:
+		$Db=$this->carr($RR,$n,$sa>>2,"");
+		$Db=~$Db|$Db&~-1;
+		$ub=$this->carr($RR,$n,$oa>>2,"");
+		$tb=~$ub;
+		$vb=~$Db;
+		$wb=~2127574409;
+		$wb=($tb&2127574409|$ub&$wb)^($vb&2127574409|$Db&$wb)|~($tb|$vb)&(2127574409|$wb);
+		$vb=$this->carr($RR,$n,$qa>>2,"");
+		$tb=~-1932706895;
+		$tb=(~$vb&-1932706895|$vb&$tb)^(~$wb&-1932706895|$wb&$tb);
+		$wb=$this->carr($RR,$n,$ma>>2,"");
+		$vb=(~(~$wb|~-2)&-1)+$tb;
+		$vb=($vb^~-2)&$vb;
+		$Db=~(~$wb|~1)&-1;
+		$Db=($vb&$Db|$vb^$Db)+(~(~$tb|~1)&-1);
+		$vb=$this->carr($RR,$n,$Fa>>2,"");
+		$vb=$this->carr($RR,$n,$Ga+$this->llf($vb,2)>>2,"");
+		$ub=($this->carr($RR,$n,$Fa>>2,"")*7)%16+$this->carr($RR,$n,$ua>>2,"");
+		$ub=$this->carr($RR,$n,$ob+$this->llf($ub,2)>>2,"");
+		$Bb=$ub+(($vb^~-2)&$vb);
+		$Bb=($Bb^~-2)&$Bb;
+		$Ab=($vb^~1)&$vb;
+		$zb=~$Bb;
+		$yb=~$Ab;
+		$xb=~193036646;
+		$Cb=~(~$ub|~1)&-1;
+		$Db=($Db^~-2)&$Db;
+		$xb=($Db&$Cb|$Db^$Cb)-(-(($zb&193036646|$Bb&$xb)^($yb&193036646|$Ab&$xb)|~($zb|$yb)&(193036646|$xb)));
+		$xb=($xb^~-2)&$xb;
+		$wb+=$tb;
+		$wb=($wb^~1)&$wb;
+		$vb+=$ub;
+		$vb=($xb&$wb|$xb^$wb)+(($vb^~1)&$vb);
+		$wb=$this->carr($RR,$n,$Fa>>2,"")%4+12;
+		$wb=$this->carr($RR,$n,16+$this->llf($wb,2)>>2,"");
+		$xb=$this->llf($vb,$wb);
+		$wb=$this->_rshift($vb,32-$wb);
+		$vb=~$xb;
+		$ub=~$wb;
+		$tb=~850713340;
+		$this->carr($RR,$n,$__a>>2,($vb&850713340|$xb&$tb)^($ub&850713340|$wb&$tb)|~($vb|$ub)&(850713340|$tb));
+		
+		$jb=-665924408;continue;
+case 1153477833:
+		$ub=$this->carr($RR,$n,$oa>>2,"");
+		$ub=$ub^~$this->carr($RR,$n,$qa>>2,"")&$ub;
+		$yb=$this->carr($RR,$n,$oa>>2,"");
+		$xb=~1180867059;
+		$xb=~(~$this->carr($RR,$n,$sa>>2,"")|~((1180867059&~$yb|$yb&$xb)^(~-1&1180867059|-1&$xb)))&-1;
+		$ub=$xb&$ub|$xb^$ub;
+		$xb=$this->carr($RR,$n,$ma>>2,"");
+		$yb=~(~((($xb^~-2)&$xb)+$ub)|~-2)&-1;
+		$xb=($xb^~1)&$xb;
+		$wb=~$yb;
+		$vb=~$xb;
+		$tb=~1812756882;
+		$this->carr($RR,$n,$K>>2,(($wb&1812756882|$yb&$tb)^($vb&1812756882|$xb&$tb)|~($wb|$vb)&(1812756882|$tb))+(($ub^~1)&$ub));
+		$ub=$this->carr($RR,$n,$Fa>>2,"");
+		$tb=$xa;
+		$this->carr($RR,$n,$tb>>2,$ub);
+		$this->carr($RR,$n,$tb+4>>2,$this->llf($ub<0,31)>>31);
+		
+		$jb=633810001;continue;		
+case 494739317:
+		$Hb=$this->carr($RR,$n,$sa>>2,"");
+		$Fb=~137942632;
+		$Gb=$this->carr($RR,$n,$qa>>2,"");
+		$Gb=($Gb^~((137942632&~$Hb|$Hb&$Fb)^(~-1&137942632|-1&$Fb)))&$Gb;
+		$Fb=$this->carr($RR,$n,$B>>2,"");
+		$Hb=~$Fb;
+		$vb=~$Gb;
+		$xb=~-5458134;
+		$xb=($Hb&-5458134|$Fb&$xb)^($vb&-5458134|$Gb&$xb)|~($Hb|$vb)&(-5458134|$xb);
+		$vb=$this->carr($RR,$n,$ma>>2,"");
+		$Hb=~(~((~(~$vb|~-2)&-1)+$xb)|~-2)&-1;
+		$Gb=~(~$vb|~1)&-1;
+		$Fb=~$Hb;
+		$Eb=~$Gb;
+		$Db=~-118764121;
+		$ub=$this->carr($RR,$n,$Fa>>2,"");
+		$ub=$this->carr($RR,$n,$Ga+$this->llf($ub,2)>>2,"");
+		$tb=($this->carr($RR,$n,$Fa>>2,"")*5+1)%16+$this->carr($RR,$n,$ua>>2,"");
+		$tb=$this->carr($RR,$n,$ob+$this->llf($tb,2)>>2,"");
+		$Bb=~(~($tb+(~(~$ub|~-2)&-1))|~-2)&-1;
+		$Ab=~(~$ub|~1)&-1;
+		$zb=~$Bb;
+		$yb=~$Ab;
+		$wb=~35866813;
+		$Cb=($tb^~1)&$tb;
+		
+		$Db=~(~((($Fb&-118764121|$Hb&$Db)^($Eb&-118764121|$Gb&$Db)|~($Fb|$Eb)&(-118764121|$Db))+(~(~$xb|~1)&-1))|~-2)&-1;
+		$wb=($Db&$Cb|$Db^$Cb)+(($zb&35866813|$Bb&$wb)^($yb&35866813|$Ab&$wb)|~($zb|$yb)&(35866813|$wb));
+		$wb=($wb^~-2)&$wb;
+		$vb=$xb+$vb;
+		$vb=($vb^~1)&$vb;
+		$this->carr($RR,$n,$L>>2,($wb&$vb|$wb^$vb)+(~(~($tb+$ub)|~1)&-1));
+		$ub=$this->carr($RR,$n,$Fa>>2,"")%4+4;
+		$tb=$ya;
+		$this->carr($RR,$n,$tb>>2,$ub);
+		$this->carr($RR,$n,$tb+4>>2,$this->llf($ub<0,31)>>31);
+		
+		$jb=276665542;continue;		
+case 999695174:								
+		$xb=$this->carr($RR,$n,$M>>2,"");								
+		$tb=$this->carr($RR,$n,$N>>2,"");
+		$yb=~(~((~(~$xb|~-2)&-1)-(-$tb))|~-2)&-1;
+		$xb=($xb^~1)&$xb;								
+		$wb=~$yb;
+		$vb=~$xb;
+		$ub=~-2039534323;
+		$this->carr($RR,$n,$O>>2,(($wb&-2039534323|$yb&$ub)^($vb&-2039534323|$xb&$ub)|~($wb|$vb)&(-2039534323|$ub))-(-(~(~$tb|~1)&(843895025|~843895025))));								
+		$tb=$this->carr($RR,$n,$Fa>>2,"")%4+8;				
+		$tb=$this->carr($RR,$n,16+$this->llf($tb,2)>>2,"");								
+		$this->carr($RR,$n,$eb>>2,$this->llf($this->carr($RR,$n,$O>>2,""),$tb));
+		$this->carr($RR,$n,$bb>>2,32+(-$tb));
+		
+		$jb=-738461164;continue;
+case 800362374:
+		$tb=$this->carr($RR,$n,$Fa>>2,"");
+		$this->carr($RR,$n,$Ga+$this->llf($tb,2)>>2,~~+$this->harr($RR,$Wa>>3,""));
+		$this->carr($RR,$n,$Da>>2,$this->carr($RR,$n,$Fa>>2,"")+1);
+		
+		$jb=228161238;continue;
+case 439769685:
+		$yb=$this->carr($RR,$n,$qa>>2,"");
+		$tb=$this->carr($RR,$n,$oa>>2,"");
+		$yb=$yb&~$tb|$tb&~$yb;
+		$tb=$this->carr($RR,$n,$sa>>2,"");
+		$xb=~1841611462;
+		$xb=(1841611462&~$yb|$yb&$xb)^(~$tb&1841611462|$tb&$xb);
+		$tb=$this->carr($RR,$n,$ma>>2,"");
+		$yb=~(~((~(~$tb|~-2)&-1)-(-$xb))|~-2)&-1;
+		$tb=($tb^~1)&$tb;
+		$this->carr($RR,$n,$M>>2,($yb&$tb|$yb^$tb)+(($xb^~1)&$xb));
+		$xb=$this->carr($RR,$n,$Fa>>2,"");
+		$xb=$this->carr($RR,$n,$Ga+$this->llf($xb,2)>>2,"");
+		$tb=($this->carr($RR,$n,$Fa>>2,"")*3+5)%16+$this->carr($RR,$n,$ua>>2,"");
+		$tb=$this->carr($RR,$n,$ob+$this->llf($tb,2)>>2,"");
+		$yb=~(~($tb+(~(~$xb|~-2)&-1))|~-2)&-1;
+		$xb=($xb^~1)&$xb;
+		$wb=~$yb;
+		$vb=~$xb;
+		$ub=~-942245303;
+		$this->carr($RR,$n,$N>>2,(($wb&-942245303|$yb&$ub)^($vb&-942245303|$xb&$ub)|~($wb|$vb)&(-942245303|$ub))-(-(($tb^~1)&$tb)));
+		
+		$jb=999695174;continue;
+case 463554092:
+		$this->carr($RR,$n,$db>>2,$this->llf($this->carr($RR,$n,$lb>>2,""),$this->llf($this->carr($RR,$n,$ab>>2,""),3)));
+		$tb=$this->carr($RR,$n,$Za>>2,"")>>2;
+		$this->carr($RR,$n,$E>>2,$ob+$this->llf($tb,2));
+		$this->carr($RR,$n,$m>>2,$this->carr($RR,$n,$this->carr($RR,$n,$E>>2,"")>>2,""));
+		
+		$jb=791025390;continue;
+case 2008811188:
+		$xb=$this->carr($RR,$n,$Oa>>2,"");
+		$ub=$this->carr($RR,$n,$oa>>2,"");
+		$yb=(($xb^~-2)&$xb)+$ub;
+		$yb=($yb^~-2)&$yb;
+		$xb=($xb^~1)&$xb;
+		$wb=~$yb;
+		$vb=~$xb;
+		$tb=~-315119066;
+		$this->carr($RR,$n,$S>>2,(($wb&-315119066|$yb&$tb)^($vb&-315119066|$xb&$tb)|~($wb|$vb)&(-315119066|$tb))+(($ub^~1)&$ub));
+		$ub=$this->carr($RR,$n,$Qa>>2,"");
+		$tb=$this->carr($RR,$n,$qa>>2,"");
+		$vb=(($ub^~-2)&$ub)+$tb;
+		$vb=($vb^~-2)&$vb;
+		$ub=~(~$ub|~1)&-1;
+		$this->carr($RR,$n,$T>>2,($vb&$ub|$vb^$ub)+(($tb^~1)&$tb));
+		
+		$jb=-1101163512;continue;		
+		
+case 2146552338:case -2051875059:case -630729423:case-2141197378:case 2028659015:
+case 1432877594:case -1662327480:case -983205733:case -1924281938:case 1774369769:
+case -489741395:case -828878942:case -2136717671:case 2045376102:case 916103055:
+case 1775324253:case 690197071:case 139799944:case 1618283724:case 331129789:
+case -1785460248:case 2070699595:case 1137039176:case 270009349:
+case -722374409:case 2059037329:case -1360885125:case -1781069297:case 601583830:
+case 1388594392:case -777225753:case -920516874:case 1297236730:case 481757527:
+case -2014580748:case 2014978051:case 1468918320:case 128106704:case-401948426:	
+case-1971280264:case-180306226:case 484876086:case 167383782:case 637834779:
+case 1720235387:case-1579204746:case-1797419395:case 1657487624:case-895015477:	
+case 1410343841:case-1878597151:case-2014779455:case-843646639:case-256536033:
+case 416259719:case-1380451239:case 228161238:case-856036625:case-2074579782:
+
+  
+		$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"");$na=$this->carr($RR,$n,$oa>>2,"");
+		$pa=$this->carr($RR,$n,$qa>>2,"");$ra=$this->carr($RR,$n,$sa>>2,"");$ta=$this->carr($RR,$n,$ua>>2,"");
+		$Ea=$this->carr($RR,$n,$Fa>>2,"");$Ha=$this->carr($RR,$n,$Ia>>2,"");$Ja=$this->carr($RR,$n,$Ka>>2,"");
+		$La=$this->carr($RR,$n,$Ma>>2,"");$Na=$this->carr($RR,$n,$Oa>>2,"");$Pa=$this->carr($RR,$n,$Qa>>2,"");
+		$Ra=$this->carr($RR,$n,$Sa>>2,"");$Ya=$this->carr($RR,$n,$Za>>2,"");
+		$kb=$this->carr($RR,$n,$lb>>2,"");$mb=$this->carr($RR,$n,$nb>>2,"");
+
+		if ($jb==2146552338) $n=0; 
+		elseif ($jb==-2051875059) $n=1; elseif ($jb==-630729423) $n=3;
+		elseif ($jb==-2141197378) $n=5; elseif ($jb==2028659015) $n=7; 
+		elseif ($jb==1432877594) $n=9; elseif ($jb==-1662327480) $n=11;
+		elseif ($jb==-983205733) $n=13; elseif ($jb==-1924281938) $n=17;
+		elseif ($jb==1774369769) $n=21; elseif ($jb==-489741395) $n=22;
+		elseif ($jb==-828878942) $n=24; elseif ($jb==-2136717671) $n=25;
+		elseif ($jb==2045376102) $n=27; elseif ($jb==916103055) $n=$this->carr($RR,$n,$o>>2,"");		   
+		elseif ($jb==1775324253) $n=31; elseif ($jb==690197071) $n=35;
+		elseif ($jb==139799944) $n=36; elseif ($jb==1618283724) $n=40;
+		elseif ($jb==331129789) $n=41; elseif ($jb==-1785460248) $n=45;
+		elseif ($jb==2070699595) $n=46; elseif ($jb==1137039176) $n=48;
+		elseif ($jb==270009349) $n=49; 
+		elseif ($jb==-722374409) $n=54; elseif ($jb==2059037329) $n=55;
+		elseif ($jb==-1360885125) $n=56; elseif ($jb==-1781069297) $n=58;
+		elseif ($jb==601583830) $n=63; elseif ($jb==1388594392) $n=64;
+		elseif ($jb==-777225753) $n=65; elseif ($jb==-920516874) $n=67;
+		elseif ($jb==1297236730) $n=69; 
+		elseif ($jb==481757527) $n=71; elseif ($jb==-2014580748) $n=73;
+		elseif ($jb==2014978051) $n=75; elseif ($jb==1468918320) $n=77;
+		elseif ($jb==128106704) $n=81; 		
+		elseif ($jb==-401948426) 
+		   {$n=3;
+		   $Ea++;
+		   $na=$this->carr($RR,$n,$P>>2,"");
+		   $la=$this->carr($RR,$n,$sa>>2,"");
+		   $ra=$this->carr($RR,$n,$qa>>2,"");
+		   $pa=$this->carr($RR,$n,$oa>>2,"");}		
+		elseif ($jb==-1971280264) 
+		   {$n=15;
+		   $Ea=0;
+		   $La=$this->carr($RR,$n,$ma>>2,"");
+		   $Na=$this->carr($RR,$n,$oa>>2,"");
+		   $Pa=$this->carr($RR,$n,$qa>>2,"");
+		   $Ra=$this->carr($RR,$n,$sa>>2,"");}
+		elseif ($jb==-180306226) 
+		   {$n=23;$kb=$this->carr($RR,$n,$A>>2,"");}
+		elseif ($jb==484876086) 
+		   {$n=23;$kb=$this->carr($RR,$n,$z>>2,"");}
+		elseif ($jb==167383782) 
+		   {$n=26;$kb=$this->carr($RR,$n,$y>>2,"")%32;}
+		elseif ($jb==637834779) 
+		   {$n=29;$Ea=0;}		
+		elseif ($jb==1720235387) 
+		   {$n=33;$ta=$this->carr($RR,$n,$Ca>>2,"");}		
+		elseif ($jb==-1579204746) 
+		   {$n=33;$ta=0;$Ya=$this->carr($RR,$n,$ua>>2,"");}	
+		elseif ($jb==-1797419395) 
+		   {$n=38;$ta=0;}						   
+		elseif ($jb==1657487624) 
+		   {$n=43;$ta=0;}
+		elseif ($jb==-895015477) 
+		   {$n=43;$ta++;}
+		elseif ($jb==1410343841) 
+		   {$n=45;$Ya=$this->carr($RR,$n,$w>>2,"");}	
+		elseif ($jb==-1878597151) 
+		   {$n=47;
+		   $Ya=$this->carr($RR,$n,$fb>>2,"");
+		   $Ja=$this->carr($RR,$n,$u>>2,"");}	
+		elseif ($jb==-2014779455) 
+		   {$n=52;
+		   $la=1732584193;$na=-271733879;
+		   $pa=-1732584194;$ra=271733878;}
+		elseif ($jb==-843646639) 
+		   {$n=52;$Ha=$this->carr($RR,$n,$Ba>>2,"");}
+		elseif ($jb==-256536033) 
+		   {$n=51;
+		   $ta=$this->carr($RR,$n,$Aa>>2,"");
+		   $mb=$this->carr($RR,$n,$ua>>2,"");}
+		elseif ($jb==416259719) 
+		   {$n=55;$p=$this->harr($RR,$ib>>3,"");}
+		elseif ($jb==-1380451239) 
+		   {$n=57;$p=$this->harr($RR,$U>>3,"");}
+		elseif ($jb==228161238) 
+		   {$n=60;$Ea=$this->carr($RR,$n,$Da>>2,"");}
+		elseif ($jb==-856036625) 
+		   {$n=60;$ta=0;$Ea=0;$Ha=0;}	
+		elseif ($jb==-2074579782) 
+		   {$n=79;$Ea=0;}
+		   						   		   
+		$jb=-188097831;continue;						
+				
+case-738461164:
+		$n=$this->_rshift($this->carr($RR,$n,$O>>2,""),$this->carr($RR,$n,$bb>>2,""));					
+		$la=$this->carr($RR,$n,$eb>>2,""); 
+	
+		$ra=~$la;
+		$pa=~$n;
+		$na=~656398317;
+		$na=($ra&656398317|$la&$na)^($pa&656398317|$n&$na)|~($ra|$pa)&(656398317|$na);
+		
+		$pa=$this->carr($RR,$n,$oa>>2,"");
+		$ra=(~(~$pa|~-2)&-1)+$na;
+		$ra=($ra^~-2)&$ra;
+		$pa=($pa^~1)&$pa;
+		
+		$n=7;
+		$p=$this->harr($RR,$q>>3,"");
+		$la=$this->carr($RR,$n,$sa>>2,"");
+		$na=($ra&$pa|$ra^$pa)+(~(~$na|~1)&-1);
+										
+		$pa=$this->carr($RR,$n,$oa>>2,"");$ra=$this->carr($RR,$n,$qa>>2,"");$ta=$this->carr($RR,$n,$ua>>2,"");
+		$Ea=$this->carr($RR,$n,$Fa>>2,"")+1;$Ha=$this->carr($RR,$n,$Ia>>2,"");
+		$Ja=$this->carr($RR,$n,$Ka>>2,"");$La=$this->carr($RR,$n,$Ma>>2,"");$Na=$this->carr($RR,$n,$Oa>>2,"");
+		$Pa=$this->carr($RR,$n,$Qa>>2,"");$Ra=$this->carr($RR,$n,$Sa>>2,"");$Ya=$this->carr($RR,$n,$Za>>2,"");
+		$kb=$this->carr($RR,$n,$lb>>2,"");$mb=$this->carr($RR,$n,$nb>>2,"");
+	
+		$jb=-188097831;continue;
+case 276665542:
+		$ra=$this->carr($RR,$n,16+$this->llf($this->carr($RR,$n,$ya>>2,""),2)>>2);
+		$ta=$this->llf($this->carr($RR,$n,$L>>2,""),$ra);
+		$ra=$this->_rshift($this->carr($RR,$n,$L>>2,""),32-$ra);
+		$Ha=~$ra;
+		$Ea=~$ta;
+		$na=~-1044037601;
+		$na=($Ha&-1044037601|$ra&$na)^($Ea&-1044037601|$ta&$na)|~($Ha|$Ea)&(-1044037601|$na);
+		$Ea=$this->carr($RR,$n,$oa>>2,"");
+		$Ha=~(~((($Ea^~-2)&$Ea)+$na)|~-2)&-1;
+		$Ea=~(~$Ea|~1)&-1;
+		$ta=~$Ha;
+		$ra=~$Ea;
+		$pa=~522919445;
+		
+		$n=11;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$sa>>2,"");
+		$na=(($ta&522919445|$Ha&$pa)^($ra&522919445|$Ea&$pa)|~($ta|$ra)&(522919445|$pa))+(($na^~1)&$na);
+		$pa=$this->carr($RR,$n,$oa>>2,"");$ra=$this->carr($RR,$n,$qa>>2,"");$ta=$this->carr($RR,$n,$ua>>2,"");
+		$Ea=$this->carr($RR,$n,$Fa>>2,"")+1;$Ha=$this->carr($RR,$n,$Ia>>2,"");$Ja=$this->carr($RR,$n,$Ka>>2,"");
+		$La=$this->carr($RR,$n,$Ma>>2,"");$Na=$this->carr($RR,$n,$Oa>>2,"");$Pa=$this->carr($RR,$n,$Qa>>2,"");
+		$Ra=$this->carr($RR,$n,$Sa>>2,"");$Ya=$this->carr($RR,$n,$Za>>2,"");
+		$kb=$this->carr($RR,$n,$lb>>2,"");$mb=$this->carr($RR,$n,$nb>>2,"");
+		
+		$jb=-188097831;continue;
+case-164314163:
+		$ra=$this->carr($RR,$n,$this->carr($RR,$n,$G>>2,"")>>2,"");
+		$n=$this->carr($RR,$n,$Fa>>2,"")%16+$this->carr($RR,$n,$ua>>2,"");
+		$n=$this->carr($RR,$n,$ob+$this->llf($n,2)>>2,"");
+		$Ha=~(~($n+(~(~$ra|~-2)&-1))|~-2)&-1;
+		$Ea=~(~$ra|~1)&-1;
+		$ta=~$Ha;
+		$na=~$Ea;
+		$pa=~372789369;
+		$Ja=~(~$n|~1)&-1;
+		$la=$this->carr($RR,$n,$K>>2,"");
+		$La=~(~$la|~-2)&-1;
+		$pa=($La&$Ja|$La^$Ja)+(($ta&372789369|$Ha&$pa)^($na&372789369|$Ea&$pa)|~($ta|$na)&(372789369|$pa));
+		$pa=($pa^~-2)&$pa;
+		$la=~(~$la|~1)&-1;
+		$ra=($pa&$la|$pa^$la)+(~(~($n-(-$ra))|~1)&-1);
+		$n=$this->carr($RR,$n,$Fa>>2,"")%4;
+		$n=$this->carr($RR,$n,16+$this->llf($n,2)>>2,"");
+		$la=$this->llf($ra,$n);
+		$n=$this->_rshift($ra,32-$n);
+		$ra=~$la;
+		$pa=~$n;
+		$na=~50919874;
+		$na=($ra&50919874|$la&$na)^($pa&50919874|$n&$na)|~($ra|$pa)&(50919874|$na);
+		$pa=$this->carr($RR,$n,$oa>>2,"");
+		$ra=~(~($na+(($pa^~-2)&$pa))|~-2)&-1;
+		$pa=($pa^~1)&$pa;
+		
+		$n=15;
+		$p=$this->harr($RR,$q>>3,"");
+		$la=$this->carr($RR,$n,$sa>>2,"");
+		$na=($ra&$pa|$ra^$pa)+(($na^~1)&$na);
+		$pa=$this->carr($RR,$n,$oa>>2,"");
+		$ra=$this->carr($RR,$n,$qa>>2,"");
+		$ta=$this->carr($RR,$n,$ua>>2,"");
+		$Ea=$this->carr($RR,$n,$Fa>>2,"")+1;
+		$Ha=$this->carr($RR,$n,$Ia>>2,"");
+		$Ja=$this->carr($RR,$n,$Ka>>2,"");
+		$La=$this->carr($RR,$n,$Ma>>2,"");
+		$Na=$this->carr($RR,$n,$Oa>>2,"");
+		$Pa=$this->carr($RR,$n,$Qa>>2,"");
+		$Ra=$this->carr($RR,$n,$Sa>>2,"");
+		$Ya=$this->carr($RR,$n,$Za>>2,"");		
+		$kb=$this->carr($RR,$n,$lb>>2,"");
+		$mb=$this->carr($RR,$n,$nb>>2,"");
+		
+		$jb=-188097831;continue;
+case 1264018475:
+		$this->carr($RR,$n,$this->carr($RR,$n,$F>>2,"")>>2,$this->carr($RR,$n,$_a>>2,""));$n=$this->carr($RR,$n,$Ka>>2,"");
+		$this->carr($RR,$n,$ob+$this->llf($n,2)>>2,$this->llf($this->carr($RR,$n,$Ia>>2,""),3)+256);
+		
+		$n=19;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"");$na=$this->carr($RR,$n,$oa>>2,"");
+		$pa=$this->carr($RR,$n,$qa>>2,"");$ra=$this->carr($RR,$n,$sa>>2,"");$ta=0;$Ea=$this->carr($RR,$n,$Fa>>2,"");
+		$Ha=$this->carr($RR,$n,$Ia>>2,"");$Ja=$this->carr($RR,$n,$Ka>>2,"");$La=$this->carr($RR,$n,$Ma>>2,"");
+		$Na=$this->carr($RR,$n,$Oa>>2,"");$Pa=$this->carr($RR,$n,$Qa>>2,"");$Ra=$this->carr($RR,$n,$Sa>>2,"");
+		$Ya=$this->carr($RR,$n,$Za>>2,"");
+		$kb=$this->carr($RR,$n,$lb>>2,"");$mb=$this->carr($RR,$n,$nb>>2,"");
+		
+		$jb=-188097831;continue;
+case-1101163512:
+		$ta=$this->carr($RR,$n,$Sa>>2,"");
+		$ra=$this->carr($RR,$n,$sa>>2,"");
+		$Ea=(~(~$ta|~-2)&-1)+$ra;
+		$Ea=($Ea^~-2)&$Ea;
+		$ta=~(~$ta|~1)&-1;
+		
+		$n=19;
+		$p=$this->harr($RR,$q>>3,"");
+		$la=$this->carr($RR,$n,$R>>2,"");
+		$na=$this->carr($RR,$n,$S>>2,"");
+		$pa=$this->carr($RR,$n,$T>>2,"");
+		$ra=($Ea&$ta|$Ea^$ta)+(($ra^~1)&$ra);
+		$ta=$this->carr($RR,$n,$ua>>2,"")+16;
+		
+		$Ea=$this->carr($RR,$n,$Fa>>2,"");$Ha=$this->carr($RR,$n,$Ia>>2,"");
+		$Ja=$this->carr($RR,$n,$Ka>>2,"");$La=$this->carr($RR,$n,$Ma>>2,"");
+		$Na=$this->carr($RR,$n,$Oa>>2,"");$Pa=$this->carr($RR,$n,$Qa>>2,"");
+		$Ra=$this->carr($RR,$n,$Sa>>2,"");$Ya=$this->carr($RR,$n,$Za>>2,"");		
+		$kb=$this->carr($RR,$n,$lb>>2,"");$mb=$this->carr($RR,$n,$nb>>2,"");
+		
+		$jb=-188097831;continue;	
+case 791025390:
+		$pa=$this->carr($RR,$n,$db>>2,"");
+		$ra=$this->carr($RR,$n,$m>>2,"");
+		$na=~$ra;
+		$la=~$pa;
+		$n=~243669087;
+		$this->carr($RR,$n,$this->carr($RR,$n,$E>>2,"")>>2,($na&243669087|$ra&$n)^($la&243669087|$pa&$n)|~($na|$la)&(243669087|$n));
+		
+		$n=29;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"");
+		$na=$this->carr($RR,$n,$oa>>2,"");
+		$pa=$this->carr($RR,$n,$qa>>2,"");$ra=$this->carr($RR,$n,$sa>>2,"");$ta=$this->carr($RR,$n,$ua>>2,"");
+		$Ea=$this->carr($RR,$n,$Fa>>2,"")+1;$Ha=$this->carr($RR,$n,$Ia>>2,"");
+		$Ja=$this->carr($RR,$n,$Ka>>2,"");$La=$this->carr($RR,$n,$Ma>>2,"");$Na=$this->carr($RR,$n,$Oa>>2,"");
+		$Pa=$this->carr($RR,$n,$Qa>>2,"");$Ra=$this->carr($RR,$n,$Sa>>2,"");$Ya=$this->carr($RR,$n,$Za>>2,"")+1;
+		$kb=$this->carr($RR,$n,$lb>>2,"");$mb=$this->carr($RR,$n,$nb>>2,"");
+		
+		$jb=-188097831;continue;		
+case 108332815:
+		$pa=$this->carr($RR,$n,$cb>>2,"");
+		$ra=$this->carr($RR,$n,$l>>2,"");
+		$na=~$ra;
+		$la=~$pa;
+		$n=~961559109;
+		$this->carr($RR,$n,$this->carr($RR,$n,$D>>2,"")>>2,($na&961559109|$ra&$n)^($la&961559109|$pa&$n)|~($na|$la)&(961559109|$n));
+		
+		$n=38;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"");$na=$this->carr($RR,$n,$oa>>2,"");
+		$pa=$this->carr($RR,$n,$qa>>2,"");$ra=$this->carr($RR,$n,$sa>>2,"");$ta=$this->carr($RR,$n,$ua>>2,"")+1;
+		$Ea=$this->carr($RR,$n,$Fa>>2,"");$Ha=$this->carr($RR,$n,$Ia>>2,"");$Ja=$this->carr($RR,$n,$Ka>>2,"");
+		$La=$this->carr($RR,$n,$Ma>>2,"");$Na=$this->carr($RR,$n,$Oa>>2,"");$Pa=$this->carr($RR,$n,$Qa>>2,"");
+		$Ra=$this->carr($RR,$n,$Sa>>2,"");$Ya=$this->carr($RR,$n,$Za>>2,"");
+		$kb=$this->carr($RR,$n,$lb>>2,"");$mb=$this->carr($RR,$n,$nb>>2,"");
+		
+		$jb=-188097831;continue;					
+case 1510822949:
+		$this->aarr($RR,$n,$this->carr($RR,$n,$H>>2,""),$this->aarr($RR,$n,$j,""));
+		
+		$n=67;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"");$na=$this->carr($RR,$n,$oa>>2,"");
+		$pa=$this->carr($RR,$n,$qa>>2,"");$ra=$this->carr($RR,$n,$sa>>2,"");$ta=$this->carr($RR,$n,$ua>>2,"");
+		$Ea=$this->carr($RR,$n,$Fa>>2,"")+1;$Ha=$this->carr($RR,$n,$Ia>>2,"");$Ja=$this->carr($RR,$n,$Ka>>2,"");
+		$La=$this->carr($RR,$n,$Ma>>2,"");$Na=$this->carr($RR,$n,$Oa>>2,"");$Pa=$this->carr($RR,$n,$Qa>>2,"");
+		$Ra=$this->carr($RR,$n,$Sa>>2,"");$Ya=$this->carr($RR,$n,$Za>>2,"");
+		$kb=$this->carr($RR,$n,$lb>>2,"");$mb=$this->carr($RR,$n,$nb>>2,"");
+		
+		$jb=-188097831;continue;		
+case-423412824:
+		$n=$this->carr($RR,$n,$Fa>>2,"");
+		$this->aarr($RR,$n,$this->carr($RR,$n,$J>>2,"")+$n,$this->aarr($RR,$n,$this->carr($RR,$n,$s>>2,""),""));
+		
+		$n=71;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"");
+		$na=$this->carr($RR,$n,$oa>>2,"");$pa=$this->carr($RR,$n,$qa>>2,"");
+		$ra=$this->carr($RR,$n,$sa>>2,"");
+		$ta=$this->carr($RR,$n,$ua>>2,"");$Ea=($this->carr($RR,$n,$Fa>>2,""))-(-1);
+		$Ha=$this->carr($RR,$n,$Ia>>2,"");$Ja=$this->carr($RR,$n,$Ka>>2,"");
+		$La=$this->carr($RR,$n,$Ma>>2,"");$Na=$this->carr($RR,$n,$Oa>>2,"");
+		$Pa=$this->carr($RR,$n,$Qa>>2,"");$Ra=$this->carr($RR,$n,$Sa>>2,"");
+		$Ya=$this->carr($RR,$n,$Za>>2,"");
+		$kb=$this->carr($RR,$n,$lb>>2,"");$mb=$this->carr($RR,$n,$nb>>2,"");
+		
+		$jb=-188097831;continue;		
+case-58343100:
+		$this->aarr($RR,$n,$this->carr($RR,$n,$J>>2,"")+$this->carr($RR,$n,$za>>2,""),$this->aarr($RR,$n,$g,""));
+		
+		$n=75;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"");
+		$na=$this->carr($RR,$n,$oa>>2,"");$pa=$this->carr($RR,$n,$qa>>2,"");
+		$ra=$this->carr($RR,$n,$sa>>2,"");$ta=$this->carr($RR,$n,$ua>>2,"");
+		$Ea=$this->carr($RR,$n,$Fa>>2,"")+1;
+		$Ha=$this->carr($RR,$n,$Ia>>2,"");$Ja=$this->carr($RR,$n,$Ka>>2,"");
+		$La=$this->carr($RR,$n,$Ma>>2,"");$Na=$this->carr($RR,$n,$Oa>>2,"");
+		$Pa=$this->carr($RR,$n,$Qa>>2,"");$Ra=$this->carr($RR,$n,$Sa>>2,"");
+		$Ya=$this->carr($RR,$n,$Za>>2,"");
+		$kb=$this->carr($RR,$n,$lb>>2,"");$mb=$this->carr($RR,$n,$nb>>2,"");
+		
+		$jb=-188097831;continue;		
+case-275270623:
+		$this->aarr($RR,$n,$this->carr($RR,$n,$J>>2,"")+$this->carr($RR,$n,$va>>2,""),$this->aarr($RR,$n,$f,""));
+		
+		$n=79;$p=$this->harr($RR,$q>>3,"");$la=$this->carr($RR,$n,$ma>>2,"");
+		$na=$this->carr($RR,$n,$oa>>2,"");$pa=$this->carr($RR,$n,$qa>>2,"");
+		$ra=$this->carr($RR,$n,$sa>>2,"");$ta=$this->carr($RR,$n,$ua>>2,"");
+		$Ea=$this->carr($RR,$n,$Fa>>2,"")+1;
+		$Ha=$this->carr($RR,$n,$Ia>>2,"");$Ja=$this->carr($RR,$n,$Ka>>2,"");
+		$La=$this->carr($RR,$n,$Ma>>2,"");$Na=$this->carr($RR,$n,$Oa>>2,"");
+		$Pa=$this->carr($RR,$n,$Qa>>2,"");$Ra=$this->carr($RR,$n,$Sa>>2,"");
+		$Ya=$this->carr($RR,$n,$Za>>2,"");
+		$kb=$this->carr($RR,$n,$lb>>2,"");$mb=$this->carr($RR,$n,$nb>>2,"");
+		
+		$jb=-188097831;		
+		}
+		
+$tb=$mb;$ub=$kb;$vb=$Ya;$wb=$Ra;$xb=$Pa;$yb=$Na;$zb=$La;$Ab=$Ja;
+$Bb=$Ha;$Cb=$Ea;$Db=$ta;$Eb=$ra;$Fb=$pa;$Gb=$na;$Hb=$la;$sb=$p;$Ib=$n;
+}					
+}
 
 function Ua($a,&$RR,&$O)
 			{			
-			$a=$a|0;
-			$b=0;$d=0;$e=0;$f=0;$g=0;$h=0;$i=0;$j=0;$k=0;$l=0;$m=0;$n=0;
-			$o=0;$p=0;$q=0;$r=0;$s=0;$t=0;$u=0;$v=0;$w=0;$x=0;$y=0;$z=0;
-			$A=0;$B=0;$C=0;$D=0;$E=0;$F=0;$G=0;$H=0;$I=0;$J=0;$K=0;$L=0;
+			$b=$d=$e=$f=$g=$h=$i=$j=$k=$l=$m=$n=0;
+			$o=$p=$q=$r=$s=$t=$u=$v=$w=$x=$y=$z=0;
+			$A=$B=$C=$D=$E=$F=$G=$H=$I=$J=$K=$L=0;
 			
 			$nn=0;
 			
-			do if($a>>0<245)
+			do if($a<245)
 				{
-				$o=($a<11?16:$a+11&-8);
+				$o=$a<11?16:$a+11&-8;
 				$a=$this->_rshift($o,3);
-				$j=$this->carr($RR,$nn,72,"")|0;
+				$j=$this->carr($RR,$nn,72,"");
 				$b=$this->_rshift($j,$a);
 				
-				if($b&3|0)
+				if($b&3)
 					{
-					$b=($b&1^1)+$a|0;
-					$d=328+($b<<1<<2)|0;
-					$e=$d+8|0;
-					$f=$this->carr($RR,$nn,$e>>2,"")|0;
-					$g=$f+8|0;
-					$h=$this->carr($RR,$nn,$g>>2,"")|0;
+					$b=($b&1^1)+$a;
+					$d=328+($b<<1<<2);
+					$e=$d+8;
+					$f=$this->carr($RR,$nn,$e>>2,"");
+					$g=$f+8;
+					$h=$this->carr($RR,$nn,$g>>2,"");
 					
-					do 	if(($d|0)!=($h|0))
+					do 	if($d!=$h)
 							{								
-							$a=$h+12|0;
+							$a=$h+12;
 							
-							if(($this->carr($RR,$nn,$a>>2,"")|0)==($f|0))
+							if($this->carr($RR,$nn,$a>>2,"")==$f)
 								{
 								$this->carr($RR,$nn,$a>>2,$d);
 								$this->carr($RR,$nn,$e>>2,$h);
@@ -2606,21 +1282,21 @@ function Ua($a,&$RR,&$O)
 				
 					$L=$b<<3;
 					$this->carr($RR,$nn,$f+4>>2,$L|3);
-					$L=$f+$L+4|0;
+					$L=$f+$L+4;
 					$this->carr($RR,$nn,$L>>2,$this->carr($RR,$nn,$L>>2,"")|1);
-					$L=$g;
-					return $L|0;
+
+					return $g;
 					} 
 				
-				$h=$this->carr($RR,$nn,74,"")|0;
+				$h=$this->carr($RR,$nn,74,"");
 				
 				if($o>$h)
 					{
-					if($b|0)
+					if($b)
 						{
 						$d=2<<$a;
-						$d=$b<<$a&($d|0-$d);
-						$d=($d&0-$d)+ -1|0;
+						$d=$b<<$a&($d-$d);
+						$d=($d&-$d)+ -1;
 						$i=$this->_rshift($d,12&16);
 						$d=$this->_rshift($d,$i);
 						$f=$this->_rshift($d,5&8);
@@ -2630,78 +1306,79 @@ function Ua($a,&$RR,&$O)
 						$e=$this->_rshift($d,1&2);
 						$d=$this->_rshift($d,$e);
 						$b=$this->_rshift($d,1&1);
-						$b=($f|$i|$g|$e|$b)+($this->_rshift($d,$b))|0;
-						$d=328+($b<<1<<2)|0;
-						$e=$d+8|0;
-						$g=$this->carr($RR,$nn,$e>>2,"")|0;
-						$i=$g+8|0;
-						$f=$this->carr($RR,$nn,$i>>2,"")|0;
+						$b=($f|$i|$g|$e|$b)+($this->_rshift($d,$b));
+						$d=328+($b<<1<<2);
+						$e=$d+8;
+						$g=$this->carr($RR,$nn,$e>>2,"");
+						$i=$g+8;
+						$f=$this->carr($RR,$nn,$i>>2,"");
 						
-						do 		if(($d|0)!=($f|0))
-									{										
-									$a=$f+12|0;
-									
-									if(($this->carr($RR,$nn,$a>>2,"")|0)==($g|0))
-										{
-										$this->carr($RR,$nn,$a>>2,$d);
-										$this->carr($RR,$nn,$e>>2,$f);
-										$k=$this->carr($RR,$nn,74,"")|0;
-										break;
-										}
-									}
-								else
+						do 		
+							if($d!=$f)
+								{
+								$a=$f+12;
+								
+								if($this->carr($RR,$nn,$a>>2,"")==$g)
 									{
-									$this->carr($RR,$nn,72,$j&~(1<<$b));
-									$k=$h;
+									$this->carr($RR,$nn,$a>>2,$d);
+									$this->carr($RR,$nn,$e>>2,$f);
+									$k=$this->carr($RR,$nn,74,"");
+									break;
 									}
+								}
+							else
+								{
+								$this->carr($RR,$nn,72,$j&~(1<<$b));
+								$k=$h;
+								}
 						while(0);
 				
-						$h=($b<<3)-$o|0;
+						$h=($b<<3)-$o;
 						$this->carr($RR,$nn,$g+4>>2,$o|3);
-						$e=$g+$o|0;
+						$e=$g+$o;
 						$this->carr($RR,$nn,$e+4>>2,$h|1);
 						$this->carr($RR,$nn,$e+$h>>2,$h);
 						
-						if($k|0)
+						if($k)
+							{
+							$f=$this->carr($RR,$nn,77,"");
+							$b=$this->_rshift($k,3);
+							$d=328+($b<<1<<2);
+							$a=$this->carr($RR,$nn,72,"");
+							$b=1<<$b;
+							
+							if($a&$b)
 								{
-								$f=$this->carr($RR,$nn,77,"")|0;
-								$b=$this->_rshift($k,3);
-								$d=328+($b<<1<<2)|0;
-								$a=$this->carr($RR,$nn,72,"")|0;
-								$b=1<<$b;
-								
-								if($a&$b)
-									{
-									$a=$d+8|0;
-									$b=$this->carr($RR,$nn,$a>>2,"")|0;
-																		
-									$l=$a;
-									$m=$b;									
-									}
-								else
-									{
-									$this->carr($RR,$nn,72,$a|$b);
-									$l=$d+8|0;
-									$m=$d;
-									}
-									
-								$this->carr($RR,$nn,$l>>2,$f);
-								$this->carr($RR,$nn,$m+12>>2,$f);
-								$this->carr($RR,$nn,$f+8>>2,$m);
-								$this->carr($RR,$nn,$f+12>>2,$d);
+								$a=$d+8;
+								$b=$this->carr($RR,$nn,$a>>2,"");
+																	
+								$l=$a;
+								$m=$b;									
 								}
+							else
+								{
+								$this->carr($RR,$nn,72,$a|$b);
+								$l=$d+8;
+								$m=$d;
+								}
+								
+							$this->carr($RR,$nn,$l>>2,$f);
+							$this->carr($RR,$nn,$m+12>>2,$f);
+							$this->carr($RR,$nn,$f+8>>2,$m);
+							$this->carr($RR,$nn,$f+12>>2,$d);
+							}
 							
 						$this->carr($RR,$nn,74,$h);
 						$this->carr($RR,$nn,77,$e);
-						$L=$i;
-						return $L|0;
+
+						return $i;
 						}
 						
-					$a=$this->carr($RR,$nn,73,"")|0;
+					$a=$this->carr($RR,$nn,73,"");
 					
 					if($a)
 						{
-						$d=($a&0-$a)+ -1|0;
+						$d=($a&-$a)+ -1;
 						$K=$this->_rshift($d,12&16);
 						$d=$this->_rshift($d,$K);
 						$J=$this->_rshift($d,5&8);
@@ -2711,48 +1388,49 @@ function Ua($a,&$RR,&$O)
 						$b=$this->_rshift($d,1&2);
 						$d=$this->_rshift($d,$b);
 						$e=$this->_rshift($d,1&1);
-						$e=$this->carr($RR,$nn,592+(($J|$K|$L|$b|$e)+($this->_rshift($d,$e))<<2)>>2,"")|0;
-						$d=($this->carr($RR,$nn,$e+4>>2,"")&-8)-$o|0;
+						$e=$this->carr($RR,$nn,592+(($J|$K|$L|$b|$e)+($this->_rshift($d,$e))<<2)>>2,"");
+						$d=($this->carr($RR,$nn,$e+4>>2,"")&-8)-$o;
 						$b=$e;
 						
 						while(1)
+							{
+							$a=$this->carr($RR,$nn,$b+16>>2,"");
+							
+							if(!$a)
 								{
-								$a=$this->carr($RR,$nn,$b+16>>2,"")|0;
+								$a=$this->carr($RR,$nn,$b+20>>2,"");
 								
 								if(!$a)
 									{
-									$a=$this->carr($RR,$nn,$b+20>>2,"")|0;
-									
-									if(!$a)
-										{
-										$j=$e;
-										break;
-										}
+									$j=$e;
+									break;
 									}
-									
-								$b=($this->carr($RR,$nn,$a+4>>2,"")&-8)-$o|0;
-								$L=$b<$d;
-								$d=$L?$b:$d;
-								$b=$a;
-								$e=$L?$a:$e;
 								}
+								
+							$b=($this->carr($RR,$nn,$a+4>>2,"")&-8)-$o;
+							$L=$b<$d;
+							$d=$L?$b:$d;
+							$b=$a;
+							$e=$L?$a:$e;
+							}
 							
-						$g=$this->carr($RR,$nn,76,"")|0;
+						$g=$this->carr($RR,$nn,76,"");
 							
-						$i=$j+$o|0;
+						$i=$j+$o;
 						
-						$h=$this->carr($RR,$nn,$j+24>>2,"")|0;
-						$e=$this->carr($RR,$nn,$j+12>>2,"")|0;
+						$h=$this->carr($RR,$nn,$j+24>>2,"");
+						$e=$this->carr($RR,$nn,$j+12>>2,"");
 						
-						do if(($e|0)==($j|0))
+						do 
+							if($e==$j)
 								{
-								$b=$j+20|0;
-								$a=$this->carr($RR,$nn,$b>>2,"")|0;
+								$b=$j+20;
+								$a=$this->carr($RR,$nn,$b>>2,"");
 								
 								if(!$a)
 									{
-									$b=$j+16|0;
-									$a=$this->carr($RR,$nn,$b>>2,"")|0;
+									$b=$j+16;
+									$a=$this->carr($RR,$nn,$b>>2,"");
 									
 									if(!$a)
 										{
@@ -2763,18 +1441,18 @@ function Ua($a,&$RR,&$O)
 									
 								while(1)
 									{
-									$e=$a+20|0;
-									$f=$this->carr($RR,$nn,$e>>2,"")|0;
+									$e=$a+20;
+									$f=$this->carr($RR,$nn,$e>>2,"");
 									
-									if($f|0)
+									if($f)
 										{
 										$a=$f;
 										$b=$e;
 										continue;
 										}
 										
-									$e=$a+16|0;
-									$f=$this->carr($RR,$nn,$e>>2,"")|0;
+									$e=$a+16;
+									$f=$this->carr($RR,$nn,$e>>2,"");
 									
 									if(!$f)
 										break;
@@ -2791,11 +1469,11 @@ function Ua($a,&$RR,&$O)
 								}
 							 else
 								{
-								$f=$this->carr($RR,$nn,$j+8>>2,"")|0;
-								$a=$f+12|0;
-								$b=$e+8|0;
+								$f=$this->carr($RR,$nn,$j+8>>2,"");
+								$a=$f+12;
+								$b=$e+8;
 								
-								if(($this->carr($RR,$nn,$b>>2,"")|0)==($j|0))
+								if(($this->carr($RR,$nn,$b>>2,""))==($j))
 									{
 									$this->carr($RR,$nn,$a>>2,$e);
 									$this->carr($RR,$nn,$b>>2,$f);
@@ -2803,64 +1481,67 @@ function Ua($a,&$RR,&$O)
 									break;
 									}
 								}
-							 while(0);
+						while(0);
 				
-							do if($h|0)
+						do 
+							if($h)
+								{
+								$a=$this->carr($RR,$nn,$j+28>>2,"");
+								$b=592+($a<<2);
+								
+								if($j==$this->carr($RR,$nn,$b>>2,""))
 									{
-									$a=$this->carr($RR,$nn,$j+28>>2,"")|0;
-									$b=592+($a<<2)|0;
+									$this->carr($RR,$nn,$b>>2,$n);
 									
-									if(($j|0)==($this->carr($RR,$nn,$b>>2,"")|0))
+									if(!$n)
 										{
-										$this->carr($RR,$nn,$b>>2,$n);
-										
-										if(!$n)
-											{
-											$this->carr($RR,$nn,73,$this->carr($RR,$nn,73,"")&~(1<<$a));
-											break;
-											}
+										$this->carr($RR,$nn,73,$this->carr($RR,$nn,73,"")&~(1<<$a));
+										break;
 										}
-									else
-										{	
-										$a=$h+16|0;
-										
-										if(($this->carr($RR,$nn,$a>>2,"")|0)==($j|0))
-											$this->carr($RR,$nn,$a>>2,$n);
-										else 	$this->carr($RR,$nn,$h+20>>2,$n);
-										
-										if(!$n)
-											break;
-										}
-										
-									$b=$this->carr($RR,$nn,76,"")|0;
-									$this->carr($RR,$nn,$n+24>>2,$h);
-									$a=$this->carr($RR,$nn,$j+16>>2,"")|0;
+									}
+								else
+									{	
+									$a=$h+16;
 									
-									do if($a|0)
+									if($this->carr($RR,$nn,$a>>2,"")==$j)
+										$this->carr($RR,$nn,$a>>2,$n);
+									else 	$this->carr($RR,$nn,$h+20>>2,$n);
+									
+									if(!$n)
+										break;
+									}
+									
+								$b=$this->carr($RR,$nn,76,"");
+								$this->carr($RR,$nn,$n+24>>2,$h);
+								$a=$this->carr($RR,$nn,$j+16>>2,"");
+								
+								do 
+									if($a)
 									        {
 										$this->carr($RR,$nn,$n+16>>2,$a);
 										$this->carr($RR,$nn,$a+24>>2,$n);
 										break;
 										}
-									while(0);
-								
-									$a=$this->carr($RR,$nn,$j+20>>2,"")|0;
 									
-									if($a|0)
-										{
-										$this->carr($RR,$nn,$n+20>>2,$a);
-										$this->carr($RR,$nn,$a+24>>2,$n);
-										break;
-										}
-									}
 								while(0);
+							
+								$a=$this->carr($RR,$nn,$j+20>>2,"");
+								
+								if($a)
+									{
+									$this->carr($RR,$nn,$n+20>>2,$a);
+									$this->carr($RR,$nn,$a+24>>2,$n);
+									break;
+									}
+								}
+						while(0);
 				
 						
 						if($d<16)
 								{
-								$L=$d+$o|0;
+								$L=$d+$o;
 								$this->carr($RR,$nn,$j+4>>2,$L|3);
-								$L=$j+$L+4|0;
+								$L+=$j+4;
 								$this->carr($RR,$nn,$L>>2,$this->carr($RR,$nn,$L>>2,"")|1);
 								}
 						else
@@ -2868,27 +1549,27 @@ function Ua($a,&$RR,&$O)
 								$this->carr($RR,$nn,$j+4>>2,$o|3);
 								$this->carr($RR,$nn,$i+4>>2,$d|1);
 								$this->carr($RR,$nn,$i+$d>>2,$d);
-								$a=$this->carr($RR,$nn,74,"")|0;
+								$a=$this->carr($RR,$nn,74,"");
 								
-								if($a|0)
+								if($a)
 									{
-									$f=$this->carr($RR,$nn,77,"")|0;
+									$f=$this->carr($RR,$nn,77,"");
 									$b=$this->_rshift($a,3);
-									$e=328+($b<<1<<2)|0;
-									$a=$this->carr($RR,$nn,72,"")|0;
+									$e=328+($b<<1<<2);
+									$a=$this->carr($RR,$nn,72,"");
 									$b=1<<$b;
 									
 									if($a&$b)
 										{
-										$a=$e+8|0;
-										$b=$this->carr($RR,$nn,$a>>2,"")|0;
+										$a=$e+8;
+										$b=$this->carr($RR,$nn,$a>>2,"");
 										$p=$a;
 										$q=$b;
 										}
 									else
 										{
 										$this->carr($RR,$nn,72,$a|$b);
-										$p=$e+8|0;
+										$p=$e+8;
 										$q=$e;
 										}
 										
@@ -2901,21 +1582,20 @@ function Ua($a,&$RR,&$O)
 								$this->carr($RR,$nn,74,$d);
 								$this->carr($RR,$nn,77,$i);
 								}
-							
-						$L=$j+8|0;
-						return $L|0;
+
+						return $j+8;
 						}
 					}
 				}
 			else if($a<=4294967231)
 				{
-				$a=$a+11|0;
+				$a+=11;
 				$o=$a&-8;
-				$j=$this->carr($RR,$nn,73,"")|0;
+				$j=$this->carr($RR,$nn,73,"");
 				
 				if($j)
 					{
-					$d=0-$o|0;
+					$d=-$o;
 					$a=$this->_rshift($a,8);
 					
 					if($a)	
@@ -2923,82 +1603,83 @@ function Ua($a,&$RR,&$O)
 								$i=31;
 							else
 								{
-								$q=$this->_rshift(($a+1048320|0),16&8);
+								$q=$this->_rshift(($a+1048320),16&8);
 								$E=$a<<$q;
-								$p=$this->_rshift(($E+520192|0),16&4);
+								$p=$this->_rshift(($E+520192),16&4);
 								$E=$E<<$p;
-								$i=$this->_rshift(($E+245760|0),16&2);
-								$i=14-($p|$q|$i)+($E<<$this->_rshift($i,15))|0;
+								$i=$this->_rshift(($E+245760),16&2);
+								$i=14-($p|$q|$i)+($E<<$this->_rshift($i,15));
 								
-								$i=$this->_rshift($o,($i+7|0)&1)|$i<<1;
+								$i=$this->_rshift($o,($i+7)&1)|$i<<1;
 								}
 							
 					else    	$i=0;
 					
-					$b=$this->carr($RR,$nn,592+($i<<2)>>2,"")|0;
+					$b=$this->carr($RR,$nn,592+($i<<2)>>2,"");
 					
-					do if(!$b)
-							{
-							$a=0;
-							$b=0;
-							$E=86;
-						        }
-					else
-							{
-							$f=$d;
-							$a=0;
-							$g=$o<<(($i|0)==31?0:25-$this->_rshift($i,1)|0);
-							$h=$b;
-							$b=0;
-							while(1)
+					do 
+						if(!$b)
 								{
-								$e=$this->carr($RR,$nn,$h+4>>2,"")&-8;
-								$d=$e-$o|0;
-								
-								if($d<$f)
+								$a=0;
+								$b=0;
+								$E=86;
+							        }
+						else
+								{
+								$f=$d;
+								$a=0;
+								$g=$o<<($i==31?0:25-$this->_rshift($i,1));
+								$h=$b;
+								$b=0;
+								while(1)
+									{
+									$e=$this->carr($RR,$nn,$h+4>>2,"")&-8;
+									$d=$e-$o;
 									
-									if(($e|0)==($o|0))
+									if($d<$f)
+										
+										if($e==$o)
+											{
+											$a=$h;
+											$b=$h;
+											$E=90;
+											break 2;
+											}
+										else    $b=$h;
+										
+									else    $d=$f;
+									
+									$e=$this->carr($RR,$nn,$h+20>>2,"");
+									$h=$this->carr($RR,$nn,$h+16+($this->_rshift($g,31)<<2)>>2,"");
+									$a=$e==0|$e==$h?$a:$e;
+									$e=$h==0;
+									
+									if($e)
 										{
-										$a=$h;
-										$b=$h;
-										$E=90;
-										break 2;
+										$E=86;
+										break;
 										}
-									else    $b=$h;
-									
-								else    $d=$f;
-								
-								$e=$this->carr($RR,$nn,$h+20>>2,"")|0;
-								$h=$this->carr($RR,$nn,$h+16+($this->_rshift($g,31)<<2)>>2,"")|0;
-								$a=($e|0)==0|($e|0)==($h|0)?$a:$e;
-								$e=($h|0)==0;
-								
-								if($e)
-									{
-									$E=86;
-									break;
+									else
+										{
+										$f=$d;
+										$g=$g<<($e&1^1);
+										}
+										
 									}
-								else
-									{
-									$f=$d;
-									$g=$g<<($e&1^1);
-									}
-									
 								}
-							}
 					while(0);
 			
-					if(($E|0)==86)
+					if($E==86)
 						{
-						if(($a|0)==0&($b|0)==0)
+						if($a==0&$b==0)
 							{
 							$a=2<<$i;
-							$a=$j&($a|0-$a);
+							$a=$j&($a-$a);
 							
 							if(!$a)
 								break;
 								
-							$q=($a&0-$a)+ -1|0;
+							$q=($a&-$a)+ -1;
 							$m=$this->_rshift($q,12&16);
 							$q=$this->_rshift($q,$m);
 							$l=$this->_rshift($q,5&8);
@@ -3008,7 +1689,7 @@ function Ua($a,&$RR,&$O)
 							$p=$this->_rshift($q,1&2);
 							$q=$this->_rshift($q,$p);
 							$a=$this->_rshift($q,1&1);
-							$a=$this->carr($RR,$nn,592+(($l|$m|$n|$p|$a)+($this->_rshift($q,$a))<<2)>>2,"")|0;
+							$a=$this->carr($RR,$nn,592+(($l|$m|$n|$p|$a)+($this->_rshift($q,$a))<<2)>>2,"");
 							}
 							
 						if(!$a)
@@ -3019,24 +1700,24 @@ function Ua($a,&$RR,&$O)
 						else    $E=90;
 						}
 						
-					if(($E|0)==90)
+					if($E==90)
 						while(1)
 							{
 							$E=0;
-							$q=($this->carr($RR,$nn,$a+4>>2,"")&-8)-$o|0;
+							$q=($this->carr($RR,$nn,$a+4>>2,"")&-8)-$o;
 							$e=$q<$d;
 							$d=$e?$q:$d;
 							$b=$e?$a:$b;
-							$e=$this->carr($RR,$nn,$a+16>>2,"")|0;
+							$e=$this->carr($RR,$nn,$a+16>>2,"");
 							
-							if($e|0)
+							if($e)
 								{
 								$a=$e;
 								$E=90;
 								continue;
 								}
 								
-							$a=$this->carr($RR,$nn,$a+20>>2,"")|0;
+							$a=$this->carr($RR,$nn,$a+20>>2,"");
 							
 							if(!$a)
 								{
@@ -3047,23 +1728,24 @@ function Ua($a,&$RR,&$O)
 							else    $E=90;
 							}
 						
-					if(($j|0)!=0 and $i<($this->carr($RR,$nn,74,"")-$o))
+					if($j!=0 and $i<($this->carr($RR,$nn,74,"")-$o))
 						{
-						$f=$this->carr($RR,$nn,76,"")|0;
+						$f=$this->carr($RR,$nn,76,"");
 						
-						$h=$j+$o|0;
-						$g=$this->carr($RR,$nn,$j+24>>2,"")|0;
-						$d=$this->carr($RR,$nn,$j+12>>2,"")|0;
+						$h=$j+$o;
+						$g=$this->carr($RR,$nn,$j+24>>2,"");
+						$d=$this->carr($RR,$nn,$j+12>>2,"");
 						
-						do if(($d|0)==($j|0))
+						do 
+							if(($d)==($j))
 								{
-								$b=$j+20|0;
-								$a=$this->carr($RR,$nn,$b>>2,"")|0;
+								$b=$j+20;
+								$a=$this->carr($RR,$nn,$b>>2,"");
 								
 								if(!$a)
 									{
-									$b=$j+16|0;
-									$a=$this->carr($RR,$nn,$b>>2,"")|0;
+									$b=$j+16;
+									$a=$this->carr($RR,$nn,$b>>2,"");
 									
 									if(!$a)
 										{
@@ -3073,18 +1755,18 @@ function Ua($a,&$RR,&$O)
 									}
 								while(1)
 									{
-									$d=$a+20|0;
-									$e=$this->carr($RR,$nn,$d>>2,"")|0;
+									$d=$a+20;
+									$e=$this->carr($RR,$nn,$d>>2,"");
 									
-									if($e|0)
+									if($e)
 										{
 										$a=$e;
 										$b=$d;
 										continue;
 										}
 										
-									$d=$a+16|0;
-									$e=$this->carr($RR,$nn,$d>>2,"")|0;
+									$d=$a+16;
+									$e=$this->carr($RR,$nn,$d>>2,"");
 									
 									if(!$e) 
 										break;
@@ -3102,12 +1784,12 @@ function Ua($a,&$RR,&$O)
 								}
 							else
 								{
-								$e=$this->carr($RR,$nn,$j+8>>2,"")|0;
+								$e=$this->carr($RR,$nn,$j+8>>2,"");
 									
-								$a=$e+12|0;
-								$b=$d+8|0;
+								$a=$e+12;
+								$b=$d+8;
 								
-								if(($this->carr($RR,$nn,$b>>2,"")|0)==($j|0))
+								if($this->carr($RR,$nn,$b>>2,"")==$j)
 									{
 									$this->carr($RR,$nn,$a>>2,$d);
 									$this->carr($RR,$nn,$b>>2,$e);
@@ -3118,157 +1800,158 @@ function Ua($a,&$RR,&$O)
 								}
 						while(0);
 					
-						do if($g|0)
-							{
-							$a=$this->carr($RR,$nn,$j+28>>2,"")|0;
-							$b=592+($a<<2)|0;
-							
-							if(($j|0)==($this->carr($RR,$nn,$b>>2,"")|0))
+						do 
+							if($g)
 								{
-								$this->carr($RR,$nn,$b>>2,$s);
+								$a=$this->carr($RR,$nn,$j+28>>2,"");
+								$b=592+($a<<2);
 								
-								if(!$s)
+								if($j==$this->carr($RR,$nn,$b>>2,""))
 									{
-									$this->carr($RR,$nn,73,$this->carr($RR,$nn,73,"")&~(1<<$a));
+									$this->carr($RR,$nn,$b>>2,$s);
+									
+									if(!$s)
+										{
+										$this->carr($RR,$nn,73,$this->carr($RR,$nn,73,"")&~(1<<$a));
+										break;
+										}
+									}
+								else
+									{	
+									$a=$g+16;
+									
+									if($this->carr($RR,$nn,$a>>2,"")==$j)
+										$this->carr($RR,$nn,$a>>2,$s);
+									else 	$this->carr($RR,$nn,$g+20>>2,$s);
+									
+									if(!$s)
+										break;
+									}
+									
+								$b=$this->carr($RR,$nn,76,"");
+								$this->carr($RR,$nn,$s+24>>2,$g);
+								$a=$this->carr($RR,$nn,$j+16>>2,"");
+								
+								do 
+									if($a)
+										{
+										$this->carr($RR,$nn,$s+16>>2,$a);
+										$this->carr($RR,$nn,$a+24>>2,$s);
+										break;
+										}
+								while(0);
+							
+								$a=$this->carr($RR,$nn,$j+20>>2,"");
+								
+								if($a)								
+									{
+									$this->carr($RR,$nn,$s+20>>2,$a);
+									$this->carr($RR,$nn,$a+24>>2,$s);
 									break;
 									}
 								}
-							else
-								{	
-								$a=$g+16|0;
-								
-								if(($this->carr($RR,$nn,$a>>2,"")|0)==($j|0))
-									$this->carr($RR,$nn,$a>>2,$s);
-								else 	$this->carr($RR,$nn,$g+20>>2,$s);
-								
-								if(!$s)
-									break;
-								}
-								
-							$b=$this->carr($RR,$nn,76,"")|0;
-							$this->carr($RR,$nn,$s+24>>2,$g);
-							$a=$this->carr($RR,$nn,$j+16>>2,"")|0;
-							
-							do if($a|0)
-								{
-								$this->carr($RR,$nn,$s+16>>2,$a);
-								$this->carr($RR,$nn,$a+24>>2,$s);
-								break;
-								}
-							while(0);
-						
-							$a=$this->carr($RR,$nn,$j+20>>2,"")|0;
-							
-							if($a|0)
-								
-								{
-								$this->carr($RR,$nn,$s+20>>2,$a);
-								$this->carr($RR,$nn,$a+24>>2,$s);
-								break;
-								}
-							}
 						while(0);
 				
-						do if($i>=16)
-							{
-							$this->carr($RR,$nn,$j+4>>2,$o|3);
-							$this->carr($RR,$nn,$h+4>>2,$i|1);
-							$this->carr($RR,$nn,$h+$i>>2,$i);
-							$a=$this->_rshift($i,3);
-							
-							if($i<256)
+						do 
+							if($i>=16)
 								{
-								$d=328+($a<<1<<2)|0;
-								$b=$this->carr($RR,$nn,72,"")|0;
-								$a=1<<$a;
+								$this->carr($RR,$nn,$j+4>>2,$o|3);
+								$this->carr($RR,$nn,$h+4>>2,$i|1);
+								$this->carr($RR,$nn,$h+$i>>2,$i);
+								$a=$this->_rshift($i,3);
 								
-								if($b&$a)
+								if($i<256)
 									{
-									$a=$d+8|0;
-									$b=$this->carr($RR,$nn,$a>>2,"")|0;
+									$d=328+($a<<1<<2);
+									$b=$this->carr($RR,$nn,72,"");
+									$a=1<<$a;
 									
-									$u=$a;
-									$v=$b;
-									}
-								else
-									{
-									$this->carr($RR,$nn,72,$b|$a);
-									$u=$d+8|0;
-									$v=$d;
-									}
-									
-								$this->carr($RR,$nn,$u>>2,$h);
-								$this->carr($RR,$nn,$v+12>>2,$h);
-								$this->carr($RR,$nn,$h+8>>2,$v);
-								$this->carr($RR,$nn,$h+12>>2,$d);
-								break;
-								}
-								
-							$a=$this->_rshift($i,8);
-							
-							if($a)
-									
-								if($i>16777215)
-									$d=31;
-								else
-									{
-									$K=$this->_rshift(($a+1048320|0),16&8);
-									$L=$a<<$K;
-									$J=$this->_rshift(($L+520192|0),16&4);
-									$L=$L<<$J;
-									$d=$this->_rshift(($L+245760|0),16&2);
-									$d=14-($J|$K|$d)+($L<<$this->_rshift($d,15))|0; 
-									$d=$this->_rshift($i,($d+7|0)&1)|$d<<1;
+									if($b&$a)
+										{
+										$a=$d+8;
+										$b=$this->carr($RR,$nn,$a>>2,"");
+										
+										$u=$a;
+										$v=$b;
+										}
+									else
+										{
+										$this->carr($RR,$nn,72,$b|$a);
+										$u=$d+8;
+										$v=$d;
+										}
+										
+									$this->carr($RR,$nn,$u>>2,$h);
+									$this->carr($RR,$nn,$v+12>>2,$h);
+									$this->carr($RR,$nn,$h+8>>2,$v);
+									$this->carr($RR,$nn,$h+12>>2,$d);
+									break;
 									}
 									
-							else    $d=0;
-							
-							$e=592+($d<<2)|0;
-							$this->carr($RR,$nn,$h+28>>2,$d);
-							$a=$h+16|0;
-							$this->carr($RR,$nn,$a+4>>2,0);
-							$this->carr($RR,$nn,$a>>2,0);
-							$a=$this->carr($RR,$nn,73,"")|0;
-							$b=1<<$d;
-							
-							if(!($a&$b))
-								{
-								$this->carr($RR,$nn,73,$a|$b);
-								$this->carr($RR,$nn,$e>>2,$h);
-								$this->carr($RR,$nn,$h+24>>2,$e);
-								$this->carr($RR,$nn,$h+12>>2,$h);
-								$this->carr($RR,$nn,$h+8>>2,$h);
-								break;
-								}
+								$a=$this->_rshift($i,8);
 								
-							$f=$i<<(($d|0)==31?0:25-($this->_rshift($d,1))|0);
-							$a=$this->carr($RR,$nn,$e>>2,"")|0;
-							
-							while(1)
-								{
-								if(($this->carr($RR,$nn,$a+4>>2,"")&-8|0)==($i|0))
+								if($a)									
+									if($i>16777215)
+										$d=31;
+									else
 										{
-										$d=$a;
-										$E=148;
-										break;
+										$K=$this->_rshift(($a+1048320),16&8);
+										$L=$a<<$K;
+										$J=$this->_rshift(($L+520192),16&4);
+										$L=$L<<$J;
+										$d=$this->_rshift(($L+245760),16&2);
+										$d=14-($J|$K|$d)+($L<<$this->_rshift($d,15)); 
+										$d=$this->_rshift($i,($d+7)&1)|$d<<1;
 										}
+										
+								else    $d=0;
+								
+								$e=592+($d<<2);
+								$this->carr($RR,$nn,$h+28>>2,$d);
+								$a=$h+16;
+								$this->carr($RR,$nn,$a+4>>2,0);
+								$this->carr($RR,$nn,$a>>2,0);
+								$a=$this->carr($RR,$nn,73,"");
+								$b=1<<$d;
+								
+								if(!($a&$b))
+									{
+									$this->carr($RR,$nn,73,$a|$b);
+									$this->carr($RR,$nn,$e>>2,$h);
+									$this->carr($RR,$nn,$h+24>>2,$e);
+									$this->carr($RR,$nn,$h+12>>2,$h);
+									$this->carr($RR,$nn,$h+8>>2,$h);
+									break;
+									}
 									
-								$b=$a+16+($this->_rshift($f,31)<<2)|0;
-								$d=$this->carr($RR,$nn,$b>>2,"")|0;
+								$f=$i<<($d==31?0:25-$this->_rshift($d,1));
+								$a=$this->carr($RR,$nn,$e>>2,"");
 								
-								if(!$d)
-										{
-										$E=145;
-										break;
-										}
-								else
-										{
-										$f=$f<<1;
-										$a=$d;
-										}
-								}
-								
-							if(($E|0)==145)
+								while(1)
+									{
+									if(($this->carr($RR,$nn,$a+4>>2,"")&-8)==$i)
+											{
+											$d=$a;
+											$E=148;
+											break;
+											}
+										
+									$b=$a+16+($this->_rshift($f,31)<<2);
+									$d=$this->carr($RR,$nn,$b>>2,"");
+									
+									if(!$d)
+											{
+											$E=145;
+											break;
+											}
+									else
+											{
+											$f=$f<<1;
+											$a=$d;
+											}
+									}
+									
+								if($E==145)
 									{
 									$this->carr($RR,$nn,$b>>2,$h);
 									$this->carr($RR,$nn,$h+24>>2,$a);
@@ -3276,12 +1959,12 @@ function Ua($a,&$RR,&$O)
 									$this->carr($RR,$nn,$h+8>>2,$h);
 									break;
 									}
-							else 	
-									if(($E|0)==148)
+								else 	
+									if($E==148)
 										{
-										$a=$d+8|0;
-										$b=$this->carr($RR,$nn,$a>>2,"")|0;
-										$L=$this->carr($RR,$nn,76,"")|0;
+										$a=$d+8;
+										$b=$this->carr($RR,$nn,$a>>2,"");
+										$L=$this->carr($RR,$nn,76,"");
 										
 										$this->carr($RR,$nn,$b+12>>2,$h);
 										$this->carr($RR,$nn,$a>>2,$h);
@@ -3290,18 +1973,17 @@ function Ua($a,&$RR,&$O)
 										$this->carr($RR,$nn,$h+24>>2,0);
 										break;
 										}
-							}
-						else
-							{
-							$L=$i+$o|0;
-							$this->carr($RR,$nn,$j+4>>2,$L|3);
-							$L=$j+$L+4|0;
-							$this->carr($RR,$nn,$L>>2,$this->carr($RR,$nn,$L>>2,"")|1);
-							}
+								}
+							else
+								{
+								$L=$i+$o;
+								$this->carr($RR,$nn,$j+4>>2,$L|3);
+								$L+=$j+4;
+								$this->carr($RR,$nn,$L>>2,$this->carr($RR,$nn,$L>>2,"")|1);
+								}
 						while(0);
-						
-						$L=$j+8|0;
-						return $L|0;
+
+						return $j+8;
 						}
 					}
 				}
@@ -3309,16 +1991,16 @@ function Ua($a,&$RR,&$O)
 			
 			while (0);
 	
-			$d=$this->carr($RR,$nn,74,"")|0;
+			$d=$this->carr($RR,$nn,74,"");
 				
 			if($d>=$o)
 				{
-				$a=$d-$o|0;
-				$b=$this->carr($RR,$nn,77,"")|0;
+				$a=$d-$o;
+				$b=$this->carr($RR,$nn,77,"");
 				
 				if($a>15)
 					{
-					$L=$b+$o|0;
+					$L=$b+$o;
 					$this->carr($RR,$nn,77,$L);
 					$this->carr($RR,$nn,74,$a);
 					$this->carr($RR,$nn,$L+4>>2,$a|1);
@@ -3330,76 +2012,68 @@ function Ua($a,&$RR,&$O)
 					$this->carr($RR,$nn,74,0);
 					$this->carr($RR,$nn,77,0);
 					$this->carr($RR,$nn,$b+4>>2,$d|3);
-					$L=$b+$d+4|0;
+					$L=$b+$d+4;
 					$this->carr($RR,$nn,$L>>2,$this->carr($RR,$nn,$L>>2,"")|1);
 					}
-					
-				$L=$b+8|0;
-				return $L|0;
+
+				return $b+8;
 				}
 				
-			$a=$this->carr($RR,$nn,75,"")|0;
+			$a=$this->carr($RR,$nn,75,"");
 				
 			if($a>$o)
-				{
-				
-				$J=$a-$o|0;
+				{				
+				$J=$a-$o;
 				$this->carr($RR,$nn,75,$J);
-				$L=$this->carr($RR,$nn,78,"")|0;
-				$K=$L+$o|0;
+				$L=$this->carr($RR,$nn,78,"");
+				$K=$L+$o;
 				$this->carr($RR,$nn,78,$K);
 			
 				$this->carr($RR,$nn,$K+4>>2,$J|1); 
 				$this->carr($RR,$nn,$L+4>>2,$o|3);
-			
-				$L=$L+8|0;
 
-				return $L|0;
+				return $L+8;
 				}
 				
-			do if(!($this->carr($RR,$nn,190,"")|0))
-				{
-				$a=4096|0;
-				$this->carr($RR,$nn,192,$a);
-				$this->carr($RR,$nn,191,$a);
-				$this->carr($RR,$nn,193,-1);
-				$this->carr($RR,$nn,194,-1);
-				$this->carr($RR,$nn,195,0);
-				$this->carr($RR,$nn,183,0);
-				$this->carr($RR,$nn,190,($this->ma(0,$RR)|0)&-16^1431655768);
-				break;
-				}
+			do 
+				if(!($this->carr($RR,$nn,190,"")))
+					{
+					$a=4096;
+					$this->carr($RR,$nn,192,$a);
+					$this->carr($RR,$nn,191,$a);
+					$this->carr($RR,$nn,193,-1);
+					$this->carr($RR,$nn,194,-1);
+					$this->carr($RR,$nn,195,0);
+					$this->carr($RR,$nn,183,0);
+					$this->carr($RR,$nn,190,$this->ma(0,$RR)&-16^1431655768);
+					break;
+					}
 			 while(0);
 			 
-
-			$h=$o+48|0;
-			$g=$this->carr($RR,$nn,192,"")|0;
-			$i=$o+47|0;
-			$f=$g+$i|0;
-			$g=0-$g|0;
+			$h=$o+48;
+			$g=$this->carr($RR,$nn,192,"");
+			$i=$o+47;
+			$f=$g+$i;
+			$g=-$g;
 			$j=$f&$g;
 			
-			if($j<=$o)
-				{
+			if($j<=$o)				
 				return 0;
-				}
-				
-			$a=$this->carr($RR,$nn,182,"")|0;
+								
+			$a=$this->carr($RR,$nn,182,"");
 			
-			if($a|0)
+			if($a)
 				{
-				$u=$this->carr($RR,$nn,180,"")|0;
-				$v=$u+$j|0;
+				$u=$this->carr($RR,$nn,180,"");
+				$v=$u+$j;
 				
-				if ($v<=$u|$v>$a)
-					{
-					return 0;
-					}
+				if ($v<=$u|$v>$a)					
+					return 0;					
 				}
 			do 	
 				if(!($this->carr($RR,$nn,183,"")&4))
 					{
-					$a=$this->carr($RR,$nn,78,"")|0;
+					$a=$this->carr($RR,$nn,78,"");
 					
 					do 
 						if($a)
@@ -3407,12 +2081,12 @@ function Ua($a,&$RR,&$O)
 							$d=736;
 							while(1)
 								{
-								$b=$this->carr($RR,$nn,$d>>2,"")|0;
+								$b=$this->carr($RR,$nn,$d>>2,"");
 								
 								if($b<=$a)
 									{
-									$r=$d+4|0;
-									if ($this->_rshift(($b+($this->carr($RR,$nn,$r>>2,"")|0)|0),0)>$a)
+									$r=$d+4;
+									if (($b+$this->carr($RR,$nn,$r>>2,""))>$a)
 										{
 										$e=$d;
 										$d=$r;
@@ -3420,7 +2094,7 @@ function Ua($a,&$RR,&$O)
 										}
 									}
 									
-								$d=$this->carr($RR,$nn,$d+8>>2,"")|0;
+								$d=$this->carr($RR,$nn,$d+8>>2,"");
 								
 								if(!$d)
 									{
@@ -3428,15 +2102,15 @@ function Ua($a,&$RR,&$O)
 									break 2;
 									}
 								}
-							$a=$f-($this->carr($RR,$nn,75,"")|0)&$g;
+							$a=$f-($this->carr($RR,$nn,75,""))&$g;
 							
 							if($a<2147483647)
 								{
-								$b=$this->la($a|0,$O)|0;
+								$b=$this->la($a,$O);
 								
-								if(($b|0)==(($this->carr($RR,$nn,$e>>2,"")|0)+($this->carr($RR,$nn,$d>>2,"")|0)|0))
+								if($b==($this->carr($RR,$nn,$e>>2,"")+$this->carr($RR,$nn,$d>>2,"")))
 									{
-									if(($b|0)!=(-1|0))
+									if($b!=-1)
 										{
 										$h=$b;
 										$f=$a;
@@ -3448,37 +2122,37 @@ function Ua($a,&$RR,&$O)
 								}
 							}
 						else    $E=173;
-						while(0);
+					while(0);
 					
 		
 					do 
-						 if(($E|0)==173)
+						 if($E==173)
 						 	{
-						 	$t=$this->la(0,$O)|0;
+						 	$t=$this->la(0,$O);
 							 
-							if (($t|0)!=(-1|0))
+							if ($t!=-1)
 								{
 								$a=$t;
-								$b=$this->carr($RR,$nn,191,"")|0;
-								$d=$b+ -1|0;
+								$b=$this->carr($RR,$nn,191,"");
+								$d=$b-1;
 								
 								if(!($d&$a))
 									$a=$j;
-								else 	$a=$j-$a+($d+$a&0-$b)|0;
+								else 	$a=$j-$a+($d+$a&-$b);
 								
-								$b=$this->carr($RR,$nn,180,"")|0;
-								$d=$b+$a|0;
+								$b=$this->carr($RR,$nn,180,"");
+								$d=$b+$a;
 								
 								if($a>$o&$a<2147483647)
 									{
-									$v=$this->carr($RR,$nn,182,"")|0;
+									$v=$this->carr($RR,$nn,182,"");
 									
-									if($v|0 and ($d<=$b|$d>$v))
+									if($v and ($d<=$b|$d>$v))
 										break;
 										
-									$b=$this->la($a|0,$O)|0;
+									$b=$this->la($a,$O);
 									
-									if(($b|0)==($t|0))
+									if($b==$t)
 										{
 										$h=$t;
 										$f=$a;
@@ -3489,38 +2163,38 @@ function Ua($a,&$RR,&$O)
 									}
 								}
 							}
-						while(0);
+					while(0);
 			
 					
 					do  	
-						 if(($E|0)==183)
+						 if($E==183)
 							{
-							$d=0-$a|0;
+							$d=-$a;
 							
 							do 	
-								 if($h>$a&($a<2147483647&($b|0)!=(-1|0)))
+								 if($h>$a&($a<2147483647&$b!=-1))
 									 {
-									 $w=$this->carr($RR,$nn,192,"")|0;
-									 $w=$i-$a+$w&0-$w;
+									 $w=$this->carr($RR,$nn,192,"");
+									 $w=$i-$a+$w&-$w;
 									 
 									 if ($w<2147483647)
 										 {
-										 if(($this->la($w|0,$O)|0)==(-1|0))
+										 if($this->la($w,$O)==-1)
 											{
-											$this->la($d|0,$O)|0;
+											$this->la($d,$O);
 											break 2;
 											}
 										 }
 									}
 								 else
 									{
-									$a=$w+$a|0;
+									$a+=$w;
 									break;
 									}	
 								        
-								 while(0);
+							while(0);
 									
-							if(($b|0)!=(-1|0))
+							if($b!=-1)
 								{
 								$h=$b;
 								$f=$a;
@@ -3528,7 +2202,7 @@ function Ua($a,&$RR,&$O)
 								break 3;
 								}
 							}
-						while(0);
+					while(0);
 						
 		
 					$this->carr($RR,$nn,183,$this->carr($RR,$nn,183,"")|4);
@@ -3538,16 +2212,16 @@ function Ua($a,&$RR,&$O)
 				while(0);
 
 			
-			if (($E|0)==190 and $j<2147483647)
+			if ($E==190 and $j<2147483647)
 				{			
-				$x=$this->la($j|0,$O)|0;
-				$y=$this->la(0,$O)|0;
+				$x=$this->la($j,$O);
+				$y=$this->la(0,$O);
 								
-				if ($x<$y&(($x|0)!=(-1|0)&($y|0)!=(-1|0)))
+				if ($x<$y&$x!=-1&$y!=-1)
 					{			
-					$z=$y-$x|0;
+					$z=$y-$x;
 					
-					if ($z>$this->_rshift(($o+40|0),0))				
+					if ($z>($o+40))				
 						{
 						$h=$x;
 						$f=$z;
@@ -3556,15 +2230,15 @@ function Ua($a,&$RR,&$O)
 					}
 				}
 				
-			if(($E|0)==193)
+			if($E==193)
 				{
-				$a=($this->carr($RR,$nn,180,"")|0)+$f|0;
+				$a=$this->carr($RR,$nn,180,"")+$f;
 				$this->carr($RR,$nn,180,$a);
 				
-				if($a>$this->_rshift(($this->carr($RR,$nn,181,"")|0),0))
+				if($a>$this->carr($RR,$nn,181,""))
 					$this->carr($RR,$nn,181,$a);
 					
-				$i=$this->carr($RR,$nn,78,"")|0;
+				$i=$this->carr($RR,$nn,78,"");
 				
 				do  
 				
@@ -3574,11 +2248,11 @@ function Ua($a,&$RR,&$O)
 					
 					do 
 						{
-						$a=$this->carr($RR,$nn,$e>>2,"")|0;
-						$b=$e+4|0;
-						$d=$this->carr($RR,$nn,$b>>2,"")|0;
+						$a=$this->carr($RR,$nn,$e>>2,"");
+						$b=$e+4;
+						$d=$this->carr($RR,$nn,$b>>2,"");
 						
-						if(($h|0)==($a+$d|0))
+						if(($h)==($a+$d))
 							{
 							$A=$a;
 							$B=$b;
@@ -3588,17 +2262,17 @@ function Ua($a,&$RR,&$O)
 							break;
 							}
 							
-						$e=$this->carr($RR,$nn,$e+8>>2,"")|0;
+						$e=$this->carr($RR,$nn,$e+8>>2,"");
 						}
-					while(($e|0)!=0);
+					while($e!=0);
 					
-					if(($E|0)==203 and ($this->carr($RR,$nn,$D+12>>2,"")&8|0)==0 and $i<$h and $i>=$A)
+					if($E==203 and ($this->carr($RR,$nn,$D+12>>2,"")&8)==0 and $i<$h and $i>=$A)
 						{
 						$this->carr($RR,$nn,$B>>2,$C+$f);
-						$L=$i+8|0;
-						$L=($L&7|0)==0?0:0-$L&7;
-						$K=$i+$L|0;
-						$L=$f-$L+($this->carr($RR,$nn,75,"")|0)|0;
+						$L=$i+8;
+						$L=($L&7)==0?0:-$L&7;
+						$K=$i+$L;
+						$L=$f-$L+($this->carr($RR,$nn,75,""));
 						$this->carr($RR,$nn,78,$K);
 						$this->carr($RR,$nn,75,$L);
 						$this->carr($RR,$nn,$K+4>>2,$L|1);
@@ -3607,7 +2281,7 @@ function Ua($a,&$RR,&$O)
 						break;
 						}
 						
-					$a=$this->carr($RR,$nn,76,"")|0;
+					$a=$this->carr($RR,$nn,76,"");
 					
 					if($h<$a)
 						{
@@ -3616,19 +2290,19 @@ function Ua($a,&$RR,&$O)
 						}
 					else    $j=$a;
 					
-					$d=$h+$f|0;
+					$d=$h+$f;
 					$a=736;
 					
 					while(1)
 						{
-						if(($this->carr($RR,$nn,$a>>2,"")|0)==($d|0))
+						if($this->carr($RR,$nn,$a>>2,"")==$d)
 							{
 							$b=$a;
 							$E=211;
 							break;
 							}
 							
-						$a=$this->carr($RR,$nn,$a+8>>2,"")|0;
+						$a=$this->carr($RR,$nn,$a+8>>2,"");
 						
 						if(!$a)
 							{
@@ -3637,28 +2311,28 @@ function Ua($a,&$RR,&$O)
 							}
 						}
 						
-					if(($E|0)==211)
+					if($E==211)
 						{
 						if(!($this->carr($RR,$nn,$a+12>>2,"")&8))
 							{
 							$this->carr($RR,$nn,$b>>2,$h);
-							$l=$a+4|0;
-							$this->carr($RR,$nn,$l>>2,($this->carr($RR,$nn,$l>>2,"")|0)+$f);
-							$l=$h+8|0;
-							$l=$h+(($l&7|0)==0?0:0-$l&7)|0;
-							$a=$d+8|0;
-							$a=$d+(($a&7|0)==0?0:0-$a&7)|0;
-							$k=$l+$o|0;
-							$g=$a-$l-$o|0;
+							$l=$a+4;
+							$this->carr($RR,$nn,$l>>2,$this->carr($RR,$nn,$l>>2,"")+$f);
+							$l=$h+8;
+							$l=$h+(($l&7)==0?0:-$l&7);
+							$a=$d+8;
+							$a=$d+(($a&7)==0?0:-$a&7);
+							$k=$l+$o;
+							$g=$a-$l-$o;
 							$this->carr($RR,$nn,$l+4>>2,$o|3);
 							
 							do 
 							 
-							 if(($a|0)!=($i|0))
+							 if($a!=$i)
 								{
-								if(($a|0)==($this->carr($RR,$nn,77,"")|0))
+								if($a==$this->carr($RR,$nn,77,""))
 									{
-									$L=($this->carr($RR,$nn,74,"")|0)+$g|0;
+									$L=($this->carr($RR,$nn,74,""))+$g;
 									$this->carr($RR,$nn,74,$L);
 									$this->carr($RR,$nn,77,$k);
 									$this->carr($RR,$nn,$k+4>>2,$L|1);
@@ -3666,9 +2340,9 @@ function Ua($a,&$RR,&$O)
 									break;
 									}
 									
-								$b=$this->carr($RR,$nn,$a+4>>2,"")|0;
+								$b=$this->carr($RR,$nn,$a+4>>2,"");
 								
-								if(($b&3|0)==1)
+								if(($b&3)==1)
 									{
 									$i=$b&-8;
 									$f=$this->_rshift($b,3);
@@ -3677,19 +2351,19 @@ function Ua($a,&$RR,&$O)
 									
 									 if($b>=256)
 										{
-										$h=$this->carr($RR,$nn,$a+24>>2,"")|0;
-										$e=$this->carr($RR,$nn,$a+12>>2,"")|0;
+										$h=$this->carr($RR,$nn,$a+24>>2,"");
+										$e=$this->carr($RR,$nn,$a+12>>2,"");
 										do 
 											
-											 if(($e|0)==($a|0))
+											 if($e==$a)
 												{
-												$d=$a+16|0;
-												$e=$d+4|0;
-												$b=$this->carr($RR,$nn,$e>>2,"")|0;
+												$d=$a+16;
+												$e=$d+4;
+												$b=$this->carr($RR,$nn,$e>>2,"");
 												
 												if(!$b)
 													{
-													$b=$this->carr($RR,$nn,$d>>2,"")|0;
+													$b=$this->carr($RR,$nn,$d>>2,"");
 													if(!$b)
 														{
 														$J=0;
@@ -3700,18 +2374,18 @@ function Ua($a,&$RR,&$O)
 												
 												while(1)
 													{
-													$e=$b+20|0;
-													$f=$this->carr($RR,$nn,$e>>2,"")|0;
+													$e=$b+20;
+													$f=$this->carr($RR,$nn,$e>>2,"");
 													
-													if($f|0)
+													if($f)
 														{
 														$b=$f;
 														$d=$e;
 														continue;
 														}
 														
-													$e=$b+16|0;
-													$f=$this->carr($RR,$nn,$e>>2,"")|0;
+													$e=$b+16;
+													$f=$this->carr($RR,$nn,$e>>2,"");
 													
 													if(!$f)
 														break;
@@ -3728,9 +2402,9 @@ function Ua($a,&$RR,&$O)
 												}
 											else
 												{
-												$f=$this->carr($RR,$nn,$a+8>>2,"")|0;
-												$b=$f+12|0;
-												$d=$e+8|0;
+												$f=$this->carr($RR,$nn,$a+8>>2,"");
+												$b=$f+12;
+												$d=$e+8;
 												
 												$this->carr($RR,$nn,$b>>2,$e);
 												$this->carr($RR,$nn,$d>>2,$f);
@@ -3742,16 +2416,16 @@ function Ua($a,&$RR,&$O)
 										if(!$h)
 											break;
 										
-										$b=$this->carr($RR,$nn,$a+28>>2,"")|0;
-										$d=592+($b<<2)|0;
+										$b=$this->carr($RR,$nn,$a+28>>2,"");
+										$d=592+($b<<2);
 										
 										do 
 											
-											if(($a|0)!=($this->carr($RR,$nn,$d>>2,"")|0))
+											if($a!=$this->carr($RR,$nn,$d>>2,""))
 												{	
-												$b=$h+16|0;
+												$b=$h+16;
 												
-												if(($this->carr($RR,$nn,$b>>2,"")|0)==($a|0))
+												if(($this->carr($RR,$nn,$b>>2,""))==($a))
 													$this->carr($RR,$nn,$b>>2,$J);
 												else 	$this->carr($RR,$nn,$h+20>>2,$J);
 												
@@ -3762,7 +2436,7 @@ function Ua($a,&$RR,&$O)
 												{
 												$this->carr($RR,$nn,$d>>2,$J);
 												
-												if($J|0)
+												if($J)
 													break;
 													
 												$this->carr($RR,$nn,73,$this->carr($RR,$nn,73,"")&~(1<<$b));
@@ -3770,13 +2444,13 @@ function Ua($a,&$RR,&$O)
 												}
 										while(0) ;
 									
-										$e=$this->carr($RR,$nn,76,"")|0;
+										$e=$this->carr($RR,$nn,76,"");
 										$this->carr($RR,$nn,$J+24>>2,$h);
-										$b=$a+16|0;
-										$d=$this->carr($RR,$nn,$b>>2,"")|0;
+										$b=$a+16;
+										$d=$this->carr($RR,$nn,$b>>2,"");
 										
 										do 	
-											if($d|0)
+											if($d)
 												{
 												$this->carr($RR,$nn,$J+16>>2,$d);
 												$this->carr($RR,$nn,$d+24>>2,$J);
@@ -3784,7 +2458,7 @@ function Ua($a,&$RR,&$O)
 												}
 										while(0);
 									
-										$b=$this->carr($RR,$nn,$b+4>>2,"")|0;
+										$b=$this->carr($RR,$nn,$b+4>>2,"");
 										
 										if(!$b)
 											break;
@@ -3795,33 +2469,32 @@ function Ua($a,&$RR,&$O)
 										}
 									else
 										{
-										$d=$this->carr($RR,$nn,$a+8>>2,"")|0;
-										$e=$this->carr($RR,$nn,$a+12>>2,"")|0;
-										$b=328+($f<<1<<2)|0;
+										$d=$this->carr($RR,$nn,$a+8>>2,"");
+										$e=$this->carr($RR,$nn,$a+12>>2,"");
+										$b=328+($f<<1<<2);
 										
 										do 	
-											 if(($d|0)!=($b|0))
+											 if($d!=$b)
 												{	
-												if(($this->carr($RR,$nn,$d+12>>2,"")|0)==($a|0))
+												if($this->carr($RR,$nn,$d+12>>2,"")==$a)
 													break;
 												}
 										while(0);
 									
-										if(($e|0)==($d|0))
+										if($e==$d)
 											{
 											$this->carr($RR,$nn,72,$this->carr($RR,$nn,72,"")&~(1<<$f));
 											break;
 											}
 											
-										do 
-											
-											if(($e|0)==($b|0))
-												$G=$e+8|0;
+										do 											
+											if($e==$b)
+												$G=$e+8;
 											else
 												{	
-												$b=$e+8|0;
+												$b=$e+8;
 												
-												if(($this->carr($RR,$nn,$b>>2,"")|0)==($a|0))
+												if($this->carr($RR,$nn,$b>>2,"")==$a)
 													{
 													$G=$b;
 													break;
@@ -3834,34 +2507,34 @@ function Ua($a,&$RR,&$O)
 										}
 									while(0);
 							
-									$a=$a+$i|0;
-									$g=$i+$g|0;
+									$a+=$i;
+									$g+=$i;
 									}
 									
-								$a=$a+4|0;
+								$a+=4;
 								$this->carr($RR,$nn,$a>>2,$this->carr($RR,$nn,$a>>2,"")&-2);
 								$this->carr($RR,$nn,$k+4>>2,$g|1);
 								$this->carr($RR,$nn,$k+$g>>2,$g);
 								$a=$this->_rshift($g,3);
 								
-								if($this->_rshift($g,0)<256)
+								if($g<256)
 									{
-									$d=328+($a<<1<<2)|0;
-									$b=$this->carr($RR,$nn,72,"")|0;
+									$d=328+($a<<1<<2);
+									$b=$this->carr($RR,$nn,72,"");
 									$a=1<<$a;
 									
 									do 	
 										 if(!($b&$a))
 											{
 											$this->carr($RR,$nn,72,$b|$a);
-											$K=$d+8|0;
+											$K=$d+8;
 											$L=$d;
 											}
 										 else
 											{
-											$a=$d+8|0;
-											$b=$this->carr($RR,$nn,$a>>2,"")|0;
-											if($b>=$this->_rshift(($this->carr($RR,$nn,76,"")|0),0))
+											$a=$d+8;
+											$b=$this->carr($RR,$nn,$a>>2,"");
+											if($b>=$this->carr($RR,$nn,76,""))
 												{
 												$K=$a;
 												$L=$b;
@@ -3869,7 +2542,7 @@ function Ua($a,&$RR,&$O)
 												}
 									
 											}
-										 while(0);
+									while(0);
 							
 									$this->carr($RR,$nn,$K>>2,$k);
 									$this->carr($RR,$nn,$L+12>>2,$k);
@@ -3891,23 +2564,23 @@ function Ua($a,&$RR,&$O)
 											break;
 											}
 											
-										$K=$this->_rshift(($a+1048320|0),16)&8;
+										$K=$this->_rshift($a+1048320,16)&8;
 										$L=$a<<$K;
-										$J=$this->_rshift(($L+520192|0),16)&4;
+										$J=$this->_rshift($L+520192,16)&4;
 										$L=$L<<$J;
-										$d=$this->_rshift(($L+245760|0),16)&2;
-										$d=14-($J|$K|$d)+($L<<$this->_rshift($d,15))|0;
-										$d=$this->_rshift($g,($d+7|0))&1|$d<<1;
+										$d=$this->_rshift($L+245760,16)&2;
+										$d=14-($J|$K|$d)+($L<<$this->_rshift($d,15));
+										$d=$this->_rshift($g,$d+7)&1|$d<<1;
 										}
-									while(0);
+								while(0);
 									
 						
-								$e=592+($d<<2)|0;
+								$e=592+($d<<2);
 								$this->carr($RR,$nn,$k+28>>2,$d);
-								$a=$k+16|0;
+								$a=$k+16;
 								$this->carr($RR,$nn,$a+4>>2,0);
 								$this->carr($RR,$nn,$a>>2,0);
-								$a=$this->carr($RR,$nn,73,"")|0;
+								$a=$this->carr($RR,$nn,73,"");
 								$b=1<<$d;
 								
 								if(!($a&$b))
@@ -3920,20 +2593,20 @@ function Ua($a,&$RR,&$O)
 									break;
 									}
 									
-								$f=$g<<(($d|0)==31?0:25-($this->_rshift($d,1))|0);
-								$a=$this->carr($RR,$nn,$e>>2,"")|0;
+								$f=$g<<($d==31?0:25-($this->_rshift($d,1)));
+								$a=$this->carr($RR,$nn,$e>>2,"");
 								
 								while(1)
 									{
-									if(($this->carr($RR,$nn,$a+4>>2,"")&-8|0)==($g|0))
+									if(($this->carr($RR,$nn,$a+4>>2,"")&-8)==$g)
 										{
 										$d=$a;
 										$E=281;
 										break;
 										}
 										
-									$b=$a+16+($this->_rshift($f,31)<<2)|0;
-									$d=$this->carr($RR,$nn,$b>>2,"")|0;
+									$b=$a+16+($this->_rshift($f,31)<<2);
+									$d=$this->carr($RR,$nn,$b>>2,"");
 									
 									if(!$d)
 										{
@@ -3947,7 +2620,7 @@ function Ua($a,&$RR,&$O)
 										}
 									}
 									
-								if(($E|0)==278)
+								if($E==278)
 									{
 									$this->carr($RR,$nn,$b>>2,$k);
 									$this->carr($RR,$nn,$k+24>>2,$a);
@@ -3957,11 +2630,11 @@ function Ua($a,&$RR,&$O)
 									}
 								else 
 									{
-									if(($E|0)==281)
+									if($E==281)
 										{
-										$a=$d+8|0;
-										$b=$this->carr($RR,$nn,$a>>2,"")|0;
-										$L=$this->carr($RR,$nn,76,"")|0;
+										$a=$d+8;
+										$b=$this->carr($RR,$nn,$a>>2,"");
+										$L=$this->carr($RR,$nn,76,"");
 										
 										if($b>=$L&$d>=$L)
 											{
@@ -3977,47 +2650,46 @@ function Ua($a,&$RR,&$O)
 								}
 							else
 								{
-								$L=($this->carr($RR,$nn,75,"")|0)+$g|0;
+								$L=$this->carr($RR,$nn,75,"")+$g;
 								$this->carr($RR,$nn,75,$L);
 								$this->carr($RR,$nn,78,$k);
 								$this->carr($RR,$nn,$k+4>>2,$L|1);
 								}
-								while(0);
+						while(0);
 						
-							$L=$l+8|0;
-							return $L|0;
+						return $l+8;
 						}
 					else $b=736;
 					}
 					
 					while(1)
 						{
-						$a=$this->carr($RR,$nn,$b>>2,"")|0;
-						if($a<=$i and $this->_rshift(($F=$a+($this->carr($RR,$nn,$b+4>>2,"")|0)|0),0)>$i)
+						$a=$this->carr($RR,$nn,$b>>2,"");
+						if($a<=$i and $this->_rshift(($F=$a+($this->carr($RR,$nn,$b+4>>2,""))),0)>$i)
 							{
 							$b=$F;
 							break;
 							}
 							
-						$b=$this->carr($RR,$nn,$b+8>>2,"")|0;
+						$b=$this->carr($RR,$nn,$b+8>>2,"");
 						}
 						
-					$g=$b+ -47|0;
-					$d=$g+8|0;
-					$d=$g+(($d&7|0)==0?0:0-$d&7)|0;
-					$g=$i+16|0;
+					$g=$b-47;
+					$d=$g+8;
+					$d=$g+(($d&7)==0?0:-$d&7);
+					$g=$i+16;
 					$d=$d<$g?$i:$d;
-					$a=$d+8|0;
-					$e=$h+8|0;
-					$e=($e&7|0)==0?0:0-$e&7;
-					$L=$h+$e|0;
-					$e=$f+ -40-$e|0;
+					$a=$d+8;
+					$e=$h+8;
+					$e=($e&7)==0?0:-$e&7;
+					$L=$h+$e;
+					$e=$f-4-$e;
 					$this->carr($RR,$nn,78,$L);
 					$this->carr($RR,$nn,75,$e);
 					$this->carr($RR,$nn,$L+4>>2,$e|1);
 					$this->carr($RR,$nn,$L+$e+4>>2,40);
 					$this->carr($RR,$nn,79,$this->carr($RR,$nn,194,""));
-					$e=$d+4|0;
+					$e=$d+4;
 					$this->carr($RR,$nn,$e>>2,27);
 					$this->carr($RR,$nn,$a>>2,$this->carr($RR,$nn,184,""));
 					$this->carr($RR,$nn,$a+4>>2,$this->carr($RR,$nn,185,""));
@@ -4027,40 +2699,40 @@ function Ua($a,&$RR,&$O)
 					$this->carr($RR,$nn,185,$f);
 					$this->carr($RR,$nn,187,0);
 					$this->carr($RR,$nn,186,$a);
-					$a=$d+24|0;
+					$a=$d+24;
 					
 					do
 						{
-						$a=$a+4|0;
+						$a+=4;
 						$this->carr($RR,$nn,$a>>2,7);
 						}
 					while(($a+4)<$b);
 					
-					if(($d|0)!=($i|0))
+					if($d!=$i)
 						{
-						$h=$d-$i|0;
+						$h=$d-$i;
 						$this->carr($RR,$nn,$e>>2,$this->carr($RR,$nn,$e>>2,"")&-2);
 						$this->carr($RR,$nn,$i+4>>2,$h|1);
 						$this->carr($RR,$nn,$d>>2,$h);
 						$a=$this->_rshift($h,3);
 						
-						if($h>>0<256)
+						if($h<256)
 							{
-							$d=328+($a<<1<<2)|0;
-							$b=$this->carr($RR,$nn,72,"")|0;
+							$d=328+($a<<1<<2);
+							$b=$this->carr($RR,$nn,72,"");
 							$a=1<<$a;
 							
 							if($b&$a)
 								{
-								$a=$d+8|0;
-								$b=$this->carr($RR,$nn,$a>>2,"")|0;
+								$a=$d+8;
+								$b=$this->carr($RR,$nn,$a>>2,"");
 								$H=$a;
 								$I=$b;	
 								}
 							else
 								{
 								$this->carr($RR,$nn,72,$b|$a);
-								$H=$d+8|0;
+								$H=$d+8;
 								$I=$d;
 								}
 								
@@ -4075,26 +2747,26 @@ function Ua($a,&$RR,&$O)
 						
 						if($a)
 							{
-							if($h>>0>16777215)
+							if($h>16777215)
 								$d=31;
 							else
 								{
-								$K=$this->_rshift(($a+1048320|0),16)&8;
+								$K=$this->_rshift(($a+1048320),16)&8;
 								$L=$a<<$K;
-								$J=$this->_rshift(($L+520192|0),16)&4;
+								$J=$this->_rshift(($L+520192),16)&4;
 								$L=$L<<$J;
-								$d=$this->_rshift(($L+245760|0),16)&2;
-								$d=14-($J|$K|$d)+($L<<$this->_rshift($d,15))|0;
-								$d=$this->_rshift($h,($d+7|0))&1|$d<<1;
+								$d=$this->_rshift(($L+245760),16)&2;
+								$d=14-($J|$K|$d)+($L<<$this->_rshift($d,15));
+								$d=$this->_rshift($h,($d+7))&1|$d<<1;
 								}
 							}
 						else    $d=0;
 						
-						$f=592+($d<<2)|0;
+						$f=592+($d<<2);
 						$this->carr($RR,$nn,$i+28>>2,$d);
 						$this->carr($RR,$nn,$i+20>>2,0);
 						$this->carr($RR,$nn,$g>>2,0);
-						$a=$this->carr($RR,$nn,73,"")|0;
+						$a=$this->carr($RR,$nn,73,"");
 						$b=1<<$d;
 						
 						if(!($a&$b))
@@ -4107,20 +2779,20 @@ function Ua($a,&$RR,&$O)
 							break;
 							}
 							
-						$e=$h<<(($d|0)==31?0:25-($this->_rshift($d,1))|0);
-						$a=$this->carr($RR,$nn,$f>>2,"")|0;
+						$e=$h<<(($d)==31?0:25-($this->_rshift($d,1)));
+						$a=$this->carr($RR,$nn,$f>>2,"");
 						
 						while(1)
 							{
-							if(($this->carr($RR,$nn,$a+4>>2,"")&-8|0)==($h|0))
+							if(($this->carr($RR,$nn,$a+4>>2,"")&-8)==($h))
 								{
 								$d=$a;
 								$E=307;
 								break;
 								}
 								
-							$b=$a+16+($this->_rshift($e,31)<<2)|0;
-							$d=$this->carr($RR,$nn,$b>>2,"")|0;
+							$b=$a+16+($this->_rshift($e,31)<<2);
+							$d=$this->carr($RR,$nn,$b>>2,"");
 							
 							if(!$d)
 								{
@@ -4134,7 +2806,7 @@ function Ua($a,&$RR,&$O)
 								}
 							}
 							
-						if(($E|0)==304)
+						if($E==304)
 							{
 							$this->carr($RR,$nn,$b>>2,$i);
 							$this->carr($RR,$nn,$i+24>>2,$a);
@@ -4144,13 +2816,13 @@ function Ua($a,&$RR,&$O)
 							}
 						else 
 							{
-							if(($E|0)==307)
+							if($E==307)
 								{
-								$a=$d+8|0;
-								$b=$this->carr($RR,$nn,$a>>2,"")|0;
-								$L=$this->carr($RR,$nn,76,"")|0;
+								$a=$d+8;
+								$b=$this->carr($RR,$nn,$a>>2,"");
+								$L=$this->carr($RR,$nn,76,"");
 								
-								if($b>>0>=$L>>0&$d>>0>=$L>>0)
+								if($b>=$L&$d>=$L)
 									{
 									$this->carr($RR,$nn,$b+12>>2,$i);
 									$this->carr($RR,$nn,$a>>2,$i);
@@ -4158,17 +2830,16 @@ function Ua($a,&$RR,&$O)
 									$this->carr($RR,$nn,$i+12>>2,$d);
 									$this->carr($RR,$nn,$i+24>>2,0);
 									break;
-									}
-							
+									}							
 								}
 							}
 						}
 					}
 				else
 					{
-					$L=$this->carr($RR,$nn,76,"")|0;
+					$L=$this->carr($RR,$nn,76,"");
 					
-					if(($L|0)==0|$h>>0<$L>>0)
+					if($L==0|$h<$L)
 						$this->carr($RR,$nn,76,$h);
 						
 					$this->carr($RR,$nn,184,$h);
@@ -4181,17 +2852,17 @@ function Ua($a,&$RR,&$O)
 					
 					do 
 						{
-						$L=328+($a<<1<<2)|0;
+						$L=328+($a<<1<<2);
 						$this->carr($RR,$nn,$L+12>>2,$L);
 						$this->carr($RR,$nn,$L+8>>2,$L);
-						$a=$a+1|0;
+						$a++;
 						}
-					while(($a|0)!=32);
+					while(($a)!=32);
 					
-					$L=$h+8|0;
-					$L=($L&7|0)==0?0:0-$L&7;
-					$K=$h+$L|0;
-					$L=$f+ -40-$L|0;
+					$L=$h+8;
+					$L=($L&7)==0?0:-$L&7;
+					$K=$h+$L;
+					$L=$f-4-$L;
 					$this->carr($RR,$nn,78,$K);
 					$this->carr($RR,$nn,75,$L);
 					$this->carr($RR,$nn,$K+4>>2,$L|1);
@@ -4201,23 +2872,22 @@ function Ua($a,&$RR,&$O)
 					
 				while(0);
 			
-				$a=$this->carr($RR,$nn,75,"")|0;
+				$a=$this->carr($RR,$nn,75,"");
 				
-				if($a>>0>$o>>0)
+				if($a>$o)
 					{
-					$J=$a-$o|0;
+					$J=$a-$o;
 					$this->carr($RR,$nn,75,$J);
-					$L=$this->carr($RR,$nn,78,"")|0;
-					$K=$L+$o|0;
+					$L=$this->carr($RR,$nn,78,"");
+					$K=$L+$o;
 					$this->carr($RR,$nn,78,$K);
 					$this->carr($RR,$nn,$K+4>>2,$J|1);
 					$this->carr($RR,$nn,$L+4>>2,$o|3);
-					$L=$L+8|0;
-					return $L|0;
+					return $L+8;
 					}
 				}
 				
-			$this->carr($RR,$nn,(0|0)>>2,12);
+			$this->carr($RR,$nn,0>>2,12);
 			return 0;
 			}
 	
@@ -4240,12 +2910,9 @@ function Ua($a,&$RR,&$O)
 
 	function Xa($R,$b,$d,$e)
 		{
-		$b=$b|0;
-		$d=$d|0;
-		$e=$e|0;
-		$f=0;$g=0;$h=0;$i=0;
-		$f=$b+$e|0;
-		if(($e|0)>=20)
+		$f=$g=$h=$i=0;
+		$f=$b+$e;
+		if($e>=20)
 			{
 			$d=$d&255;
 			$h=$b&3;
@@ -4253,25 +2920,25 @@ function Ua($a,&$RR,&$O)
 			$g=$f&~3;
 			if($h)
 				{
-				$h=$b+4-$h|0;
-				while(($b|0)<($h|0))
+				$h=$b+4-$h;
+				while(($b)<($h))
 					{
-					$this->aarr($R,$b,$b>>0,$d);
-					$b=$b+1|0;
+					$this->aarr($R,$b,$b,$d);
+					$b++;
 					}
 				}
-			while(($b|0)<($g|0))
+			while($b<($g))
 				{
 				$this->carr($R,$b,$b>>2,$i);
-				$b=$b+4|0;
+				$b+=4;
 				}
 			}
-		while(($b|0)<($f|0))
+		while(($b)<($f))
 			{
-			$this->aarr($R,$b,$b>>0,$d);
-			$b=$b+1|0;
+			$this->aarr($R,$b,$b,$d);
+			$b++;
 			}
-		return $b-$e|0;
+		return $b-$e;
 	       }
 	
 	function getvf($str)
@@ -4303,6 +2970,18 @@ function Ua($a,&$RR,&$O)
 	  	$N=$this->W($M);
 	  	$O=$this->W($P);
 		
-		return $this->Pb($R,$this->Ia($this->X($R,$O,$this->Id($str)),$R,$O));
+		$u=$this->Id($str);		
+		$v=$this->X($R,$O,$u);		
+		$w=$this->Ia($v,$R,$O);		
+		$x=$this->Pb($R,$w);
+		
+		return $x;
 		}
 }
+
+	$str= "/vms?key=fvip&src=01010031010000000000&tvId=597396500&vid=515e35fcd99b69f571d0f1e762ca2ce0&vinfo=1&tm=506&qyid=0e53b94433a4b1bdeec0b5b3f56975f5&puid=&authKey=8df6571453fcda5c33a53d508c00e9d5&um=0&pf=b6c13e26323c537d&thdk=&thdt=&rs=1&k_tag=1&qdv=2";
+
+	$a=new iqiyi();
+	
+	echo $a->getvf($str);;	
+?>	
