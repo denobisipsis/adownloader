@@ -282,17 +282,11 @@ function Ia($b,&$RR,&$OO)
 	
 	$qb=$i;         
 	 		
-	$Ga=$qb+512;//0	
-	
-	// 768-927 160 bytes 20 * 64 bits  todo 0 inicialmente;
+	$Ga=$qb+512;
 	
 	$J=$qb+768;$d=$qb+776;$e=$qb+784;
 	$r=$qb+792;$va=$qb+800;$za=$qb+808;$s=$qb+816;$H=$qb+824;$I=$qb+832;$U=$qb+840;$ib=$qb+848;	
 	$Wa=$qb+856;$wa=$qb+864;$D=$qb+872;$E=$qb+880;$F=$qb+888;$xa=$qb+896;$G=$qb+904;$ya=$qb+912;$q=$qb+920;
-	
-	// for ($k=$J;$k<$qb+928;$k++) echo $RR[$k].",";exit;
-	
-	// 928-1171 244 bytes 61 * 32 bits todo 0 inicialmente
 	
 	$pb=$qb+928;$hb=$qb+932;$C=$qb+936;
 	$t=$qb+940;$Da=$qb+944;$Aa=$qb+948;$Ba=$qb+952;
@@ -310,8 +304,6 @@ function Ia($b,&$RR,&$OO)
 	$Ka=$qb+1132;$Ia=$qb+1136;$Fa=$qb+1140;$V=$qb+1144;
 	$ha=$qb+1148;$ka=$qb+1152;$Y=$qb+1156;$aa=$qb+1160;
 	$fa=$qb+1164;$i=$i+1168;
-	
-	// for ($k=$pb;$k<$qb+1172;$k++) echo $RR[$k].",";exit;
 		
 	$f=$qb+1145;$da=$qb+1146;$g=$qb+1147;
 	$ia=$qb+1149;$j=$qb+1150;$ja=$qb+1151;
@@ -323,18 +315,7 @@ function Ia($b,&$RR,&$OO)
 	
 	$ob=$qb;
 	
-	// mete 5164 al inicio de $J
-	
 	$this->carr($RR,$n,$J>>2,$this->Ua(33,$RR,$OO));
-	
-	// echo $this->carr($RR,$n,$J>>2,"");Exit;
-	
-	// $b es 4908
-
-	//for ($k=$pb;$k<$qb+1172;$k++) echo $RR[$k].",";exit;
-	//for ($k=$J;$k<$qb+928;$k++) echo $RR[$k].",";exit;
-	
-	// guarda en 658 $Ga
 	
 	$this->carr($RR,$n,$d>>2,$Ga);
 
