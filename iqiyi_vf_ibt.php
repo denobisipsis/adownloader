@@ -836,7 +836,7 @@ case 999695174:
 		$tb=$this->carr($RR,$n,$Fa>>2,"")%4+8;				
 		$tb=$this->carr($RR,$n,16+$this->llf($tb,2)>>2,"");								
 		$this->carr($RR,$n,$eb>>2,$this->llf($this->carr($RR,$n,$O>>2,""),$tb));
-		$this->carr($RR,$n,$bb>>2,32+(-$tb));
+		$this->carr($RR,$n,$bb>>2,32-$tb);
 		
 		$jb=-738461164;continue;
 case 800362374:
