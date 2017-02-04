@@ -1,5 +1,9 @@
 <?
 /*
+
+IQIYI QIYI DOWNLOADER SCRIPT PHP VF IBT HASH DENOBIS CMD5X 
+
+
 from http://static.iqiyi.com/js/player_v1/pcweb.wonder.js where the cmd5x algorithm is stored as packed eval
 
 this class computes the vf value in the call
