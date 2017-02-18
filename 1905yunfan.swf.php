@@ -34,17 +34,17 @@ function _trshift($integer, $n)
   }
 		    
 function uint32($integer)
-	 {
+    {
     if (0xffffffff < $integer || -0xffffffff > $integer)
-            	$integer = fmod($integer, 0xffffffff + 1);
+            	  $integer = fmod($integer, 0xffffffff + 1);
 
     if (0x7fffffff < $integer)
 		  $integer -= 0xffffffff + 1.0;
     elseif (-0x80000000 > $integer)
 		  $integer += 0xffffffff + 1.0;
 		
-	return 	$integer;
-	}	     
+    return 	  $integer;
+    }	     
 					
 function dec($param1) 
 	{
@@ -106,4 +106,4 @@ function tostr($arr)
 $file= array_values(unpack("C*",file_get_contents("http://sdk.yunfan.com/config/1905/1905yunfan.swf?2017218")));//flash;
 $f=tostr(dec($file));
 
-file_put_contents("younfandecrypted.swf",$f);
+file_put_contents("yunfandecrypted.swf",$f);
