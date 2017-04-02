@@ -12,7 +12,7 @@ I have simplified the main iteration
 ;)
 */
 function MD($string)
-		{
+    {
     $A = $a = "67452301";
     $B = $b = "efcdab89";
     $C = $c = "98badcfe";
@@ -28,7 +28,7 @@ function MD($string)
 	       
     $moduls=array(0,1,1,5,5,3,0,7);
 		
-    $acs=array(	"d76aa478","e8c7b756","242070db","c1bdceee",
+    $acs=array(		"d76aa478","e8c7b756","242070db","c1bdceee",
     	        	"f57c0faf","4787c62a","a8304613","fd469501",
 	            	"698098d8","8b44f7af","ffff5bb1","895cd7be",
 	            	"6b901122","fd987193","a679438e","49b40821",
@@ -49,44 +49,44 @@ function MD($string)
 	            	"f7537e82","bd3af235","2ad7d2bb","eb86d391"); 
             
     for($i = 0; $i < count($words)/16; $i++)
-						{
+	    {
             $a  = $A;
             $b  = $B;
             $c  = $C;
             $d  = $D;
             $n  = 0; 
 	    
-	    			for ($rot3=0;$rot3<4;$rot3++)
-	    				{
-	    				$minit=$moduls[$rot3*2];
-	   					$madd=$moduls[$rot3*2+1];	
+	    for ($rot3=0;$rot3<4;$rot3++)
+	    	{
+	    	$minit=$moduls[$rot3*2];
+	   	$madd=$moduls[$rot3*2+1];	
 							
-	    				for ($rot2=0;$rot2<4;$rot2++)
-		    				{
-		    				for ($rot=0;$rot<4;$rot++)
-			    				{
-									$word=$words[$minit + ($i * 16)];
-									$nit=$it[$rot+4*$rot3];
+	    	for ($rot2=0;$rot2<4;$rot2++)
+		    	{
+		    	for ($rot=0;$rot<4;$rot++)
+			    {
+			    $word=$words[$minit + ($i * 16)];
+			    $nit=$it[$rot+4*$rot3];
 									
-			    				FGHI (${"$torot[0]"}, ${"$torot[1]"}, ${"$torot[2]"}, ${"$torot[3]"}, $word, $nit, $acs[$n],$funcs[$rot3]); 
+			    FGHI (${"$torot[0]"}, ${"$torot[1]"}, ${"$torot[2]"}, ${"$torot[3]"}, $word, $nit, $acs[$n],$funcs[$rot3]); 
 									
-		    	    		array_unshift($torot,$torot[3]);
-		            	array_pop($torot);
+		    	    array_unshift($torot,$torot[3]);
+		            array_pop($torot);
 									
-			    				$minit=($minit+$madd)%16;
-			    				++$n;
-			    				}	    
-		    				}
-	    				}
+			    $minit=($minit+$madd)%16;
+			    ++$n;
+			    }	    
+		    	 }
+	    	}
 	    
             $A=AddUnsigned(hexdec2($A),hexdec2($a));
             $B=AddUnsigned(hexdec2($B),hexdec2($b));
             $C=AddUnsigned(hexdec2($C),hexdec2($c));
             $D=AddUnsigned(hexdec2($D),hexdec2($d));    
-    				}
+    	    }
 
    	return WordToHex($A).WordToHex($B).WordToHex($C).WordToHex($D);
-		}
+	}
 
 function WordToHex($lValue) 
    { 
@@ -114,38 +114,38 @@ function FGHI2($X, $Y, $Z,$func)
         $Y = hexdec2($Y);
         $Z = hexdec2($Z);
         
-				switch ($func)
-					{
-					case "F":
-	        		$calc = (($X & $Y) | ((~ $X) & $Z));break;
-					case "G":
-							$calc = (($X & $Z) | ($Y & (~ $Z)));break;
-					case "H":
-							$calc = ($X ^ $Y ^ $Z);break;
-					case "I":
-							$calc = ($Y ^ ($X | (~ $Z)));
-					}
+	switch ($func)
+		{
+		case "F":
+	        	$calc = (($X & $Y) | ((~ $X) & $Z));break;
+		case "G":
+			$calc = (($X & $Z) | ($Y & (~ $Z)));break;
+		case "H":
+			$calc = ($X ^ $Y ^ $Z);break;
+		case "I":
+			$calc = ($Y ^ ($X | (~ $Z)));
+		}
         return  $calc; 
-  			}
+  	}
 
 function dectohex($res)
-			{
+	{
         if($res < 0)
             return '-'.dechex(abs($res));
 
         return dechex($res);	
-			}
+	}
 	
 function hexdec2($hex)
-		{  
+    {  
     if($hex[0] == "-")   
         return doubleval('-'.hexdec(str_replace("-", "", $hex )));
     
     return hexdec($hex);
-		}
+    }
 	
 function AddUnsigned($lX,$lY) 
-		{ 
+   { 
     $lX8 = ($lX & 0x80000000);
     $lY8 = ($lY & 0x80000000);
     $lX4 = ($lX & 0x40000000);
@@ -157,16 +157,16 @@ function AddUnsigned($lX,$lY)
     
     if ($lX4 & $lY4)                       return dectohex($res ^ 0x80000000);   
     if ($lX4 | $lY4) 
-				{
+	{
         if ($lResult & 0x40000000)         return dectohex($res ^ 0xC0000000);
         else                               return dectohex($res ^ 0x40000000);       
-    		}                                  return dectohex($res);
-		}
+    	}                                  return dectohex($res);
+    }
 
 function rotate ($decimal, $bits) 
-		{ 
+    { 
     return  (($decimal << $bits) |  shiftright($decimal, (32 - $bits))  & 0xffffffff);
-		}
+    }
 
 function shiftright($decimal , $right)
     { 
@@ -178,7 +178,7 @@ function shiftright($decimal , $right)
     }
     	
 function str2blks_MD5($str)
-	{
+  {
   $nblk = ((strlen($str) + 8) >> 6) + 1;
 	
   $blks = array($nblk * 16);
@@ -197,7 +197,7 @@ function str2blks_MD5($str)
       	$blks[$i] = decbin($blks[$i]);
            
   return $blks;
-	}
+  }
 
 $str='test';
 echo md5($str); // 098f6bcd4621d373cade4e832627b4f6
