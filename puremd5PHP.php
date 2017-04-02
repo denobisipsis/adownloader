@@ -1,8 +1,11 @@
 <?
 /*
+
 This is an implementation of the MD5 hash function, as specified by
 RFC 1321, in pure PHP. It was implemented using Bruce Schneier's
 excellent book "Applied Cryptography", 2nd ed., 1996.
+
+Pure php md5 implementation
 
 I have simplified the main iteration
 
