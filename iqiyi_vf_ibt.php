@@ -16,6 +16,8 @@ where the relevant part is
 
 
 the same for ibt
+
+This makes md5($str."3sj8xof48xof4tk9f4tk9ypgk9ypg5ul")
 */
 <?
 class iqiyi
