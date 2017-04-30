@@ -18,6 +18,12 @@ where the relevant part is
 the same for ibt
 
 This makes md5($str."3sj8xof48xof4tk9f4tk9ypgk9ypg5ul")
+
+for PC and src 1702633101b340d8917a69cf8a4b8c7c salt is "u6fnp3eok0dpftcq9qbr4n9svk8tqh7u"
+
+md5("/vms?key=fvip&src=1702633101b340d8917a69cf8a4b8c7c&tvId=214230107&vid=cce29b4a05363a5bdce1e824deeff474&vinfo=1&tm=1159&qyid=cf66272a29d2bd6bafca991c1af76911&puid=&authKey=0aaf6ce41642f43873ba9ee67c6aa7d1&um=0&pf=b6c13e26323c537d&thdk=&thdt=&rs=1&k_tag=1&qdx=n&qdv=3"."u6fnp3eok0dpftcq9qbr4n9svk8tqh7u");
+
+//21d2ae1b3999acb91d75157ce98b435d
 */
 <?
 class iqiyi
