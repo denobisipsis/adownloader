@@ -28,7 +28,7 @@ md5("/vms?key=fvip&src=1702633101b340d8917a69cf8a4b8c7c&tvId=214230107&vid=cce29
 
 //21d2ae1b3999acb91d75157ce98b435d
 
-for ibt salt is "t6hrq6k0n6n6k6qdh6tje6wpb62v7654"
+for ibt salt is "t6hrq6k0n6n6k6qdh6tje6wpb62v7654" (xcalc method)
 */
 <?
 class iqiyi
