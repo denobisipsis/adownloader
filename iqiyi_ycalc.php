@@ -124,11 +124,7 @@ function compute($str)
 	$loc35_ = $loc16_ = 0;
 
 	while   ($loc35_ < 64)
-		{
-		$loc4_ = abs(sin($loc35_ + 1))* 4294967296;
-		$this->si32($loc4_,$loc35_ << 2);
-		$loc35_++;				
-		}
+		$this->si32(abs(sin($loc35_ + 1))* 4294967296,$loc35_++ << 2);
 
 	$loc8_  = 1732584193;
 	$loc6_  = -271733879;
