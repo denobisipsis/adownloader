@@ -21,12 +21,12 @@ class ycalc
 		{		
 		if ($n==0) return $integer;
 
-	  if (0xffffffff < $integer || -0xffffffff > $integer)         	
+	  	if (0xffffffff < $integer || -0xffffffff > $integer)         	
 	       		$integer = fmod($integer, 0xffffffff + 1);
 
-	    if (0x7fffffff < $integer)
+	    	if (0x7fffffff < $integer)
 			      $integer -= 0xffffffff + 1.0;
-	    elseif (-0x80000000 > $integer)
+	    	elseif (-0x80000000 > $integer)
 			      $integer += 0xffffffff + 1.0;
 
 		if (0 > $integer)
