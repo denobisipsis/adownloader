@@ -37,8 +37,8 @@ class ycalc
 			}
 		else    $integer >>= $n;
 		
-	  return $integer;
-	  }		
+	  	return $integer;
+	  	}		
 		
 	function Zarr($n,$m="")
 		{				
@@ -187,6 +187,7 @@ function compute($str)
 			if($loc16_ == $loc17_)	break;
 			}
 		}
+	
 	if($loc16_ < $loc13_)
 		{
 		$loc5_ = $loc16_ * 5;
@@ -226,8 +227,7 @@ function compute($str)
 		}
 		
 	// salt generator
-	
-				
+					
 	$loc16_ = 0;
 	while ($loc16_ < $loc13_)
 		{
@@ -241,7 +241,6 @@ function compute($str)
 		$loc16_++;
 		}
 	
-
 	$loc22_ = $w = 265;
 	$loc16_ = 0;
 	$loc25_ = 27;
@@ -277,8 +276,7 @@ function compute($str)
 					
 		$temp=$loc5_;		
 		}
-	
-	
+		
 	$loc5_ = $loc22_ >> 31;
 	$loc5_ = $loc22_ + $this->_rshift($loc5_ , 30);
 	$loc5_ = $loc22_ - ($loc5_ & 536870908);
@@ -468,7 +466,6 @@ function compute($str)
 			++$loc35_;
 			}
 		
-
 		while ($loc35_ < 64)
 			{
 			$loc5_ = ($loc6_ | $loc31_ ^ -1) ^ $loc12_;				
@@ -576,7 +573,7 @@ do
 	$this->R[$loc35_]=$loc5_;
 	$loc29_ = $loc29_ -1;
 	}
-while($loc29_ != 0);
+while	($loc29_ != 0);
 	
 $vf="";	
 for ($k=0;$k<32;$k++) {$vf.=chr($this->R[$loc27_ +$k]);}
@@ -585,8 +582,8 @@ return $vf;
 
 // http://cache.video.qiyi.com/vms?key=fvip&src=1702633101b340d8917a69cf8a4b8c7c&tvId=338149200&vid=00de250f5f4bcebb8325ec622327e938&vinfo=1&tm=1516&qyid=cf66272a29d2bd6bafca991c1af76911&puid=&authKey=77b4cbced949c8872378a019f0a04fc8&um=0&pf=b6c13e26323c537d&thdk=&thdt=&rs=1&k_tag=1&qdx=n&qdv=3&vf=71ac17aebc92b53a3b9c1b183bfdcdbd
 		
-	$str= "/vms?key=fvip&src=1702633101b340d8917a69cf8a4b8c7c&tvId=338149200&vid=00de250f5f4bcebb8325ec622327e938&vinfo=1&tm=1516&qyid=cf66272a29d2bd6bafca991c1af76911&puid=&authKey=77b4cbced949c8872378a019f0a04fc8&um=0&pf=b6c13e26323c537d&thdk=&thdt=&rs=1&k_tag=1&qdx=n&qdv=3";
+$str= "/vms?key=fvip&src=1702633101b340d8917a69cf8a4b8c7c&tvId=338149200&vid=00de250f5f4bcebb8325ec622327e938&vinfo=1&tm=1516&qyid=cf66272a29d2bd6bafca991c1af76911&puid=&authKey=77b4cbced949c8872378a019f0a04fc8&um=0&pf=b6c13e26323c537d&thdk=&thdt=&rs=1&k_tag=1&qdx=n&qdv=3";
 	
-	$a=new ycalc();
+$a=new ycalc();
 	
-	echo $a->compute($str)."<br>".md5($str."u6fnp3eok0dpftcq9qbr4n9svk8tqh7u");
+echo $a->compute($str)."<br>".md5($str."u6fnp3eok0dpftcq9qbr4n9svk8tqh7u");
