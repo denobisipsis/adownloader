@@ -112,10 +112,10 @@ function compute($str)
 	
 	for ($k=$ESP;$k<$ESP+$size;$k++) $this->R[$k]=$strc[$k-$ESP];
 	
-	$this->si32(1024,$loc1_ - 8,$R,$loc25_);
-	$this->si32(0,$loc1_ - 12,$R,$loc25_);
+	$this->si32(1024,$loc1_ - 8);
+	$this->si32(0,$loc1_ - 12);
 	$loc19_ = $loc37_ - 1280;
-	$this->si32($loc19_,$loc1_-16,$R,$loc25_);
+	$this->si32($loc19_,$loc1_-16);
 
 	$loc23_ = $loc21_ + 1;
 	$loc25_ = 62;
