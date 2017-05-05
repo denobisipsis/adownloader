@@ -17,21 +17,9 @@ function WordToHex($lValue)
         $WordToHexValue.= sprintf("%02x",$lValue>>($lCount++*8) & 255);
     return $WordToHexValue;
     }		
-function AddUnsigned($lX,$lY) 
-    {   
-    $lX8 = ($lX & 0x80000000);
-    $lY8 = ($lY & 0x80000000);
-    $lX4 = ($lX & 0x40000000);
-    $lY4 = ($lY & 0x40000000);    
-    $lResult = ($lX & 0x3FFFFFFF)+($lY & 0x3FFFFFFF);    
-    $res = $lResult ^ $lX8 ^ $lY8;    
-    if      ($lX4 & $lY4)                  $res ^= 0x80000000;   
-    else if ($lX4 | $lY4) 
-		{
-        	if ($lResult & 0x40000000) $res ^= 0xC0000000;
-        	else                       $res ^= 0x40000000;       
-    		}                             
-    return $res;	    
+function AddUnsigned($a,$b) 
+    {
+    return(($a>>1)+($b>>1)<<1)+(1&$a)+(1&$b);       
     }
 function shiftright($decimal , $right)
     { 
