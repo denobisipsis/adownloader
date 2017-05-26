@@ -23,6 +23,7 @@ function AddUnsigned($a,$b)
     }
 function shiftright($decimal , $right)
     { 
+    $decimal&=0xFFFFFFFF;	
     $shift=$decimal >> $right;    
     if($decimal >= 0) return $shift;
     return bindec(substr(decbin($shift),$right));
