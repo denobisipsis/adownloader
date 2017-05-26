@@ -20,6 +20,10 @@ $k=kdecrypt($dtkey, $dtflag, $dtsh, $VodPlayst, $dtid, $dtbh, $dtiv);
 &
 
 $key=ckey::encrypt(dechex(strtotime($VodPlayst)-60),"qqqqqww");
+
+i.e.
+
+ckey::encrypt(dechex(strtotime("Fri May 26 22:32:19 2017 UTC")-60),"qqqqqww") -> 43feaf57e8875f76fc96753953e2583e
 */
 
 	
