@@ -11,7 +11,7 @@ Then, in dt tree you can find key & iv, sh & bh servers, id & flag & st
 
 mp4 is armed as follows
 
-$mp4="http://$dtsh/$no/0/1023/$rid?fpp.ver=1.3.0.20&type=web.fpp&k=$k&key=$key";
+$mp4="http://$dtsh/$no/0/1023/$rid?fpp.ver=1.3.0.23&type=web.fpp&k=$k&key=$key";
 
 where 
 
