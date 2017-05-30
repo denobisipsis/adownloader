@@ -71,7 +71,7 @@ function longsToChars($arg)
 	$l3 = -1;$l2="";
 	
 	while (++$l3 < sizeof($arg)) 	
-		for ($t=0;$t<4;$t++) $l2.=strrev(bin2hex(chr(($arg[$l3] >> 8*$t) & 0xFF)));		
+		for ($t=0;$t<4;$t++) $l2.=strrev(dechex($arg[$l3] >> 8*$t & 0xFF));	
 	
 	return $l2;
 	}  
@@ -92,7 +92,7 @@ function encrypt($string, $key)
 	{
 	$key = ckey::getkey($key);//1896220160
 
-	for ($k=1;$k<4;$k++)
+	for ($k=0;$k<4;$k++)
 		${"k$k"} = $key << 8*$k | ckey::shiftright($key , 32 - 8*$k);
 			
 	$p=ckey::charsToLongs(array_map("ord",str_split($string)));
@@ -103,15 +103,17 @@ function encrypt($string, $key)
 		{
 		$x+= 2654435769;
 		
-		$t1 = ($p[1] << 4) + $key;
+		$t1 = ($p[1] << 4) + $k0;
 		$t2 = $p[1] + $x;
 		$t3 = ckey::shiftright($p[1] , 5) + $k1;
-		$p[0]+= $t1 ^ $t2 ^ $t3;		
+		$p[0]+= $t1 ^ $t2 ^ $t3;
+		$p[0]&=	0xFFFFFFFF;
 		
 		$t4 = ($p[0] << 4) + $k2;
 		$t5 = $p[0] + $x;
 		$t6 = ckey::shiftright($p[0] , 5);
-		$p[1]+= $t4 ^ $t5 ^ ($t6 + $k3);			
+		$p[1]+= $t4 ^ $t5 ^ ($t6 + $k3);
+		$p[1]&=	0xFFFFFFFF;
 		}
 
          for ($i=0;$i<8;$i++)		     		     
