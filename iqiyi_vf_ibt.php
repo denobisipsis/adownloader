@@ -29,6 +29,41 @@ md5("/vms?key=fvip&src=1702633101b340d8917a69cf8a4b8c7c&tvId=214230107&vid=cce29
 //21d2ae1b3999acb91d75157ce98b435d
 
 for ibt salt is "t6hrq6k0n6n6k6qdh6tje6wpb62v7654" (xcalc method)
+
+ibt for vip:
+
+1- you have a vip link
+2- make api post call
+
+	$qdsc=extrae($link,'&qd','_sc=','&');
+	$qd_ip=extrae($link,'&qd_ip','=','&');
+	$qd_scc=extrae($link,'&qd_scc','=','&');
+	$qd_tm=extrae($link,'&qd_tm','=','&');
+	$qd_k=extrae($link,'&qd_k','=','&');						
+	$qd_index=extrae($link,'&qd_index','=','&');
+	$qd_stert=extrae($link,'&qd_stert','=','&');
+							
+	$call="http://api.vip.iqiyi.com/services/cknsp.action";
+	$post="qd%5Findex=$qd_index&platform=01010021010010000000&deviceId=&qd%5Fuid=1405568913&version=3%2E0&tvid=$tvid&qd%5Fsc=$qdsc&filename=$rid&qd%5Fip=$qd_ip&qd%5Fvip=1&shareFlag=0&qd%5Fstert=$qd_stert&playType=main&qd%5Fvipdyn=2&qd%5Fvipres=2&qd%5Fscc=$qd_scc&uid=&qd%5Fsrc=1702633101b340d8917a69cf8a4b8c7c&qd%5Faid=$tvid&qd%5Ftm=$qd_tm&qd%5Fk=$qd_k&aid=$tvid&qd%5Ftvid=$tvid";
+														
+	$vipdata=json_decode(curl_proxy($call,"","",0,0,$url,$headers,$post));
+	
+3- get t
+
+	$t=$vipdata->data->t;
+									
+	$ptime=$vipdata->data->ptime;
+																	
+	$ibt=md5($t.$rid."t6hrq6k0n6n6k6qdh6tje6wpb62v7654");
+											
+	$last="&t=$t&cid=afbe8fd3d73448c9&ib=3&ptime=$ptime&ibt=$ibt";
+								
+	$cookie="QY00001=".$vipdata->data->u;
+	$last.="&$cookie";
+	
+4- final link is $link.$last
+	
+							
 */
 <?
 class iqiyi
