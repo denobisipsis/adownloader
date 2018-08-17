@@ -9,7 +9,7 @@ http://www.mediafire.com/file/u1ydjy811d1eaot/a3toMP4v19.exe/file
 
 you can get this ckey parameter.
 
-
+http://denobisadownloader.blogspot.com/2018/08/youku-ckey-hacked.html
 */
 
 ?>
