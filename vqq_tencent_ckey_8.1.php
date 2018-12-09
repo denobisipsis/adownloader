@@ -37,7 +37,6 @@ function charsToLongs($chars)
 	{
     	$tlength = ceil(count($chars) / 4);
     	$temp    = array();
-    	$_loc2   = 0;
     	for ($_loc1 = 0; $_loc1 < $tlength; $_loc1++) 
 		{
         	$_loc2        = $_loc1 * 4;
