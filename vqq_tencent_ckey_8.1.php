@@ -77,11 +77,11 @@ $ca=array(22039283, 1457920463, 776125350, -1941999367);
 	$urlc=substr($url,0,48);
 	$vid="s0011fbu5xs";
 	$time=time();
-        $platform=10201;
+       $platform=10201;
 	
 	$soienfu="|$vid|$time|mg3c3b04ba|3.5.57|$guid|$platform|$urlc|mozilla/5.0 (windows nt 10.0; wow64) applewebkit||Mozilla|Netscape|Win32|00|";
 	
-        $ac = 0;
+       $ac = 0;
 	
 	for ($i = 0; $i <  strlen($soienfu); $i++)
 		{
