@@ -2,7 +2,7 @@
 /*
 tencent ckey ver 8.1 Nov 2018
 
-pures aes 128 cbc
+pure aes 128 cbc
 
 key=4f6bdaa39e2f8cb07f5e722d9edef314;
 iv=01504af356e619cf2e42bba68c3f70f9;
