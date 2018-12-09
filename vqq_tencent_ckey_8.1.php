@@ -112,6 +112,8 @@ $ca=array(22039283, 1457920463, 776125350, -1941999367);
 		$longs[_rshift($h + $e , 2)]|= (_rshift($f2[_rshift($e , 2)] , 24 - $e % 4 * 8 & 255)) << 24 - ($h + $e) % 4 * 8;
 		}
 
+// text is strings from longs
+
 	for ($i = 0; $i < sizeof($longs); $i+= 4)
 		{					    
 	  	for ($e = 0; $e < 4; $e++)
